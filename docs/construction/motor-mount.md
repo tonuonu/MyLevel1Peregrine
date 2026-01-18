@@ -47,6 +47,34 @@ The motor mount includes a Kevlar cord anchor:
     - Motor will project into parachute bay
     - Verify adequate space for recovery gear
 
+---
+
+## Build Notes
+
+### Epoxy Selection
+
+Used **1-hour epoxy** (working time) with **24-hour cure**.
+
+!!! warning "Epoxy Viscosity Issue"
+    The epoxy was quite liquid, which caused it to leak through small holes in the centering rings. This required careful orientation during curing.
+
+### Curing Process
+
+Due to liquid epoxy leaking, each side was cured separately:
+
+1. **Day 1**: Motor mount positioned upright, epoxy applied to bottom centering ring area
+2. **Day 2**: Flipped, epoxy applied to top centering ring area
+3. **Day 3**: Internal fin fillets
+4. **Day 4**: External fin fillets
+
+Total cure time: ~4 days for complete assembly.
+
+### Lessons Learned
+
+- Thicker epoxy (Rocketpoxy or thickened with microballoons) would reduce leakage
+- Pre-sealing centering ring holes with thin CA can help
+- Patience with 24-hour cure cycles results in stronger bonds
+
 ## Build Photos
 
-*Photos to be added during construction*
+*Photos to be added - see [Issue #8](https://github.com/tonuonu/MyLevel1Peregrine/issues/8)*
