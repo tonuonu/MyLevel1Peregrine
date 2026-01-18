@@ -1,89 +1,58 @@
 # Motor Selection
 
-## Motor Requirements
+## Kit Guidance
 
-### L1 Certification
+From kit packaging (IMG_7727):
 
-- **H class** (160.01-320 N·s) or **I class** (320.01-640 N·s)
-- Must be 18+ to purchase
-- Single motor allowed for certification attempt with club membership
+- Requires **38mm diameter** rocket motors
+- Use H, I or J power motors, as well as high thrust G motors
 
-### Peregrine Motor Mount
+**Typical altitudes per packaging:**
 
-- Native: **38mm**
-- With adapter: **29mm** (using Aero Pack 29/38mm adapter)
+| Motor Class | Altitude Range |
+|-------------|----------------|
+| G motors | 300-500 ft (requires avg thrust ≥80N) |
+| H motors | 600-1700 ft |
+| I motors | 1700-3500 ft |
+| J motors | 3700-6100 ft |
 
-## Recommended Motors
+## Selected Motor
 
-### 38mm Motors (Primary)
+**AeroTech H128W-14A** - purchased locally in Sweden from Tripoli members.
 
-| Motor | Impulse | Avg Thrust | Burn | Est. Altitude |
-|-------|---------|------------|------|---------------|
-| AeroTech H100W | 186 N·s | 100 N | 1.9s | ~800 ft |
-| AeroTech H180W | 219 N·s | 180 N | 1.2s | ~900 ft |
-| AeroTech H210 Redline | 240 N·s | 210 N | 1.1s | ~950 ft |
-| AeroTech H220T | 224 N·s | 220 N | 1.0s | ~900 ft |
-| Cesaroni H180-SK | 226 N·s | 180 N | 1.3s | ~900 ft |
+See [Motor Procurement](../decisions/motor-procurement.md) for why this is the only practical option.
 
-!!! tip "First Flight Recommendation"
-    For L1 certification, the **H180W** or **H210 Redline** are popular choices:
-    
-    - Good thrust-to-weight ratio
-    - Reasonable altitude (visible, recoverable)
-    - Proven reliability
+### Specifications
 
-### 29mm Motors (Test Flights)
+| Parameter | Value |
+|-----------|-------|
+| Diameter | 29mm (reload) |
+| Total Impulse | 172.9 N·s |
+| Max Thrust | 168.7 N |
+| Average Thrust | 128 N |
+| Burn Time | 1.3 s |
+| Delay | 14 s (adjustable) |
+| Propellant | White Lightning (W) |
+| Motor Length | 194 mm |
+| Total Mass | 215 g |
+| Propellant Mass | 93.6 g |
 
-With 29/38mm adapter:
+### Hardware Required
 
-| Motor | Impulse | Notes |
-|-------|---------|-------|
-| AeroTech G80T | 120 N·s | Largest non-HP motor |
-| AeroTech G79W | 112 N·s | White lightning |
-| AeroTech G77R | 108 N·s | Redline (visible flame) |
+The H128W is a reload motor requiring:
 
-!!! warning "Low Impulse"
-    G motors may result in marginal rail exit velocity.
-    Check simulations before flying.
+- AeroTech 29/180 Case (PN: 60010)
+- 29mm forward closure
+- 29mm aft closure
 
-## Motor Selection Criteria
+### Adapter Required
 
-1. **Rail Exit Velocity** ≥ 50 ft/s
-2. **Maximum Altitude** within field boundaries
-3. **Stability** margin throughout flight
-4. **Recovery** drift within recovery area
-5. **Cost** and availability
+Peregrine has 38mm motor mount. H128W is 29mm.
 
-## Ejection Delay
+Requires **38mm to 29mm adapter** - available from Swedish club members.
 
-Match motor delay to time-to-apogee:
+## Reference
 
-| Motor Designation | Available Delays |
-|-------------------|------------------|
-| H180W-14 | 14 second |
-| H210-14 | 14 second |
+Apogee product page lists compatible motors: [Peregrine on Apogee Rockets](https://www.apogeerockets.com/Rocket-Kits/Skill-Level-3-Model-Rocket-Kits/Peregrine)
 
-!!! note "Delay Adjustment"
-    AeroTech DMS motors include adjustable delay:
-    
-    - Use delay adjustment tool
-    - Match to RockSim/OpenRocket prediction
-    - Or use "Optimal Delay" from simulation
-
-## Motor Propellant Types
-
-| Code | Propellant | Characteristics |
-|------|------------|------------------|
-| W | White Lightning | White exhaust, good visibility |
-| T | Blue Thunder | Blue exhaust, some smoke |
-| R | Redline | Red flame, high visibility |
-| SK | Skidmark | Smoky (Cesaroni) |
-
-## Cost Comparison
-
-*Prices vary - check current pricing*
-
-| Motor Type | Approximate Cost |
-|------------|------------------|
-| Single Use (DMS) | $50-70 |
-| Reload (requires hardware) | $25-40 reload + hardware |
+*Note: Most motors listed there are not available for purchase in Estonia/Europe. The H128W was selected based on what Swedish Tripoli members can provide locally.*
