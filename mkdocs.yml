@@ -1,0 +1,65 @@
+site_name: Apogee Peregrine L1 Certification
+site_description: Documentation for Tõnu's Tripoli L1 certification rocket build
+site_author: Tõnu Onu
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: deep orange
+      accent: orange
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Rocket Specifications:
+    - Overview: specifications/overview.md
+    - Kit Contents: specifications/kit-contents.md
+    - Dimensions: specifications/dimensions.md
+    - Materials: specifications/materials.md
+  - Construction:
+    - Build Log: construction/build-log.md
+    - Motor Mount: construction/motor-mount.md
+    - Fins: construction/fins.md
+    - Electronics Bay: construction/ebay.md
+    - Recovery System: construction/recovery.md
+  - Calculations:
+    - Stability: calculations/stability.md
+    - Ejection Charges: calculations/ejection-charges.md
+    - Vent Holes: calculations/vent-holes.md
+    - Rail Exit Velocity: calculations/rail-exit.md
+  - Simulations:
+    - OpenRocket Results: simulations/openrocket.md
+    - Motor Selection: simulations/motors.md
+  - Flight:
+    - Pre-flight Checklist: flight/checklist.md
+    - Flight Log: flight/log.md
+  - Photos: photos/index.md
