@@ -50,9 +50,10 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 | Propellant | White Lightning |
 | Case | RMS-29/180 |
 | Total Mass | 215 g |
+| Propellant Mass | 93.6 g |
 
 !!! note "EU Pyrotechnics Classification"
-    H-class motors are P2 category pyrotechnics in EU. P1/P2 may be differentiated by mass (possibly 200g cutoff) but this needs verification. At 215g, the H128W would be P2 regardless.
+    H-class rocket motors are P2 category pyrotechnics in EU (high power). Classification is based on impulse class, not mass.
 
 ## Launch Event
 
