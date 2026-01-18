@@ -38,6 +38,24 @@ Features listed on packaging:
 
 Also visible: partial view of body tube with "PEREGRINE" branding.
 
+### IMG_7727 - Motor Requirements and Altitude Table
+
+![Motor requirements](IMG_7727.jpeg)
+
+**Motor Requirements:**
+
+- Requires 38mm diameter rocket motors
+- Use H, I or J power rocket motors, as well as high thrust G motors
+
+**Typical altitudes:**
+
+| Motor Class | Altitude Range |
+|-------------|----------------|
+| G motors | 300-500 feet (requires avg thrust ≥80N) |
+| H motors | 600-1700 feet |
+| I motors | 1700-3500 feet |
+| J motors | 3700-6100 feet |
+
 ## Build Progress
 
 *Photos to be added*
