@@ -29,7 +29,7 @@ Per Tripoli certification standards:
 
 - **Location**: Sweden (see [Why Sweden](../decisions/why-sweden.md))
 - **Rocket**: Apogee Peregrine
-- **Motor**: H180W or H210 Redline (see [Motor Selection](../simulations/motors.md))
+- **Motor**: AeroTech H128W (see [Motor Procurement](../decisions/motor-procurement.md))
 
 ## Post-Certification
 
