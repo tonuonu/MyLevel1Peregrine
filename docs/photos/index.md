@@ -56,6 +56,29 @@ Also visible: partial view of body tube with "PEREGRINE" branding.
 | I motors | 1700-3500 feet |
 | J motors | 3700-6100 feet |
 
+### IMG_7728 - Required Tools and Materials
+
+![Tools and materials](IMG_7728.jpeg)
+
+**Required Tools and Materials:**
+
+- Hobby Knife / Ruler / Pencil
+- Wood Glue (recommended) or White Glue
+- Liquid epoxy
+- Sand Paper 200 Grit, 400 grit and Sanding Block
+- Masking Tape / Scissors / Paper Towel
+- Wood Dowel
+
+**Optional Tools / Finishing Supplies:**
+
+- Aluminum "Angle" to draw lines on the tube
+- Paint Supplies: Spray Paint, Brushes, etc
+- Plastic Sheet (to cover the work surface)
+- Safety Glasses (or general protection while building)
+- Super Glue (CyA Adhesive medium viscosity)
+- Wood Sealer / Sanding Sealer
+- RocketPoxy (paste-style)
+
 ## Build Progress
 
 *Photos to be added*
