@@ -29,7 +29,7 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 
 ## 3D Printed Parts
 
-- [38mm Motor Retainer](https://www.thingiverse.com/thing:6780161) - Thingiverse model used for motor retention (printed in ASA)
+- [38mm Motor Retainer + Rail Guides](https://www.thingiverse.com/thing:6780161) - Thingiverse model for motor retention (printed in ASA) and backup rail guides
 
 ## Manufacturer Resources
 
