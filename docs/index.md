@@ -38,6 +38,14 @@ For Tripoli L1 certification:
 - Rocket must be recovered in flight-ready condition
 - Must be witnessed by a Tripoli member (TAP/Prefect)
 
+## Launch Plan
+
+| Item | Details |
+|------|---------|
+| Date | Saturday, 24 January 2026 |
+| Backup | Sunday, 25 January 2026 (weather contingency) |
+| Location | Långtora Airfield, Sweden |
+
 ## Project Status
 
 !!! info "Current Status"

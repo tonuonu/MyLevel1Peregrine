@@ -10,7 +10,10 @@ Estonia has no Tripoli prefecture. Closest options are:
 
 ## Decision
 
-Sweden (Stockholm area)
+Sweden - **Långtora Airfield**
+
+- **Date**: Saturday, 24 January 2026
+- **Backup**: Sunday, 25 January 2026 (weather contingency)
 
 ## Reasoning
 

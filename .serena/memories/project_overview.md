@@ -1,5 +1,10 @@
 # MyLevel1Peregrine Project Overview
 
+## Launch Plan
+- **Date**: Saturday, 24 January 2026 (Sunday backup for weather)
+- **Location**: Långtora Airfield, Sweden
+- **Motor**: H128W (purchased locally from Swedish Tripoli members)
+
 ## Purpose
 Documentation repository for a Tripoli Level 1 certification rocket build using the Apogee Peregrine dual deployment kit. Kit purchased from Sierra Fox Hobbies (Italy) - listed as L2 but L1 capable. Designed for CRO (Club Range Officer) review with calculations and formulas for verification, plus photo documentation of build methods to judge structural rigidity.
 
