@@ -14,7 +14,7 @@ From five children, two are underage daughters: **Liza (5)** and **Elsa (2)**. T
 
 ### Sipsik Connection
 
-In Estonia there's a beloved cartoon character **Sipsik** - a blue toy (kaisukas in Estonian) belonging to a girl named Anu. Her older brother Mart builds a rocket from a cardboard box, and they throw it up hoping Sipsik will fly to the moon. In the cartoon, Sipsik actually reaches the moon and returns (probably only in Anu's dreams, but this detail doesn't matter to children).
+In Estonia there's a beloved cartoon character **Sipsik** - a blue rag doll comfort toy belonging to a girl named Anu. Her older brother Mart builds a rocket from a cardboard box, and they throw it up hoping Sipsik will fly to the moon. In the cartoon, Sipsik actually reaches the moon and returns (probably only in Anu's dreams, but this detail doesn't matter to children).
 
 This cartoon inspires Estonian girls to build rockets from cardboard boxes.
 
