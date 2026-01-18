@@ -49,6 +49,10 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 | Burn Time | 1.3 s |
 | Propellant | White Lightning |
 | Case | RMS-29/180 |
+| Total Mass | 215 g |
+
+!!! note "EU Pyrotechnics Classification"
+    H-class motors are P2 category pyrotechnics in EU. P1/P2 may be differentiated by mass (possibly 200g cutoff) but this needs verification. At 215g, the H128W would be P2 regardless.
 
 ## Launch Event
 
@@ -58,6 +62,10 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 
 - [Apogee Components - Peregrine Product Page](https://www.apogeerockets.com/Rocket-Kits/Skill-Level-3-Kits/Peregrine)
 - [Apogee Peak of Flight Newsletter](https://www.apogeerockets.com/education/newsletter)
+
+## Regulatory
+
+- [EU Directive 2013/29/EU](https://eur-lex.europa.eu/eli/dir/2013/29/oj) - Pyrotechnic articles regulation (P1/P2 categories)
 
 ## Related Threads
 

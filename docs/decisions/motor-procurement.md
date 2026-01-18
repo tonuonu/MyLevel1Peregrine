@@ -23,7 +23,9 @@ Estonia lacks clear framework for amateur rocketry:
 
 ### P2 Pyrotechnics Classification
 
-H-class motors are P2 class pyrotechnics. Rules differ by country and TTJA couldn't confirm what certifications/tests would be required for legal purchase and possession.
+H-class motors are P2 category pyrotechnics in EU (Directive 2013/29/EU). The AeroTech H128W has total mass of 215g - P1/P2 categories may be differentiated by mass (possibly 200g cutoff, needs verification).
+
+Rules differ by country and TTJA couldn't confirm what certifications/tests would be required for legal purchase and possession in Estonia.
 
 ### Border Transport Issues
 
