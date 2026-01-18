@@ -52,7 +52,27 @@ Following Apogee's recommended construction order:
 
 ## Build Entries
 
-*Build log entries will be added here as construction progresses*
+### 2025-12-11: Kit Received
+
+**Kit acquisition timeline:**
+
+| Date | Event |
+|------|-------|
+| 28 Nov 2025 | Ordered from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/) (Italy) |
+| 2 Dec 2025 | Shipped via DHL |
+| 5 Dec 2025 | Milan, Italy |
+| 9 Dec 2025 | Poznan, Poland |
+| 11 Dec 2025 | Delivered to Tallinn, Estonia |
+
+**DHL Tracking:** 3425738702
+
+**Photos:**
+
+Kit packaging photos in [Photo Gallery](../photos/index.md#kit-packaging).
+
+---
+
+*Additional build log entries will be added as construction progresses*
 
 <!-- Template for entries:
 
