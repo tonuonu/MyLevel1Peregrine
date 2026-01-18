@@ -53,7 +53,7 @@ Requires **38mm to 29mm adapter** - available from Swedish club members.
 
 ## Safety
 
-Based on [AeroTech Safety Data Sheet](Aerotech_Motors_SDS.pdf):
+Based on [AeroTech Safety Data Sheet](../Aerotech_Motors_SDS.pdf):
 
 ### Hazard Classification
 
