@@ -79,6 +79,18 @@ Also visible: partial view of body tube with "PEREGRINE" branding.
 - Wood Sealer / Sanding Sealer
 - RocketPoxy (paste-style)
 
+### IMG_7729 - Kit Identification
+
+![Kit identification](IMG_7729.jpeg)
+
+- Kit# 04998
+- Skill Level 4
+- Model rocket kit - assembly required
+- Recommended for 18 years and older
+- Apogee Components Inc., Colorado Springs, Colorado
+- Barcode: 6 56779 04998 8
+- Face Card P/N 39101
+
 ## Build Progress
 
 *Photos to be added*
