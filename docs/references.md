@@ -1,6 +1,10 @@
 # External References
 
-Community resources and discussions related to the Apogee Peregrine.
+## Kit Purchase
+
+Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-power-rockets/2109-peregrine-hpr-apogee.html) (Spain) - was the only L1-capable kit in stock from their [HPR selection](https://www.sierrafoxhobbies.com/en/19-high-power-rockets).
+
+## Community Resources and discussions related to the Apogee Peregrine.
 
 ## Rocketry Forum Threads
 
