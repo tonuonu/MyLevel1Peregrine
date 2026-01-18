@@ -1,7 +1,7 @@
 # MyLevel1Peregrine Project Overview
 
 ## Purpose
-Documentation repository for a Tripoli Level 1 certification rocket build using the Apogee Peregrine dual deployment kit. Kit purchased from Sierra Fox Hobbies (Spain) - listed as L2 but L1 capable. Designed for CRO (Club Range Officer) review with calculations and formulas for verification.
+Documentation repository for a Tripoli Level 1 certification rocket build using the Apogee Peregrine dual deployment kit. Kit purchased from Sierra Fox Hobbies (Italy) - listed as L2 but L1 capable. Designed for CRO (Club Range Officer) review with calculations and formulas for verification.
 
 ## Tech Stack
 - **Documentation**: MkDocs with Material theme
