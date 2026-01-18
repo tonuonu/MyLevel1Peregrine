@@ -2,6 +2,12 @@
 
 This documentation covers my Tripoli Level 1 certification attempt using the **Apogee Peregrine** dual deployment rocket kit.
 
+## Purpose
+
+1. **CRO Review** - Calculations and formulas for verification
+2. **Build Quality Evidence** - Photo documentation of construction methods to judge structural rigidity
+3. **Decision Record** - Reasoning behind choices made during the build
+
 ## Quick Specs
 
 | Parameter | Value |
@@ -21,6 +27,8 @@ This documentation covers my Tripoli Level 1 certification attempt using the **A
 - **[Simulations](simulations/openrocket.md)** - OpenRocket files and flight predictions
 - **[Flight](flight/checklist.md)** - Pre-flight checklist and flight log
 - **[Photos](photos/index.md)** - Build and flight photography
+- **[Decisions](decisions/index.md)** - Reasoning behind key choices
+- **[References](references.md)** - External links and resources
 
 ## Certification Requirements
 
@@ -30,7 +38,20 @@ For Tripoli L1 certification:
 - Rocket must be recovered in flight-ready condition
 - Must be witnessed by a Tripoli member (TAP/Prefect)
 
+## Launch Plan
+
+| Item | Details |
+|------|---------|
+| Date | Saturday, 24 January 2026 |
+| Backup | Sunday, 25 January 2026 (weather contingency) |
+| Location | [Långtora Airfield, Sweden](https://smrk.space/kalender/raketflygdag-langtora_20260124) |
+| Motor | [AeroTech H128W](https://www.thrustcurve.org/motors/AeroTech/H128W/) (29mm, White Lightning) |
+
 ## Project Status
 
 !!! info "Current Status"
     Build in progress - documentation being populated
+
+## Author
+
+[Tõnu Samuel](https://www.linkedin.com/in/tonusamuel/) - Software engineer and embedded systems developer based in Estonia.

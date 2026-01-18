@@ -1,0 +1,76 @@
+# External References
+
+## Kit Purchase
+
+Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-power-rockets/2109-peregrine-hpr-apogee.html) (Italy) - listed as L2 kit but also L1 capable (flies on H motors). Was the only kit in stock from their [HPR selection](https://www.sierrafoxhobbies.com/en/19-high-power-rockets).
+
+## Community Resources and discussions related to the Apogee Peregrine.
+
+## Rocketry Forum Threads
+
+### Build Threads
+
+- [Apogee Peregrine Build](https://www.rocketryforum.com/threads/apogee-peregrine-build.164948/) - Wally Ferrer (Feb 2021)
+    - Detailed photo documentation of complete build
+    - Tips: CA glue on tube edges, Kevlar string method for centering ring removal
+    - Rocketpoxy fillet technique with fondant ball
+    - Badass Rocketry fin guides mentioned
+
+### Technical Discussions
+
+- [Stability measurement as a caliber or as a percentage](https://www.rocketryforum.com/threads/stability-measurement-as-a-caliber-or-as-a-percentage.177665/) - MetricRocketeer (Jan 2023)
+    - Discusses caliber vs percentage stability display in OpenRocket
+    - **Contains Peregrine.ork file** shared by user
+    - Explains apparent CP/CG calculation discrepancies are due to OpenRocket rounding display values
+    - Actual values: diameter 10.16cm (not 10.2cm), CG 113.79cm, CP 130.25cm
+
+!!! note "OpenRocket Rounding"
+    OpenRocket displays rounded values but calculates with full precision. This explains why manual calculations from displayed values may not match the stability shown.
+
+## Flight Electronics
+
+- [CATS Vega](https://www.catsystems.io/vega) - Open source flight computer (ordered)
+- [CATS Ground Station](https://www.catsystems.io/ground-station-1) - Telemetry receiver (ordered)
+
+## 3D Printed Parts
+
+- [38mm Motor Retainer + Rail Guides](https://www.thingiverse.com/thing:6780161) - Thingiverse model for motor retention (printed in ASA) and backup rail guides
+
+## Motor
+
+- [AeroTech H128W on ThrustCurve](https://www.thrustcurve.org/motors/AeroTech/H128W/) - Technical specs, thrust curve data
+- [AeroTech H128W on Apogee](https://www.apogeerockets.com/Rocket_Motors/AeroTech_Motors/29mm_Propellant_Kits_HPR/29_180/Aerotech_Motor_H128W-M) - Retailer page
+
+| Spec | Value |
+|------|-------|
+| Diameter | 29mm |
+| Total Impulse | 172.9 Ns |
+| Avg Thrust | 128 N |
+| Burn Time | 1.3 s |
+| Propellant | White Lightning |
+| Case | RMS-29/180 |
+| Total Mass | 215 g |
+| Propellant Mass | 93.6 g |
+
+!!! note "Classifications"
+    - **Motor class**: H (rocketry, based on total impulse 160-320 Ns)
+    - **EU Pyrotechnics**: P2 (requires specialist knowledge)
+
+## Launch Event
+
+- [Raketflygdag Långtora 24 Jan 2026](https://smrk.space/kalender/raketflygdag-langtora_20260124) - SMRK (Svenska ModellRaketKlubben) event
+
+## Manufacturer Resources
+
+- [Apogee Components - Peregrine Product Page](https://www.apogeerockets.com/Rocket-Kits/Skill-Level-3-Kits/Peregrine)
+- [Apogee Peak of Flight Newsletter](https://www.apogeerockets.com/education/newsletter)
+
+## Regulatory
+
+- [EU Directive 2013/29/EU](https://eur-lex.europa.eu/eli/dir/2013/29/oj) - Pyrotechnic articles regulation (P1/P2 categories)
+
+## Related Threads
+
+- Completing the trifecta: the Apogee Peregrine coming together (novahobbies, Jul 2025)
+- Apogee Nike-Hercules build thread (spullen, Nov 2024)
+- "455" - Apogee Zephyr for TRA Level 1 (MikeMcP, Nov 2025)

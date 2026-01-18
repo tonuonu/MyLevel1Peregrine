@@ -54,14 +54,15 @@
 
 ## Certification Flight
 
-*Reserved for L1 certification flight record*
+**Tripoli L1 Certification Attempt**
 
 | Parameter | Value |
 |-----------|-------|
-| Date | |
-| Location | |
+| Planned Date | Saturday, 24 January 2026 |
+| Backup Date | Sunday, 25 January 2026 |
+| Location | [Långtora Airfield, Sweden](https://smrk.space/kalender/raketflygdag-langtora_20260124) |
 | Organization | Tripoli |
-| Witness (TAP/Prefect) | |
-| Motor used | |
-| Result | |
-| Certification # | |
+| Witness (TAP/Prefect) | TBD |
+| Motor planned | [AeroTech H128W](https://www.thrustcurve.org/motors/AeroTech/H128W/) |
+| Result | *Pending* |
+| Certification # | *Pending* |
