@@ -2,6 +2,12 @@
 
 This documentation covers my Tripoli Level 1 certification attempt using the **Apogee Peregrine** dual deployment rocket kit.
 
+## Purpose
+
+1. **CRO Review** - Calculations and formulas for verification
+2. **Build Quality Evidence** - Photo documentation of construction methods to judge structural rigidity
+3. **Decision Record** - Reasoning behind choices made during the build
+
 ## Quick Specs
 
 | Parameter | Value |
@@ -21,6 +27,8 @@ This documentation covers my Tripoli Level 1 certification attempt using the **A
 - **[Simulations](simulations/openrocket.md)** - OpenRocket files and flight predictions
 - **[Flight](flight/checklist.md)** - Pre-flight checklist and flight log
 - **[Photos](photos/index.md)** - Build and flight photography
+- **[Decisions](decisions/index.md)** - Reasoning behind key choices
+- **[References](references.md)** - External links and resources
 
 ## Certification Requirements
 
