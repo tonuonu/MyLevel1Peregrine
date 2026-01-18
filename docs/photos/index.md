@@ -24,6 +24,12 @@ To add photos:
 
 ## Kit Packaging
 
+!!! warning "Packaging vs Website Discrepancies"
+    See [Kit Contents](../specifications/kit-contents.md#kit-identification) for documented discrepancies between packaging claims and actual specifications.
+
+    - **Skill Level**: Packaging says 4, website says 3
+    - **Height**: Packaging says "Over 65"", actual is 68.8"
+
 ### IMG_7726 - Front Package Feature List
 
 ![Front packaging features](IMG_7726.jpeg)
