@@ -45,6 +45,7 @@ For Tripoli L1 certification:
 | Date | Saturday, 24 January 2026 |
 | Backup | Sunday, 25 January 2026 (weather contingency) |
 | Location | [Långtora Airfield, Sweden](https://smrk.space/kalender/raketflygdag-langtora_20260124) |
+| Motor | [AeroTech H128W](https://www.thrustcurve.org/motors/AeroTech/H128W/) (29mm, White Lightning) |
 
 ## Project Status
 

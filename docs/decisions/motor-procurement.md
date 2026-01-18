@@ -47,7 +47,7 @@ Considered taking motor by car on Tallink ferry to Sweden:
 
 Contacted Swedish Tripoli members who confirmed:
 
-- Can sell 1-2 H128W motors locally
+- Can sell 1-2 [AeroTech H128W](https://www.thrustcurve.org/motors/AeroTech/H128W/) motors locally
 - May have 38mm→29mm adapter available
 - No border crossing with pyrotechnics needed
 - Legal under Swedish framework

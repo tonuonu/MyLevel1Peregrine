@@ -36,6 +36,20 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 
 - [38mm Motor Retainer + Rail Guides](https://www.thingiverse.com/thing:6780161) - Thingiverse model for motor retention (printed in ASA) and backup rail guides
 
+## Motor
+
+- [AeroTech H128W on ThrustCurve](https://www.thrustcurve.org/motors/AeroTech/H128W/) - Technical specs, thrust curve data
+- [AeroTech H128W on Apogee](https://www.apogeerockets.com/Rocket_Motors/AeroTech_Motors/29mm_Propellant_Kits_HPR/29_180/Aerotech_Motor_H128W-M) - Manufacturer page
+
+| Spec | Value |
+|------|-------|
+| Diameter | 29mm |
+| Total Impulse | 172.9 Ns |
+| Avg Thrust | 128 N |
+| Burn Time | 1.3 s |
+| Propellant | White Lightning |
+| Case | RMS-29/180 |
+
 ## Launch Event
 
 - [Raketflygdag Långtora 24 Jan 2026](https://smrk.space/kalender/raketflygdag-langtora_20260124) - SMRK (Svenska ModellRaketKlubben) event

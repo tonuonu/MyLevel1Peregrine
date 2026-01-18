@@ -63,6 +63,6 @@
 | Location | [Långtora Airfield, Sweden](https://smrk.space/kalender/raketflygdag-langtora_20260124) |
 | Organization | Tripoli |
 | Witness (TAP/Prefect) | TBD |
-| Motor planned | H128W |
+| Motor planned | [AeroTech H128W](https://www.thrustcurve.org/motors/AeroTech/H128W/) |
 | Result | *Pending* |
 | Certification # | *Pending* |
