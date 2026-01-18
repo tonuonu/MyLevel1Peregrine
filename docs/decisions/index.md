@@ -9,3 +9,4 @@ This section documents key decisions made during the L1 certification journey, i
 - [Motor Retainer](motor-retainer.md) - 3D printed ASA retainer
 - [Rail Guides](rail-guides.md) - Kit buttons + 3D printed backup
 - [Color and Purpose](color-and-purpose.md) - Why blue, why this rocket
+- [Flight Computer](flight-computer.md) - CATS Vega vs motor delay

@@ -27,6 +27,11 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 !!! note "OpenRocket Rounding"
     OpenRocket displays rounded values but calculates with full precision. This explains why manual calculations from displayed values may not match the stability shown.
 
+## Flight Electronics
+
+- [CATS Vega](https://www.catsystems.io/vega) - Open source flight computer (ordered)
+- [CATS Ground Station](https://www.catsystems.io/ground-station-1) - Telemetry receiver (ordered)
+
 ## 3D Printed Parts
 
 - [38mm Motor Retainer + Rail Guides](https://www.thingiverse.com/thing:6780161) - Thingiverse model for motor retention (printed in ASA) and backup rail guides
