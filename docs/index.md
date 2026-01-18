@@ -13,7 +13,7 @@ Apogee Peregrine dual deployment rocket • Tripoli #38105 • Estonia → Swede
 <div class="grid" markdown>
 
 <div class="card" markdown>
-### :material-rocket-launch: Quick Specs
+### Quick Specs
 | | |
 |---|---|
 | **Length** | 68.8" (175 cm) |
@@ -24,7 +24,7 @@ Apogee Peregrine dual deployment rocket • Tripoli #38105 • Estonia → Swede
 </div>
 
 <div class="card" markdown>
-### :material-calendar: Launch Plan
+### Launch Plan
 | | |
 |---|---|
 | **Date** | 24 Jan 2026 |
@@ -34,7 +34,7 @@ Apogee Peregrine dual deployment rocket • Tripoli #38105 • Estonia → Swede
 </div>
 
 <div class="card" markdown>
-### :material-certificate: Status
+### Status
 <span class="status status-inprogress">Build in Progress</span>
 
 Tripoli membership: **Active**  
