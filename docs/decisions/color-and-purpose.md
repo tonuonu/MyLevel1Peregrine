@@ -22,7 +22,18 @@ This cartoon inspires Estonian girls to build rockets from cardboard boxes.
 
 The moment exists now to teach the girls how we're *actually* going to send her Sipsik to the moon. A real rocket, real engineering, real flight - connected to something they already love and understand.
 
-The blue color ties directly to Sipsik.
+The blue color matches Sipsik's colors.
+
+### Actual Sipsik Payload
+
+Plan is to stuff a Sipsik toy into the rocket body for actual flight.
+
+!!! warning "Open Problem"
+    How to package Sipsik safely:
+    
+    - Protect from ejection charge heat/flames
+    - Ensure recovery (not lost on ejection)
+    - Not interfere with parachute deployment
 
 ## Outcome
 
