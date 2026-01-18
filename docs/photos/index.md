@@ -22,9 +22,21 @@ To add photos:
 ![Description](photos/category/filename.jpg)
 ```
 
-## Kit Contents
+## Kit Packaging
 
-*Photos to be added*
+### IMG_7726 - Front Package Feature List
+
+![Front packaging features](IMG_7726.jpeg)
+
+Features listed on packaging:
+
+- Dual-Deployment recovery for closer-to-the-pad recovery
+- High-power rocket kit
+- Large and colorful vinyl decals included
+- Impressive Size: Over 65" tall and 4" in diameter
+- Two colorful nylon cloth parachutes included
+
+Also visible: partial view of body tube with "PEREGRINE" branding.
 
 ## Build Progress
 
