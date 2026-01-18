@@ -52,8 +52,9 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 | Total Mass | 215 g |
 | Propellant Mass | 93.6 g |
 
-!!! note "EU Pyrotechnics Classification"
-    H-class rocket motors are P2 category pyrotechnics in EU (high power). Classification is based on impulse class, not mass.
+!!! note "Classifications"
+    - **Motor class**: H (rocketry, based on total impulse 160-320 Ns)
+    - **EU Pyrotechnics**: P2 (requires specialist knowledge)
 
 ## Launch Event
 

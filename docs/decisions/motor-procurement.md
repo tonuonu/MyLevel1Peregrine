@@ -23,7 +23,7 @@ Estonia lacks clear framework for amateur rocketry:
 
 ### P2 Pyrotechnics Classification
 
-H-class rocket motors are P2 category pyrotechnics in EU (Directive 2013/29/EU) - classified as high power based on impulse class.
+H-class motors (rocketry classification) are P2 category in EU pyrotechnics regulation (Directive 2013/29/EU). P2 requires "specialist knowledge" to handle.
 
 Rules differ by country and TTJA couldn't confirm what certifications/tests would be required for legal purchase and possession in Estonia.
 
