@@ -1,57 +1,84 @@
-# Apogee Peregrine - Tripoli L1 Certification Build
+# Peregrine L1
 
-This documentation covers my Tripoli Level 1 certification attempt using the **Apogee Peregrine** dual deployment rocket kit.
+<div class="hero" markdown>
 
-## Purpose
+**Tripoli Level 1 Certification Build**
 
-1. **CRO Review** - Calculations and formulas for verification
-2. **Build Quality Evidence** - Photo documentation of construction methods to judge structural rigidity
-3. **Decision Record** - Reasoning behind choices made during the build
+Apogee Peregrine dual deployment rocket • Tripoli #38105 • Estonia → Sweden
 
-## Quick Specs
+</div>
 
-| Parameter | Value |
-|-----------|-------|
-| Length | 68.8" (175 cm) |
-| Diameter | 4.0" (98mm) |
-| Dry Weight | ~5+ lbs (~2.3 kg) |
-| Motor Mount | 38mm (29mm with adapter) |
-| Fins | 3 swept-back birch plywood |
-| Recovery | Dual deployment capable |
+---
 
-## Documentation Sections
+<div class="grid" markdown>
 
-- **[Specifications](specifications/overview.md)** - Detailed rocket specifications and kit contents
-- **[Construction](construction/build-log.md)** - Build progress and techniques
-- **[Calculations](calculations/stability.md)** - Stability, ejection charges, vent holes
-- **[Simulations](simulations/openrocket.md)** - OpenRocket files and flight predictions
-- **[Flight](flight/checklist.md)** - Pre-flight checklist and flight log
-- **[Photos](photos/index.md)** - Build and flight photography
-- **[Decisions](decisions/index.md)** - Reasoning behind key choices
-- **[References](references.md)** - External links and resources
+<div class="card" markdown>
+### :material-rocket-launch: Quick Specs
+| | |
+|---|---|
+| **Length** | 68.8" (175 cm) |
+| **Diameter** | 4.0" (98mm) |
+| **Weight** | ~5+ lbs (~2.3 kg) |
+| **Motor** | H128W (29mm) |
+| **Recovery** | Dual deployment |
+</div>
 
-## Certification Requirements
+<div class="card" markdown>
+### :material-calendar: Launch Plan
+| | |
+|---|---|
+| **Date** | 24 Jan 2026 |
+| **Backup** | 25 Jan 2026 |
+| **Location** | Långtora, Sweden |
+| **Club** | [SMRK](https://smrk.space/) |
+</div>
 
-For Tripoli L1 certification:
+<div class="card" markdown>
+### :material-certificate: Status
+<span class="status status-inprogress">Build in Progress</span>
 
-- Successfully fly a rocket using an H or I impulse motor
-- Rocket must be recovered in flight-ready condition
-- Must be witnessed by a Tripoli member (TAP/Prefect)
+Tripoli membership: **Active**  
+Cert level: **0** → L1 attempt
+</div>
 
-## Launch Plan
+</div>
 
-| Item | Details |
-|------|---------|
-| Date | Saturday, 24 January 2026 |
-| Backup | Sunday, 25 January 2026 (weather contingency) |
-| Location | [Långtora Airfield, Sweden](https://smrk.space/kalender/raketflygdag-langtora_20260124) |
-| Motor | [AeroTech H128W](https://www.thrustcurve.org/motors/AeroTech/H128W/) (29mm, White Lightning) |
+---
 
-## Project Status
+## Documentation Purpose
 
-!!! info "Current Status"
-    Build in progress - documentation being populated
+This site documents everything for my L1 certification attempt:
 
-## Author
+1. **CRO Review** — Calculations and formulas for verification
+2. **Build Evidence** — Photo documentation of construction quality
+3. **Decision Record** — Reasoning behind technical choices
 
-[Tõnu Samuel](https://www.linkedin.com/in/tonusamuel/) - Software engineer and embedded systems developer based in Estonia.
+## Sections
+
+| Section | Description |
+|---------|-------------|
+| [**Certification**](certification/index.md) | Tripoli membership, L1 requirements |
+| [**Specifications**](specifications/overview.md) | Detailed rocket specs and kit contents |
+| [**Construction**](construction/build-log.md) | Build progress and techniques |
+| [**Calculations**](calculations/stability.md) | Stability, ejection charges, vent holes |
+| [**Simulations**](simulations/openrocket.md) | OpenRocket files and predictions |
+| [**Motor Selection**](simulations/motors.md) | H128W specs and safety data |
+| [**Flight**](flight/checklist.md) | Pre-flight checklist and log |
+| [**Photos**](photos/index.md) | Build and flight photography |
+| [**Decisions**](decisions/index.md) | Key technical decisions |
+
+## L1 Requirements
+
+Per Tripoli certification standards:
+
+- [x] Tripoli membership (Senior, insured)
+- [x] H or I class motor selected
+- [ ] Rocket built by flyer
+- [ ] Successful flight with recovery
+- [ ] Witnessed by TAP/Prefect
+
+---
+
+<small>
+[Tõnu Samuel](https://www.linkedin.com/in/tonusamuel/) • Software engineer • Tallinn, Estonia
+</small>
