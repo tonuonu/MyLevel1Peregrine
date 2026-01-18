@@ -49,7 +49,16 @@ The H128W is a reload motor requiring:
 
 Peregrine has 38mm motor mount. H128W is 29mm.
 
-Requires **38mm to 29mm adapter** - available from Swedish club members.
+**Solution:** 3D printed clamshell adapter from [Thingiverse Thing:5971997](https://www.thingiverse.com/thing:5971997)
+
+| Parameter | Value |
+|-----------|-------|
+| Design | Clamshell (two halves) |
+| Material | Translucent PETG |
+| Printer | Bambu Lab P1S |
+
+!!! note "Material Choice"
+    PETG instead of ASA because P1S lacks chamber heating. Tall ASA prints fail (spaghetti) after reaching certain height without enclosure temperature control.
 
 ## Safety
 
