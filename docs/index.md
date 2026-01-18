@@ -50,3 +50,7 @@ For Tripoli L1 certification:
 
 !!! info "Current Status"
     Build in progress - documentation being populated
+
+## Author
+
+[Tõnu Samuel](https://www.linkedin.com/in/tonusamuel/) - Software engineer and embedded systems developer based in Estonia.

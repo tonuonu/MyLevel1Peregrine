@@ -1,6 +1,6 @@
 site_name: Apogee Peregrine L1 Certification
 site_description: Documentation for Tõnu's Tripoli L1 certification rocket build
-site_author: Tõnu Onu
+site_author: Tõnu Samuel
 
 theme:
   name: material
