@@ -40,6 +40,7 @@ extra_javascript:
 
 nav:
   - Home: index.md
+  - Certification: certification/index.md
   - Rocket Specifications:
     - Overview: specifications/overview.md
     - Kit Contents: specifications/kit-contents.md
