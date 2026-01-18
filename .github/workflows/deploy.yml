@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -23,6 +25,15 @@ jobs:
       - name: Install dependencies
         run: |
           pip install mkdocs-material
+
+      - name: Inject commit hash
+        run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          FULL_SHA=$(git rev-parse HEAD)
+          DATE=$(git log -1 --format=%cd --date=short)
+          sed -i "s/BUILD_COMMIT_HASH/${SHORT_SHA}/g" docs/index.md
+          sed -i "s|BUILD_COMMIT_URL|https://github.com/tonuonu/MyLevel1Peregrine/commit/${FULL_SHA}|g" docs/index.md
+          sed -i "s/BUILD_DATE/${DATE}/g" docs/index.md
 
       - name: Build and deploy
         run: mkdocs gh-deploy --force

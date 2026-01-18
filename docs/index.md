@@ -80,5 +80,6 @@ Per Tripoli certification standards:
 ---
 
 <small>
-[Tõnu Samuel](https://www.linkedin.com/in/tonusamuel/) • Software engineer • Tallinn, Estonia
+[Tõnu Samuel](https://www.linkedin.com/in/tonusamuel/) • Software engineer • Tallinn, Estonia  
+Build: [BUILD_COMMIT_HASH](BUILD_COMMIT_URL) (BUILD_DATE)
 </small>
