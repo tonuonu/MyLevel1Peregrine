@@ -39,7 +39,7 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 ## Motor
 
 - [AeroTech H128W on ThrustCurve](https://www.thrustcurve.org/motors/AeroTech/H128W/) - Technical specs, thrust curve data
-- [AeroTech H128W on Apogee](https://www.apogeerockets.com/Rocket_Motors/AeroTech_Motors/29mm_Propellant_Kits_HPR/29_180/Aerotech_Motor_H128W-M) - Manufacturer page
+- [AeroTech H128W on Apogee](https://www.apogeerockets.com/Rocket_Motors/AeroTech_Motors/29mm_Propellant_Kits_HPR/29_180/Aerotech_Motor_H128W-M) - Retailer page
 
 | Spec | Value |
 |------|-------|
