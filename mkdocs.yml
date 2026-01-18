@@ -63,4 +63,8 @@ nav:
     - Pre-flight Checklist: flight/checklist.md
     - Flight Log: flight/log.md
   - Photos: photos/index.md
+  - Decisions:
+    - Overview: decisions/index.md
+    - Why Sweden: decisions/why-sweden.md
+    - Motor Procurement: decisions/motor-procurement.md
   - References: references.md
