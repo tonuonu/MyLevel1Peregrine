@@ -73,7 +73,7 @@ Per Tripoli certification standards:
 
 - [x] Tripoli membership (Senior, insured)
 - [x] H or I class motor selected
-- [ ] Rocket built by flyer
+- [x] Rocket built by flyer
 - [ ] Successful flight with recovery
 - [ ] Witnessed by TAP/Prefect
 
