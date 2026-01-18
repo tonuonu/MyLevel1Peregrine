@@ -1,7 +1,7 @@
 # Style and Conventions
 
 ## Documentation Standards
-- All measurements include both imperial and metric units
+- All measurements in metric (imperial retained only when from original source)
 - Formulas shown with variable definitions
 - Photos named descriptively: `YYYYMMDD-description.jpg`
 - Flight data recorded with altimeter downloads
