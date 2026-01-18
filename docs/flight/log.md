@@ -60,7 +60,7 @@
 |-----------|-------|
 | Planned Date | Saturday, 24 January 2026 |
 | Backup Date | Sunday, 25 January 2026 |
-| Location | Långtora Airfield, Sweden |
+| Location | [Långtora Airfield, Sweden](https://smrk.space/kalender/raketflygdag-langtora_20260124) |
 | Organization | Tripoli |
 | Witness (TAP/Prefect) | TBD |
 | Motor planned | H128W |

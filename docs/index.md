@@ -44,7 +44,7 @@ For Tripoli L1 certification:
 |------|---------|
 | Date | Saturday, 24 January 2026 |
 | Backup | Sunday, 25 January 2026 (weather contingency) |
-| Location | Långtora Airfield, Sweden |
+| Location | [Långtora Airfield, Sweden](https://smrk.space/kalender/raketflygdag-langtora_20260124) |
 
 ## Project Status
 

@@ -31,6 +31,10 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 
 - [38mm Motor Retainer + Rail Guides](https://www.thingiverse.com/thing:6780161) - Thingiverse model for motor retention (printed in ASA) and backup rail guides
 
+## Launch Event
+
+- [Raketflygdag Långtora 24 Jan 2026](https://smrk.space/kalender/raketflygdag-langtora_20260124) - SMRK (Svenska ModellRaketKlubben) event
+
 ## Manufacturer Resources
 
 - [Apogee Components - Peregrine Product Page](https://www.apogeerockets.com/Rocket-Kits/Skill-Level-3-Kits/Peregrine)

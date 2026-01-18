@@ -10,7 +10,7 @@ Estonia has no Tripoli prefecture. Closest options are:
 
 ## Decision
 
-Sweden - **Långtora Airfield**
+Sweden - **[Långtora Airfield](https://smrk.space/kalender/raketflygdag-langtora_20260124)**
 
 - **Date**: Saturday, 24 January 2026
 - **Backup**: Sunday, 25 January 2026 (weather contingency)
