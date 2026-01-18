@@ -2,6 +2,21 @@
 
 The Apogee Peregrine kit includes all components needed for a complete dual-deployment rocket build.
 
+## Kit Identification
+
+| Info | Value |
+|------|-------|
+| Kit Number | 04998 |
+| Face Card P/N | 39101 |
+| Barcode | 656779049988 |
+| Age Rating | 18+ |
+
+!!! note "Packaging vs Website Discrepancies"
+    | Item | Packaging | Website/Actual |
+    |------|-----------|----------------|
+    | Skill Level | 4 | 3 |
+    | Height | "Over 65"" | 68.8" (175 cm) |
+
 ## Airframe Components
 
 | Component | Description |
