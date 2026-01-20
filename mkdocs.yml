@@ -110,6 +110,7 @@ nav:
     - Electronics Bay: construction/ebay.md
     - Recovery System: construction/recovery.md
   - Calculations:
+    - L1 Weight Budget: calculations/l1-weight-budget.md
     - Stability: calculations/stability.md
     - Ejection Charges: calculations/ejection-charges.md
     - Vent Holes: calculations/vent-holes.md
@@ -123,6 +124,7 @@ nav:
   - Photos: photos/index.md
   - Decisions:
     - Overview: decisions/index.md
+    - L1 Configuration: decisions/l1-configuration.md
     - Why Sweden: decisions/why-sweden.md
     - Motor Procurement: decisions/motor-procurement.md
     - Motor Retainer: decisions/motor-retainer.md
