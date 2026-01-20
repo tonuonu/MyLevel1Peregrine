@@ -18,6 +18,11 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 
 ### Technical Discussions
 
+- [Trying to find an OpenRocket file for the Apogee Peregrine](https://www.rocketryforum.com/threads/trying-to-find-an-openrocket-file-for-the-apogee-peregrine.166457/) - laxmax51 (May 2021)
+    - Discussion about importing RockSim .rkt files into OpenRocket
+    - **Key tip**: OpenRocket can open RockSim .rkt files directly, then save as .ork
+    - Note: Fancy fin shapes may not import perfectly
+
 - [Stability measurement as a caliber or as a percentage](https://www.rocketryforum.com/threads/stability-measurement-as-a-caliber-or-as-a-percentage.177665/) - MetricRocketeer (Jan 2023)
     - Discusses caliber vs percentage stability display in OpenRocket
     - **Contains Peregrine.ork file** shared by user
@@ -26,6 +31,9 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 
 !!! note "OpenRocket Rounding"
     OpenRocket displays rounded values but calculates with full precision. This explains why manual calculations from displayed values may not match the stability shown.
+
+!!! tip "RockSim to OpenRocket"
+    OpenRocket is **free open-source software** that can import RockSim .rkt files directly. Apogee provides RockSim files for their kits - these can be opened in OpenRocket and saved as .ork files. Fin shapes may need minor cleanup after import.
 
 ## Flight Electronics
 
@@ -63,6 +71,7 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 ## Manufacturer Resources
 
 - [Apogee Components - Peregrine Product Page](https://www.apogeerockets.com/Rocket-Kits/Skill-Level-3-Kits/Peregrine)
+- [Peregrine Instruction Manual (PDF)](https://www.apogeerockets.com/downloads/PDFs/04998-Peregrine-instructs.pdf) - Official assembly instructions
 - [Apogee Peak of Flight Newsletter](https://www.apogeerockets.com/education/newsletter)
 
 ## Regulatory
