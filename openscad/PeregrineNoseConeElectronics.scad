@@ -64,7 +64,7 @@ vega_clearance = 1.0;
 
 /* [Battery Holder] */
 // Include battery holder
-include_battery_holder = true;
+include_battery_holder = false;
 
 // Number of AA batteries
 num_batteries = 2; // [1:4]
@@ -162,8 +162,8 @@ function profile_radius_at(x) =
 // Modules
 // ============================================
 
-// Generate nose cone outer shell as rotational solid
-module nose_cone_outer() {
+// Generate solid nose cone (no inner cavity - will be cut later)
+module nose_cone_solid() {
     step = nose_length / $fn;
     
     rotate_extrude(angle = 360, $fn = $fn) {
@@ -177,20 +177,16 @@ module nose_cone_outer() {
     }
 }
 
-// Generate nose cone inner cavity
-module nose_cone_inner() {
-    step = nose_length / $fn;
-    tip_solid = ballast_cavity_depth + 10; // Solid tip region for ballast
+// Inner cavity - simple cylinder approach, starts above tip
+module nose_cone_inner_cavity() {
+    tip_solid = ballast_cavity_depth + 15; // Solid tip region
     
-    rotate_extrude(angle = 360, $fn = $fn) {
-        polygon(points = concat(
-            [[0, tip_solid]],
-            [for (x = [tip_solid + step : step : nose_length]) 
-                [max(0, profile_radius_at(x) - wall_thickness), x]],
-            [[base_radius - wall_thickness, nose_length]],
-            [[0, nose_length]]
-        ));
-    }
+    // Hollow out from tip_solid to nose_length using a tapered cylinder
+    translate([0, 0, tip_solid])
+    cylinder(h = nose_length - tip_solid + 1, 
+             r1 = profile_radius_at(tip_solid) - wall_thickness,
+             r2 = base_radius - wall_thickness, 
+             $fn = $fn);
 }
 
 // Shoulder (slides into body tube) with transition lip
@@ -214,9 +210,18 @@ module shoulder() {
     }
 }
 
-// Ballast cavity (in nose tip, for epoxy fill)
+// Ballast cavity (in nose cone, for epoxy/lead shot fill)
+// Must start high enough that nose wall can contain it
 module ballast_cavity() {
-    translate([0, 0, 5]) // 5mm from very tip
+    // Calculate safe starting height where nose has enough material
+    // Need outer radius > cavity_radius + wall_thickness
+    min_outer_radius = ballast_cavity_dia/2 + wall_thickness + 2;
+    
+    // Find height where ogive profile gives enough radius (approximate)
+    // For 150mm nose, 51mm base radius, start around 40mm up
+    safe_start = 40;
+    
+    translate([0, 0, safe_start])
     cylinder(h = ballast_cavity_depth, d = ballast_cavity_dia, $fn = 64);
 }
 
@@ -342,8 +347,8 @@ module complete_nose_cone() {
         union() {
             // Main nose cone shape
             difference() {
-                nose_cone_outer();
-                nose_cone_inner();
+                nose_cone_solid();
+                nose_cone_inner_cavity();
             }
             
             // Shoulder
