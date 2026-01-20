@@ -95,11 +95,11 @@ sled_screw_dia = 4;
 // Include ballast cavity (in tip, for epoxy/lead shot)
 include_ballast_cavity = true;
 
-// Ballast cavity diameter (mm) - maximized for epoxy fill
-ballast_cavity_dia = 60;
+// Ballast cavity diameter (mm) - sized to fit ogive profile
+ballast_cavity_dia = 50;
 
-// Ballast cavity depth (mm) - maximized for epoxy fill
-ballast_cavity_depth = 100;
+// Ballast cavity depth (mm)
+ballast_cavity_depth = 90;
 
 /* [Print Settings] */
 // Resolution (higher = smoother but slower)
@@ -211,11 +211,11 @@ module shoulder() {
 }
 
 // Ballast cavity (in nose cone, for epoxy fill)
-// Maximized for ~300g epoxy ballast
+// Sized to fit within ogive wall thickness
 module ballast_cavity() {
-    // For 60mm diameter cavity, need outer radius > 30mm + wall
-    // With 150mm ogive, safe to start around 50mm from tip
-    safe_start = 50;
+    // For 50mm diameter (25mm radius), need outer radius > 25 + wall + margin
+    // At 55mm from tip, ogive radius ≈ 32mm - safe margin
+    safe_start = 55;
     
     translate([0, 0, safe_start])
     cylinder(h = ballast_cavity_depth, d = ballast_cavity_dia, $fn = 64);
