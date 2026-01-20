@@ -1271,6 +1271,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#openrocket-model-vs-reality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenRocket Model vs Reality
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#action-items" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2298,6 +2309,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#openrocket-model-vs-reality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenRocket Model vs Reality
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#action-items" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2693,14 +2715,46 @@ $$W_{ballast} = 2500g - 1460g - 206g = \mathbf{834g}\]</div>
 </tr>
 </tbody>
 </table>
+<h2 id="openrocket-model-vs-reality">OpenRocket Model vs Reality<a class="headerlink" href="#openrocket-model-vs-reality" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Mass (no motor)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenRocket model</td>
+<td>1096 g</td>
+</tr>
+<tr>
+<td>Actual rocket</td>
+<td>1460 g</td>
+</tr>
+<tr>
+<td>Difference</td>
+<td>+364 g</td>
+</tr>
+</tbody>
+</table>
+<p>The difference is from epoxy, paint, and hardware not fully accounted for in the model.</p>
+<div class="admonition danger">
+<p class="admonition-title">L1 Config Stability Warning</p>
+<p>OpenRocket shows the L1 configuration has <strong>negative stability</strong> (-0.191 cal) with model mass.</p>
+<p>CP (90.8 cm) is forward of CG (92.7 cm) - rocket would tumble!</p>
+<p><strong>Nose ballast is mandatory</strong>, not optional.</p>
+</div>
+<p>See <a href="../../simulations/openrocket/">OpenRocket Simulations</a> for full analysis.</p>
 <h2 id="action-items">Action Items<a class="headerlink" href="#action-items" title="Permanent link">&para;</a></h2>
 <ul>
 <li>[ ] Verify rocket weight measurement (re-weigh)</li>
 <li>[ ] Confirm motor weight when received</li>
-<li>[ ] Calculate CG with ballast in nose cone</li>
-<li>[ ] Verify CP in OpenRocket for L1 config</li>
-<li>[ ] Confirm stability margin ≥ 1.5 calibers with ballast</li>
-<li>[ ] Source appropriate ballast material</li>
+<li>[ ] <strong>Update OpenRocket with actual 1460g mass</strong></li>
+<li>[ ] <strong>Add nose ballast to achieve positive stability</strong></li>
+<li>[ ] Calculate required ballast for ≥1.5 caliber stability</li>
+<li>[ ] Run flight sim to verify stability throughout flight</li>
+<li>[ ] Source appropriate ballast material (lead shot recommended)</li>
 </ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
