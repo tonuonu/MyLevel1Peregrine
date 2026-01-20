@@ -13,7 +13,10 @@ body_tube_od = 102;
 body_tube_id = 99.1;
 
 // Nose cone length (mm) - typically 3-5 calibers
-nose_length = 300;
+// 150mm = 1.5 calibers (blunter, more drag, slower flight)
+// 300mm = 3 calibers (standard ogive)
+// For P1S single-piece print: max ~150mm nose + 100mm shoulder = 250mm
+nose_length = 150;
 
 // Shoulder length (mm) - typically 1-1.5 calibers
 shoulder_length = 100;
@@ -36,15 +39,6 @@ shape_type = 0; // [0:Ogive, 1:Conical, 2:Elliptical, 3:Parabolic]
 ogive_factor = 1.0;
 
 /* [Ballast and Hardware] */
-// Include eyebolt hole in tip
-include_eyebolt_hole = true;
-
-// Eyebolt hole diameter (mm) - for 1/4"-20 eyebolt
-eyebolt_hole_dia = 6.5;
-
-// Eyebolt hole depth (mm)
-eyebolt_hole_depth = 25;
-
 // Include ballast cavity
 include_ballast_cavity = true;
 
@@ -61,8 +55,8 @@ $fn = 100;
 // Split into two parts for printing
 split_for_printing = false;
 
-// Split position from base (mm)
-split_position = 150;
+// Split position from base (mm) - only used if split_for_printing=true
+split_position = 125;
 
 // Joint overlap (mm)
 joint_overlap = 15;
@@ -152,13 +146,6 @@ module shoulder() {
     }
 }
 
-// Eyebolt mounting hole
-module eyebolt_hole() {
-    // Hole from tip
-    translate([0, 0, -1])
-    cylinder(h = eyebolt_hole_depth + 1, d = eyebolt_hole_dia, $fn = 32);
-}
-
 // Ballast cavity (accessible from shoulder end)
 module ballast_cavity() {
     translate([0, 0, nose_length + shoulder_length - ballast_cavity_depth])
@@ -177,11 +164,6 @@ module complete_nose_cone() {
             
             // Shoulder
             shoulder();
-        }
-        
-        // Eyebolt hole
-        if (include_eyebolt_hole) {
-            eyebolt_hole();
         }
         
         // Ballast cavity
