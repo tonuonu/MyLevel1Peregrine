@@ -193,13 +193,22 @@ module nose_cone_inner() {
     }
 }
 
-// Shoulder (slides into body tube)
+// Shoulder (slides into body tube) with transition lip
 module shoulder() {
+    lip_height = 3; // Smooth transition from nose OD to shoulder OD
+    
     translate([0, 0, nose_length])
     difference() {
-        cylinder(h = shoulder_length, r = shoulder_radius, $fn = $fn);
+        union() {
+            // Transition cone (nose OD to shoulder OD)
+            cylinder(h = lip_height, r1 = base_radius, r2 = shoulder_radius, $fn = $fn);
+            
+            // Main shoulder cylinder
+            translate([0, 0, lip_height])
+            cylinder(h = shoulder_length - lip_height, r = shoulder_radius, $fn = $fn);
+        }
         
-        // Hollow inside
+        // Hollow inside (full length)
         translate([0, 0, -1])
         cylinder(h = shoulder_length + 2, r = shoulder_inner_radius, $fn = $fn);
     }
@@ -237,24 +246,31 @@ module vega_board() {
     cube([vega_width, vega_length, vega_thickness]);
 }
 
-// AA Battery holder (batteries laid parallel to Vega)
+// AA Battery holder - horizontal cradle style
 module battery_holder() {
     battery_slot_dia = aa_diameter + battery_clearance * 2;
-    holder_height = battery_slot_dia/2 + battery_wall;
+    total_height = num_batteries * battery_slot_dia + (num_batteries - 1) * battery_wall;
+    holder_length = aa_length + battery_wall * 2;
+    holder_width = battery_slot_dia + battery_wall * 2;
     
-    // Batteries laid lengthwise, stacked vertically
-    for (i = [0 : num_batteries - 1]) {
-        translate([0, 0, i * (battery_slot_dia + battery_wall)])
-        difference() {
-            // Outer shell for one battery
-            translate([-battery_slot_dia/2 - battery_wall, -aa_length/2 - battery_wall, 0])
-            cube([battery_slot_dia + battery_wall * 2, aa_length + battery_wall * 2, holder_height]);
-            
-            // Battery slot
-            translate([0, 0, holder_height])
+    difference() {
+        // Solid block
+        translate([-holder_width/2, -holder_length/2, 0])
+        cube([holder_width, holder_length, total_height]);
+        
+        // Cut battery slots (horizontal cylinders)
+        for (i = [0 : num_batteries - 1]) {
+            z_pos = battery_slot_dia/2 + i * (battery_slot_dia + battery_wall);
+            translate([0, -holder_length/2 - 1, z_pos])
             rotate([-90, 0, 0])
-            translate([0, 0, -aa_length/2 - battery_clearance])
-            cylinder(h = aa_length + battery_clearance * 2, d = battery_slot_dia, $fn = 32);
+            cylinder(h = holder_length + 2, d = battery_slot_dia, $fn = 32);
+        }
+        
+        // Open top for battery insertion
+        for (i = [0 : num_batteries - 1]) {
+            z_pos = battery_slot_dia/2 + i * (battery_slot_dia + battery_wall);
+            translate([-battery_slot_dia/2, -holder_length/2 + battery_wall, z_pos])
+            cube([battery_slot_dia, holder_length - battery_wall * 2, total_height]);
         }
     }
 }
