@@ -95,11 +95,11 @@ sled_screw_dia = 4;
 // Include ballast cavity (in tip, for epoxy/lead shot)
 include_ballast_cavity = true;
 
-// Ballast cavity diameter (mm)
-ballast_cavity_dia = 30;
+// Ballast cavity diameter (mm) - maximized for epoxy fill
+ballast_cavity_dia = 60;
 
-// Ballast cavity depth from tip (mm)
-ballast_cavity_depth = 50;
+// Ballast cavity depth (mm) - maximized for epoxy fill
+ballast_cavity_depth = 100;
 
 /* [Print Settings] */
 // Resolution (higher = smoother but slower)
@@ -210,16 +210,12 @@ module shoulder() {
     }
 }
 
-// Ballast cavity (in nose cone, for epoxy/lead shot fill)
-// Must start high enough that nose wall can contain it
+// Ballast cavity (in nose cone, for epoxy fill)
+// Maximized for ~300g epoxy ballast
 module ballast_cavity() {
-    // Calculate safe starting height where nose has enough material
-    // Need outer radius > cavity_radius + wall_thickness
-    min_outer_radius = ballast_cavity_dia/2 + wall_thickness + 2;
-    
-    // Find height where ogive profile gives enough radius (approximate)
-    // For 150mm nose, 51mm base radius, start around 40mm up
-    safe_start = 40;
+    // For 60mm diameter cavity, need outer radius > 30mm + wall
+    // With 150mm ogive, safe to start around 50mm from tip
+    safe_start = 50;
     
     translate([0, 0, safe_start])
     cylinder(h = ballast_cavity_depth, d = ballast_cavity_dia, $fn = 64);
@@ -415,15 +411,23 @@ module upper_section() {
 // Render
 // ============================================
 
+// Nose cone - tip up for printing (shoulder on build plate)
+total_height = nose_length + shoulder_length;
+
 if (split_for_printing) {
-    // Show both parts side by side
+    // Show both parts side by side, tip up
     translate([-base_radius - 10, 0, 0])
+    rotate([180, 0, 0])
+    translate([0, 0, -split_position])
     lower_section();
     
-    translate([base_radius + 10, 0, 0])
+    translate([base_radius + 10, 0, total_height])
+    rotate([180, 0, 0])
     upper_section();
 } else {
-    // Complete nose cone
+    // Complete nose cone - tip up, shoulder on build plate
+    translate([0, 0, total_height])
+    rotate([180, 0, 0])
     complete_nose_cone();
 }
 
