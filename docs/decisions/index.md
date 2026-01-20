@@ -4,6 +4,7 @@ This section documents key decisions made during the L1 certification journey, i
 
 ## Entries
 
+- [L1 Configuration](l1-configuration.md) - Minimal config for certification flight
 - [Why Sweden](why-sweden.md) - Choosing certification location
 - [Motor Procurement](motor-procurement.md) - How to obtain motors legally
 - [Motor Retainer](motor-retainer.md) - 3D printed ASA retainer
