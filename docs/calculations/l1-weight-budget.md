@@ -153,14 +153,34 @@ See [Stability Calculations](stability.md) for CG/CP analysis with ballast.
 | + Ballast (target) | +834 g | +834 g |
 | **With ballast** | **2500 g** | **2406 g** |
 
+## OpenRocket Model vs Reality
+
+| Source | Mass (no motor) |
+|--------|-----------------|
+| OpenRocket model | 1096 g |
+| Actual rocket | 1460 g |
+| Difference | +364 g |
+
+The difference is from epoxy, paint, and hardware not fully accounted for in the model.
+
+!!! danger "L1 Config Stability Warning"
+    OpenRocket shows the L1 configuration has **negative stability** (-0.191 cal) with model mass.
+    
+    CP (90.8 cm) is forward of CG (92.7 cm) - rocket would tumble!
+    
+    **Nose ballast is mandatory**, not optional.
+
+See [OpenRocket Simulations](../simulations/openrocket.md) for full analysis.
+
 ## Action Items
 
 - [ ] Verify rocket weight measurement (re-weigh)
 - [ ] Confirm motor weight when received
-- [ ] Calculate CG with ballast in nose cone
-- [ ] Verify CP in OpenRocket for L1 config
-- [ ] Confirm stability margin ≥ 1.5 calibers with ballast
-- [ ] Source appropriate ballast material
+- [ ] **Update OpenRocket with actual 1460g mass**
+- [ ] **Add nose ballast to achieve positive stability**
+- [ ] Calculate required ballast for ≥1.5 caliber stability
+- [ ] Run flight sim to verify stability throughout flight
+- [ ] Source appropriate ballast material (lead shot recommended)
 
 ## References
 
