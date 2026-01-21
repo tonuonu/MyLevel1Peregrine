@@ -22,13 +22,16 @@ This repository documents a Tripoli Level 1 certification rocket build using the
 MyLevel1Peregrine/
 ├── docs/                    # MkDocs content
 │   ├── index.md            # Home page
+│   ├── configurations.md   # L1 vs L2 config comparison
 │   ├── specifications/     # Rocket specs
 │   ├── construction/       # Build log
 │   ├── calculations/       # Formulas and calculations
 │   ├── simulations/        # OpenRocket results
+│   ├── decisions/          # Design decisions and rationale
 │   ├── flight/             # Checklists and logs
 │   └── photos/             # Images
 ├── openrocket/             # .ork simulation files
+├── openscad/               # 3D printable parts (nose cone, etc.)
 ├── mkdocs.yml              # Site configuration
 └── CLAUDE.md               # This file
 ```
@@ -51,11 +54,25 @@ mkdocs gh-deploy
 
 ## Key Specifications (Apogee Peregrine)
 
-- Length: 68.8" (175 cm)
-- Diameter: 4.0" (98mm)
+- Length: 68.8" (175 cm) full L2 config, 126 cm L1 config
+- Diameter: 4.0" (102mm OD, 99.1mm ID)
 - Motor mount: 38mm (29mm with adapter)
-- Weight: ~5+ lbs dry
+- Weight: ~1900g L2, ~2100g L1 (with ballast)
 - Dual deployment capable
+
+## Configurations
+
+| Config | Length | Recovery | Electronics |
+|--------|--------|----------|-------------|
+| **L1** | 126 cm | Motor ejection | None (nose ballast for stability) |
+| **L2** | 175 cm | Dual-deploy | CATS Vega flight computer |
+
+## L1 Flight Parameters (H128W motor, 180cm rail)
+
+- Rail exit velocity: 16.6 m/s ✓
+- Stability at rail exit: 1.0 caliber ✓
+- Thrust-to-weight: 5.6:1 ✓
+- Apogee: ~235m
 
 ## Conventions
 
