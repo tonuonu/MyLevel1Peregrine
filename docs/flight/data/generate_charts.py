@@ -30,11 +30,25 @@ Record Types:
     128 (0x80) - BARO: int32 (pressure Pa) - 12 bytes total
     256 (0x100) - FILTERED: 2x float32 (altitude m, velocity m/s) - 16 bytes total
 
+Sensor Information:
+-------------------
+IMU: STMicroelectronics LSM6DSO32 (from CATS firmware lsm6dso32.hpp)
+  - Configured at ±32g range (AccelerometerFs::kFs32G)
+  - Sensitivity: 0.976 mg/LSB = 1024 LSB/g (from datasheet)
+  - 16-bit output: ±32768 LSB maps to ±32g
+  - ODR: 104 Hz
+
+Barometer: MS5607 (temperature-compensated pressure sensor)
+  - Altitude formula uses hardcoded 15°C (TEMPERATURE_0 constant)
+  - Does not use actual measured temperature for altitude calculation
+
 Known Issues / TODO:
 --------------------
-1. Liftoff doesn't start exactly at 0m AGL - there's sensor settling time
-2. Velocity shows 0 during descent in some phases - FILTERED data issue
-3. Accelerometer scale factor is approximate (~29700 LSB/g)
+1. Liftoff doesn't start exactly at 0m AGL - sensor settling time
+2. Velocity shows 0 during descent in some phases - FILTERED data limitation
+3. Raw accelerometer data in log has unexpected offset (~-28662 LSB at rest vs expected ~-1024 LSB)
+   - May be firmware-specific encoding or uncalibrated offset
+   - Needs investigation in CATS firmware data_processing.cpp
 4. Temperature not compensated in altitude (hardcoded 15°C in firmware)
 
 Flight Parameters (hardcoded - update for other flights):
