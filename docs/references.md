@@ -44,10 +44,11 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 
 - [38mm Motor Retainer + Rail Guides](https://www.thingiverse.com/thing:6780161) - Thingiverse model for motor retention (printed in ASA) and backup rail guides
 
-## Motor
+## Motors
+
+### H128W (L1 Certification)
 
 - [AeroTech H128W on ThrustCurve](https://www.thrustcurve.org/motors/AeroTech/H128W/) - Technical specs, thrust curve data
-- [AeroTech H128W on Apogee](https://www.apogeerockets.com/Rocket_Motors/AeroTech_Motors/29mm_Propellant_Kits_HPR/29_180/Aerotech_Motor_H128W-M) - Retailer page
 
 | Spec | Value |
 |------|-------|
@@ -57,16 +58,37 @@ Purchased from [Sierra Fox Hobbies](https://www.sierrafoxhobbies.com/en/high-pow
 | Burn Time | 1.3 s |
 | Propellant | White Lightning |
 | Case | RMS-29/180 |
-| Total Mass | 215 g |
-| Propellant Mass | 93.6 g |
+| Total Mass | 208 g |
 
-!!! note "Classifications"
-    - **Motor class**: H (rocketry, based on total impulse 160-320 Ns)
+### J420R (L2 Certification)
+
+- [AeroTech J420R on ThrustCurve](https://www.thrustcurve.org/motors/AeroTech/J420R/) - Technical specs, thrust curve data
+- [Space Rocket Technology Shop](https://www.spacerockettechnology-shop.de/en/J420R-14A.html) - German retailer
+
+| Spec | Value |
+|------|-------|
+| Diameter | 38mm |
+| Total Impulse | 658 Ns |
+| Avg Thrust | 420 N |
+| Burn Time | 1.6 s |
+| Propellant | Redline |
+| Case | RMS-38/720 |
+| Total Mass | 635 g |
+
+!!! note "Motor Classifications"
+    - **H class**: 160-320 Ns total impulse
+    - **J class**: 640-1280 Ns total impulse
     - **EU Pyrotechnics**: P2 (requires specialist knowledge)
 
-## Launch Event
+## Launch Events
 
-- [Raketflygdag Långtora 24 Jan 2026](https://smrk.space/kalender/raketflygdag-langtora_20260124) - SMRK (Svenska ModellRaketKlubben) event
+- [SMRK - Svenska ModellRaketKlubben](https://smrk.space/) - Swedish Model Rocket Club
+- [Raketflygdag Långtora 24 Jan 2026](https://smrk.space/kalender/raketflygdag-langtora_20260124) - L1 certification flight
+
+## Certification
+
+- [Tripoli Rocketry Association](https://www.tripoli.org/) - Certification organization
+- [Tripoli Lifetime Members](https://tripoli.clubexpress.com/content.aspx?page_id=22&club_id=795696&module_id=494497) - Includes Rolf Örell (TRA# 3728), first European Tripoli Prefect
 
 ## Manufacturer Resources
 
