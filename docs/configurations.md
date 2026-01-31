@@ -2,7 +2,12 @@
 
 ## Overview
 
-The Apogee Peregrine is designed for dual-deployment but can be flown in simplified configuration. This project uses two configurations:
+The Apogee Peregrine is designed for dual-deployment but can be flown in simplified configuration.
+
+!!! success "L1 Certification Complete"
+    **Actual L1 flight (24 Jan 2026):** Full-length configuration (175cm), motor ejection recovery. See [Certification](certification/index.md) for details.
+
+### Planned Configurations
 
 | Level | Configuration | Recovery | Rocket Length |
 |-------|--------------|----------|---------------|
