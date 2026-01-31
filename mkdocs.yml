@@ -124,6 +124,7 @@ nav:
   - Flight:
     - Pre-flight Checklist: flight/checklist.md
     - Flight Log: flight/log.md
+    - Flight #1 Analysis: flight/flight1-analysis.md
   - Photos: photos/index.md
   - Decisions:
     - Overview: decisions/index.md
