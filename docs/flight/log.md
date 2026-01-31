@@ -24,7 +24,7 @@
 | CP location | 130 cm from nose tip |
 | Stability | ~1.5 calibers |
 | Recovery mode | Single deploy (motor ejection) |
-| Delay | ~8s (14s factory - 8s drilled + 2s disk) |
+| Delay | ~8s intended (14s factory - 8s drilled + 2s disk) |
 
 ### Flight Data
 
@@ -34,6 +34,9 @@
 | Burnout velocity | — | 45.69 m/s |
 | Burnout altitude | — | 39.84 m |
 | Burn time | 1.4 s | 1.33 s |
+| Time to apogee | 6.0 s | 5.68 s |
+| Motor delay | 8.0 s | 9.47 s |
+| Deployment after apogee | — | 5.12 s |
 
 Altitude recorded by CATS Vega flight computer (file: fl001.cfl).
 
