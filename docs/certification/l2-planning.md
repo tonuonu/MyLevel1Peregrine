@@ -8,6 +8,8 @@ Target date: **7 February 2026** (tentative, pending motor delivery confirmation
 
 ✅ **Passed** - 27 January 2026, Certificate #2343
 
+![L2 Written Exam Certificate](../photos/l2_written_exam_certificate.jpg)
+
 ## Motor
 
 ### Ordered

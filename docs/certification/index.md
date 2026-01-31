@@ -90,24 +90,6 @@ Special thanks to those who helped make this certification possible:
 3. **Weight matters** - Additional electronics increased weight beyond budget, reducing altitude by ~30%
 4. **Motor procurement** - Cannot transport motors on Tallink passenger ferries (blanket ban on dangerous substances); must purchase locally in Sweden or find alternative transport
 
-## What's Next: L2 Certification
-
-L2 written exam already passed:
-
-| Field | Value |
-|-------|-------|
-| Date | 27 January 2026 |
-| Certificate # | 2343 |
-| Score | Pass (90% required) |
-
-Next step: L2 certification flight with J, K, or L motor.
-
 ## Official Documents
 
-### L1 Certification Form
-
 [Download L1 Certification Form (PDF)](../photos/l1_certification_form.pdf)
-
-### L2 Written Exam Certificate
-
-![L2 Written Exam Certificate](../photos/l2_written_exam_certificate.jpg)
