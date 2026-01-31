@@ -2,67 +2,76 @@
 
 ## Flight Records
 
-*Flight entries will be added here after each flight*
-
 ---
 
-### Flight Template
-
-```markdown
-## Flight #X - YYYY-MM-DD
+## Flight #1 - 2026-01-22 (L1 Certification)
 
 ### Conditions
+
 | Parameter | Value |
 |-----------|-------|
-| Location | |
-| Temperature | °C |
-| Wind | mph, direction |
-| Cloud cover | |
+| Location | Enköping, Sweden |
+| Weather | Winter, snow on ground |
+| Event | SMRK Launch Day |
 
 ### Configuration
+
 | Parameter | Value |
 |-----------|-------|
-| Motor | |
-| Liftoff weight | lbs |
-| CG location | inches from nose |
-| Recovery mode | Single/Dual deploy |
-| Rail length | ft |
+| Motor | AeroTech H128W-14A |
+| Liftoff weight | 2350 g |
+| CG location | 115 cm from nose tip |
+| CP location | 130 cm from nose tip |
+| Stability | ~1.5 calibers |
+| Recovery mode | Single deploy (motor ejection) |
+| Delay | ~8s (14s factory - 8s drilled + 2s disk) |
 
 ### Flight Data
-| Parameter | Value |
-|-----------|-------|
-| Apogee | ft AGL |
-| Max velocity | ft/s |
-| Time to apogee | s |
-| Deployment altitude | ft |
-| Total flight time | s |
+
+| Parameter | Predicted | Actual |
+|-----------|-----------|--------|
+| Apogee | 208 m | 140.8 m |
+
+Altitude recorded by CATS Vega flight computer.
 
 ### Results
-- [ ] Successful launch
-- [ ] Stable flight
-- [ ] Recovery deployed
-- [ ] Recovered intact
+
+- [x] Successful launch
+- [x] Stable flight
+- [x] Recovery deployed
+- [x] Recovered intact
+- [x] **L1 CERTIFICATION ACHIEVED**
 
 ### Notes
 
+Originally planned dual deployment with CATS Vega electronic ejection. Pivoted to motor ejection on launch day due to cold weather and Swedish safety requirement for ejection charge ground testing.
+
+Lower than predicted altitude (~32% reduction) attributed to unplanned additional weight:
+
+- Two flight computers instead of one
+- Additional LiPo batteries
+- Other small items
+
+Delay adjustment lesson learned: the +2s disk was in the delay tool during drilling, resulting in ~8s delay instead of planned 6s. Flight still successful - deployed past apogee during descent.
+
+### Certification
+
+| Field | Value |
+|-------|-------|
+| Certification | Tripoli L1 |
+| Certifying Authority | Rolf Örell (TRA# 3728) |
+| Flyer | Tõnu Samuel (TRA# 38105) |
 
 ### Photos
 
-```
+Launch photo and recovery photo with Liza holding "SIPSIK" rocket - see certification documentation.
 
 ---
 
-## Certification Flight
+## Future Flights
 
-**Tripoli L1 Certification Attempt**
+### Planned: L2 Certification Flight
 
-| Parameter | Value |
-|-----------|-------|
-| Planned Date | Saturday, 24 January 2026 |
-| Backup Date | Sunday, 25 January 2026 |
-| Location | [Långtora Airfield, Sweden](https://smrk.space/kalender/raketflygdag-langtora_20260124) |
-| Organization | Tripoli |
-| Witness (TAP/Prefect) | TBD |
-| Motor planned | [AeroTech H128W](https://www.thrustcurve.org/motors/AeroTech/H128W/) |
-| Result | *Pending* |
-| Certification # | *Pending* |
+- L2 written exam passed (27 January 2026, Certificate #2343)
+- Motor class: J, K, or L required
+- Location: Sweden (motor procurement constraint)

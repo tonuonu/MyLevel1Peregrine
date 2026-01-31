@@ -1,6 +1,19 @@
 # MyLevel1Peregrine Project Overview
 
-## Launch Plan
+## Status: L1 CERTIFIED ✓
+
+Certification achieved 22 January 2026 at Enköping, Sweden. L2 written exam passed 27 January 2026.
+
+## Certification Flight Summary
+- **Date**: 22 January 2026
+- **Location**: Enköping, Sweden (SMRK event)
+- **Motor**: AeroTech H128W-14A
+- **Altitude**: 140.8 m (predicted 208 m - extra weight from dual flight computers)
+- **Recovery**: Motor ejection (pivoted from planned electronic dual-deploy due to cold weather)
+- **Certifying Authority**: Rolf Örell (TRA# 3728, first European Tripoli Prefect)
+- **Helpers**: Peter Steen, Anton Vannesjö
+
+## Original Launch Plan
 - **Date**: Saturday, 24 January 2026 (Sunday backup for weather)
 - **Location**: Långtora Airfield, Sweden ([SMRK event](https://smrk.space/kalender/raketflygdag-langtora_20260124))
 - **Motor**: AeroTech H128W (29mm, White Lightning) - purchased locally in Sweden
@@ -14,11 +27,28 @@ Documentation repository for a Tripoli Level 1 certification rocket build using 
 - **Diagrams**: Mermaid for flowcharts
 - **Hosting**: GitHub Pages static site
 
-## Key Rocket Specifications
+## Rocket Configurations
+
+| Config | Length | Recovery | Stability | Use |
+|--------|--------|----------|-----------|-----|
+| **L1** | 126 cm | Motor ejection | ~1.0 cal (with ballast) | Certification |
+| **L2** | 175 cm | CATS Vega dual-deploy | 3.69 cal | After L1 cert |
+
+## L1 Configuration Details
+- Shortened airframe (no e-bay section)
+- Nose ballast required (~600g epoxy) for stability
+- Motor: AeroTech H128W-14
+- Rail: 180cm minimum
+- Rail exit velocity: 16.6 m/s ✓
+- Stability at exit: 1.0 cal ✓
+- Thrust-to-weight: 5.6:1 ✓
+- Expected apogee: ~235m
+
+## Key Rocket Specifications (Full L2)
 - Length: 68.8" (175 cm)
-- Diameter: 4.0" (98mm)
+- Diameter: 4.0" (102mm OD, 99.1mm ID)
 - Motor mount: 38mm (29mm with adapter)
-- Weight: ~5+ lbs dry
+- Weight: ~1900g L2, ~2100g L1 (with ballast)
 - Dual deployment capable
 
 ## Known Discrepancies (Packaging vs Website)
@@ -35,10 +65,13 @@ Documentation repository for a Tripoli Level 1 certification rocket build using 
 
 ## Structure
 - `docs/` - MkDocs markdown content
-- `docs/photos/` - Build photos with documentation (IMG_7726-7729 = packaging)
-- `docs/decisions/` - Decision log entries (why Sweden, motor procurement, flight computer, etc.)
-- `docs/references.md` - External links (Rocketry Forum threads, purchase source)
-- `openrocket/` - .ork simulation files
+- `docs/configurations.md` - L1 vs L2 comparison
+- `docs/photos/` - Build photos with documentation
+- `docs/decisions/` - Decision log entries
+- `openrocket/` - .ork simulation files (PeregrineL1.ork)
+- `openscad/` - 3D printable parts
+  - `PeregrineNoseCone.scad` - Simple ballast-only nose cone
+  - `PeregrineNoseConeElectronics.scad` - Nose cone with CATS Vega mount
 - `mkdocs.yml` - Site configuration
 
 ## External Resources

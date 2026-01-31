@@ -2,7 +2,7 @@
 
 <div class="hero" markdown>
 
-**Tripoli Level 1 Certification Build**
+**Tripoli Level 1 Certified** ✓
 
 Apogee Peregrine dual deployment rocket • Tripoli #38105 • Estonia → Sweden
 
@@ -13,69 +13,70 @@ Apogee Peregrine dual deployment rocket • Tripoli #38105 • Estonia → Swede
 <div class="grid" markdown>
 
 <div class="card" markdown>
-### Quick Specs
+### Rocket Specs
 | | |
 |---|---|
-| **Length** | 68.8" (175 cm) |
-| **Diameter** | 4.0" (98mm) |
-| **Weight** | ~5+ lbs (~2.3 kg) |
-| **Motor** | H128W (29mm) |
-| **Recovery** | Dual deployment |
+| **Length** | 175 cm |
+| **Diameter** | 100 mm |
+| **Weight** | 2350 g |
+| **Motor** | H128W-14A |
+| **Recovery** | Motor ejection |
 </div>
 
 <div class="card" markdown>
-### Launch Plan
+### Certification Flight
 | | |
 |---|---|
-| **Date** | 24 Jan 2026 |
-| **Backup** | 25 Jan 2026 |
-| **Location** | Långtora, Sweden |
-| **Club** | [SMRK](https://smrk.space/) |
+| **Date** | 22 Jan 2026 |
+| **Location** | Enköping, Sweden |
+| **Altitude** | 140.8 m |
+| **Witness** | Rolf Örell |
 </div>
 
 <div class="card" markdown>
 ### Status
-<span class="status status-inprogress">Build in Progress</span>
+<span class="status status-complete">L1 CERTIFIED</span>
 
-Tripoli membership: **Active**  
-Cert level: **0** → L1 attempt
+Tripoli #38105  
+L2 written exam: **Passed**
 </div>
 
 </div>
 
 ---
 
-## Documentation Purpose
+## Mission Accomplished
 
-This site documents everything for my L1 certification attempt:
+This rocket, named **SIPSIK** after the beloved Estonian cartoon character, successfully flew on 22 January 2026 at Enköping, Sweden, achieving Tripoli L1 certification.
 
-1. **CRO Review** — Calculations and formulas for verification
-2. **Build Evidence** — Photo documentation of construction quality
-3. **Decision Record** — Reasoning behind technical choices
+### The Story Behind Sipsik
 
-## Sections
+The blue rocket connects to Estonian children's culture: in the Sipsik cartoon, a girl named Anu and her brother Mart build a cardboard rocket hoping to send their toy Sipsik to the moon. This rocket teaches my daughters Liza (5) and Elsa (2) how we *actually* send rockets to the sky.
+
+## Documentation
+
+This site documents the complete build and certification process:
 
 | Section | Description |
 |---------|-------------|
-| [**Certification**](certification/index.md) | Tripoli membership, L1 requirements |
-| [**Specifications**](specifications/overview.md) | Detailed rocket specs and kit contents |
+| [**Certification**](certification/index.md) | L1 achieved, L2 exam passed |
+| [**Flight Log**](flight/log.md) | Flight #1 data and analysis |
+| [**Specifications**](specifications/overview.md) | Detailed rocket specs |
 | [**Construction**](construction/build-log.md) | Build progress and techniques |
-| [**Calculations**](calculations/stability.md) | Stability, ejection charges, vent holes |
-| [**Simulations**](simulations/openrocket.md) | OpenRocket files and predictions |
-| [**Motor Selection**](simulations/motors.md) | H128W specs and safety data |
-| [**Flight**](flight/checklist.md) | Pre-flight checklist and log |
+| [**Calculations**](calculations/stability.md) | Stability, ejection charges |
+| [**Simulations**](simulations/openrocket.md) | OpenRocket predictions |
 | [**Photos**](photos/index.md) | Build and flight photography |
 | [**Decisions**](decisions/index.md) | Key technical decisions |
 
-## L1 Requirements
+## Acknowledgments
 
-Per Tripoli certification standards:
+- **Rolf Örell** (TRA# 3728) — Certifying authority, first European Tripoli Prefect
+- **Peter Steen** — Launch support and guidance
+- **Anton Vannesjö** — Launch support and guidance
 
-- [x] Tripoli membership (Senior, insured)
-- [x] H or I class motor selected
-- [x] Rocket built by flyer
-- [ ] Successful flight with recovery
-- [ ] Witnessed by TAP/Prefect
+## What's Next
+
+L2 certification flight — written exam already passed (27 Jan 2026, Certificate #2343).
 
 ---
 

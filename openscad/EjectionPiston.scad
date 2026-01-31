@@ -17,7 +17,7 @@ body_tube_id = 99.1;
 
 // Clearance between piston and tube wall (mm per side)
 // Too tight = sticks, too loose = gas blows past
-piston_clearance = 0.8;
+piston_clearance = 0.1;
 
 /* [Piston Dimensions] */
 // Total piston height (mm)
@@ -27,7 +27,7 @@ piston_height = 35;
 cup_depth = 20;
 
 // Cup wall thickness (mm)
-cup_wall = 3.0;
+cup_wall = 5.0;
 
 // Base thickness below cup (mm)
 base_thickness = 5;
@@ -54,7 +54,7 @@ washer_recess_depth = 2;
 
 /* [Vent Holes] */
 // Include vent holes (REQUIRED - prevents vacuum lock during descent)
-include_vents = true;
+include_vents = false;
 
 // Number of vent holes
 vent_count = 6;
@@ -67,7 +67,7 @@ vent_radius = 30;
 
 /* [O-Ring Seal (Optional)] */
 // Include O-ring groove for better gas seal
-include_oring = false;
+include_oring = true;
 
 // O-ring cross-section diameter (mm) - standard 3mm
 oring_dia = 3;
@@ -108,7 +108,7 @@ module piston_body() {
 // This captures ejection gas pressure
 module cup_cavity() {
     translate([0, 0, base_thickness])
-    cylinder(h = cup_depth + 1, r = cup_ir, $fn = $fn);
+    cylinder(h = cup_depth + 11, r = cup_ir, $fn = $fn);
 }
 
 // Center hole for shock cord
