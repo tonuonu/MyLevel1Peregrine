@@ -1,0 +1,26 @@
+Flight #1 Stats
+========================
+  Height
+    Time Since Bootup: 284020
+    Max. Height [m]: 141.5776672363
+========================
+  Velocity
+    Time Since Bootup: 279570
+    Max. Velocity [m/s]: 46.2403678894
+========================
+  Acceleration
+    Time Since Bootup: 278550
+    Max. Acceleration [m/s^2]: 44.3949623108
+========================
+  Calibration Values
+    Height_0 [m ASL]: -96.1238861084
+    IMU:
+      Angle: 1.0097656250
+      Axis: 1
+    Gyro:
+      x [dps]: -0.5375998020
+      y [dps]: -0.4858001471
+      z [dps]: -0.7426991463
+========================
+  Liftoff Time: 11:20:49 UTC
+========================
