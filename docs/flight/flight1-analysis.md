@@ -25,6 +25,12 @@ Data from CATS Vega log file `fl001.cfl`:
 
 **Deployment after apogee**: 5.12s
 
+## Telemetry Charts
+
+![Flight #1 Telemetry](flight1_charts.png)
+
+*Altitude, velocity, boost phase, and parachute deployment profiles from CATS Vega data.*
+
 ## Accelerometer Deployment Signature
 
 The parachute deployment is clearly visible in the raw accelerometer data as a sudden deceleration shock:
