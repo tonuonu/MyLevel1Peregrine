@@ -2,10 +2,10 @@
 
 ## Status: L1 CERTIFIED ✓
 
-Certification achieved 22 January 2026 at Enköping, Sweden. L2 written exam passed 27 January 2026.
+Certification achieved 24 January 2026 at Enköping, Sweden. L2 written exam passed 27 January 2026.
 
 ## Certification Flight Summary
-- **Date**: 22 January 2026
+- **Date**: 24 January 2026
 - **Location**: Enköping, Sweden (SMRK event)
 - **Motor**: AeroTech H128W-14A
 - **Altitude**: 140.8 m (predicted 208 m - extra weight from dual flight computers)

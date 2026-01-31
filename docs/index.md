@@ -27,7 +27,7 @@ Apogee Peregrine dual deployment rocket • Tripoli #38105 • Estonia → Swede
 ### Certification Flight
 | | |
 |---|---|
-| **Date** | 22 Jan 2026 |
+| **Date** | 24 Jan 2026 |
 | **Location** | Enköping, Sweden |
 | **Altitude** | 140.8 m |
 | **Witness** | Rolf Örell |
@@ -47,7 +47,7 @@ L2 written exam: **Passed**
 
 ## Mission Accomplished
 
-This rocket, named **SIPSIK** after the beloved Estonian cartoon character, successfully flew on 22 January 2026 at Enköping, Sweden, achieving Tripoli L1 certification.
+This rocket, named **SIPSIK** after the beloved Estonian cartoon character, successfully flew on 24 January 2026 at Enköping, Sweden, achieving Tripoli L1 certification.
 
 ### The Story Behind Sipsik
 

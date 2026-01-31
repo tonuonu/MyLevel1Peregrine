@@ -1,6 +1,6 @@
 # L1 Certification: Mission Accomplished
 
-*22 January 2026, Enköping, Sweden*
+*24 January 2026, Enköping, Sweden*
 
 ## Sipsik Goes to the Sky
 
@@ -20,9 +20,7 @@ Why Sweden for an Estonian's L1 certification? Practical reasons:
 
 Took the car on the Tallinn-Stockholm ferry, then drove to Enköping.
 
-The launch was originally planned for 24 January with 25 January as weather backup, but flew on 22nd instead.
-
-<!-- TODO: Why 22nd instead of 24th? Weather window? Schedule change? -->
+The launch was on 24 January as originally planned.
 
 ## Launch Day
 
@@ -114,7 +112,7 @@ The journey continues.
 
 | Parameter | Value |
 |-----------|-------|
-| Date | 22 January 2026 |
+| Date | 24 January 2026 |
 | Location | Enköping, Sweden |
 | Event | SMRK Launch Day |
 | Motor | AeroTech H128W-14A |

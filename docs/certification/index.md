@@ -2,7 +2,7 @@
 
 ## Status: CERTIFIED ✓
 
-**Tripoli Level 1 - Certified 22 January 2026**
+**Tripoli Level 1 - Certified 24 January 2026**
 
 ## Tripoli Membership
 
@@ -21,7 +21,7 @@
 
 | Parameter | Value |
 |-----------|-------|
-| Date | 22 January 2026 |
+| Date | 24 January 2026 |
 | Location | Enköping, Sweden |
 | Organization | SMRK (Swedish Model Rocket Club) |
 | Motor | AeroTech H128W-14A |

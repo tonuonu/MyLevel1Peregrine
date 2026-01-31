@@ -4,7 +4,7 @@
 
 ---
 
-## Flight #1 - 2026-01-22 (L1 Certification)
+## Flight #1 - 2026-01-24 (L1 Certification)
 
 ### Conditions
 
