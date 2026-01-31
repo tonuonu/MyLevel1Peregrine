@@ -4,7 +4,7 @@ Detailed analysis of CATS Vega telemetry data from the L1 certification flight.
 
 ## Problem Statement
 
-Simulation predicted 208m apogee, flight computer logged 141.58m — a 32% shortfall.
+Simulation predicted 208m apogee, flight computer logged 141.5m — a 32% shortfall.
 
 ## Flight Event Timeline
 
@@ -13,23 +13,38 @@ Data from CATS Vega log file `fl001.cfl`:
 | Event | Time (ms) | From Liftoff | Altitude (m) | Velocity (m/s) |
 |-------|-----------|--------------|--------------|----------------|
 | Liftoff | 278340 | 0.00s | 0 | 0 |
-| Burnout | 279670 | 1.33s | 39.84 | 45.69 |
-| Apogee | 284020 | 5.68s | 141.58 | 0 |
-| Drogue | 284320 | 5.98s | 141.41 | — |
-| Main | 284630 | 6.29s | 141.43 | — |
-| Deployment (accel) | 289145 | 10.80s | — | — |
+| Max Velocity | 279570 | 1.23s | — | 46.2 |
+| Burnout | 279670 | 1.33s | 39.84 | — |
+| Apogee | 283990 | 5.65s | 141.5 | 0 |
+| Drogue | 284320 | 5.98s | 141.4 | — |
+| Main | 284630 | 6.29s | 141.4 | — |
+| Deployment (accel) | 289130 | 10.79s | — | — |
+| Landing | 301200 | 22.86s | 0 | -5.5 |
 
 **Burn time**: 1.33s (matches H128W specification of ~1.4s)
 
-**Motor delay**: 9.47s (from burnout to deployment shock in accelerometer)
+**Motor delay**: 9.46s (from burnout to deployment shock in accelerometer)
 
-**Deployment after apogee**: 5.12s
+**Deployment after apogee**: 5.14s
 
 ## Telemetry Charts
 
 ![Flight #1 Telemetry](flight1_charts.png)
 
 *Altitude, velocity, boost phase, and parachute deployment profiles from CATS Vega data.*
+
+## Data Format Notes
+
+The CATS Vega .cfl binary log contains multiple record types. For telemetry analysis:
+
+| Record Type | Value | Contents | Use |
+|-------------|-------|----------|-----|
+| FLIGHT_INFO | 0x40 (64) | height, **velocity**, acceleration | Kalman filter output - use for velocity! |
+| FILTERED_DATA_INFO | 0x100 (256) | altitude, **acceleration** | Median filtered - NOT velocity |
+| IMU | 0x10 (16) | raw accelerometer, gyroscope | Deployment shock detection |
+
+**Important**: The velocity data comes from FLIGHT_INFO records, not FILTERED_DATA_INFO. 
+See `recorder.hpp` in [cats-embedded](https://github.com/catsystems/cats-embedded/blob/main/flight_computer/src/flash/recorder.hpp) for details.
 
 ## Accelerometer Deployment Signature
 
@@ -45,7 +60,7 @@ The parachute deployment is clearly visible in the raw accelerometer data as a s
 
 The ~7000 LSB change in 30ms represents the sudden deceleration as the parachute opens and catches air. This provides independent confirmation of deployment timing separate from the barometric data.
 
-**Note**: The actual motor delay (9.47s) was longer than intended (8s), possibly due to cold weather (-5°C) slowing the delay grain burn rate.
+**Note**: The actual motor delay (9.46s) was longer than intended (8s), possibly due to cold weather (-5°C) slowing the delay grain burn rate.
 
 ## Root Cause Analysis
 
@@ -53,8 +68,9 @@ The ~7000 LSB change in 30ms represents the sudden deceleration as the parachute
 
 Physics verification using burnout conditions:
 
-- Burnout velocity: 45.69 m/s at 39.84m altitude
-- Theoretical maximum (no drag): $h = \frac{v^2}{2g} + h_0 = \frac{45.69^2}{2 \times 9.81} + 39.84 = 146\text{m}$
+- Max velocity: 46.2 m/s at 1.23s (during motor burn)
+- Burnout altitude: ~40m
+- Theoretical coast (no drag): $h = \frac{v^2}{2g} + h_0 = \frac{46.2^2}{2 \times 9.81} + 40 = 149\text{m}$
 - To reach 208m would require burnout velocity of ~58-60 m/s
 
 **Conclusion**: Rocket was significantly heavier than simulation assumed. Additional mass from:
@@ -95,8 +111,8 @@ The internal pressure cannot equalize fast enough, causing the barometer to "see
 
 | Parameter | Simulated | Actual | Difference |
 |-----------|-----------|--------|------------|
-| Time to apogee | 6.0s | 5.68s | -0.32s (5% faster) |
-| Motor delay | 8.0s | 9.47s | +1.47s (18% slower) |
+| Time to apogee | 6.0s | 5.65s | -0.35s (6% faster) |
+| Motor delay | 8.0s | 9.46s | +1.46s (18% slower) |
 
 The simulation was accurate on flight timing — the altitude shortfall is primarily from mass discrepancy, not aerodynamics. The longer motor delay is likely due to cold weather affecting the delay grain burn rate.
 
