@@ -104,5 +104,10 @@ Next step: L2 certification flight with J, K, or L motor.
 
 ## Official Documents
 
-- Tripoli L1 Certification Form (signed by Rolf Örell)
-- Tripoli L2 Written Exam Certificate
+### L1 Certification Form
+
+[Download L1 Certification Form (PDF)](../photos/l1_certification_form.pdf)
+
+### L2 Written Exam Certificate
+
+![L2 Written Exam Certificate](../photos/l2_written_exam_certificate.jpg)
