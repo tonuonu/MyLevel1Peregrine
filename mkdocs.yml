@@ -98,7 +98,9 @@ extra_javascript:
 nav:
   - Home: index.md
   - Configurations: configurations.md
-  - Certification: certification/index.md
+  - Certification:
+    - L1 Certified: certification/index.md
+    - L2 Planning: certification/l2-planning.md
   - Rocket Specifications:
     - Overview: specifications/overview.md
     - Kit Contents: specifications/kit-contents.md
@@ -133,4 +135,7 @@ nav:
     - Rail Guides: decisions/rail-guides.md
     - Color and Purpose: decisions/color-and-purpose.md
     - Flight Computer: decisions/flight-computer.md
+  - Blog:
+    - Posts: blog/index.md
+    - L1 Certification: blog/2026-01-24-l1-certification.md
   - References: references.md

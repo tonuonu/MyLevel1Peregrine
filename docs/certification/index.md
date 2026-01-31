@@ -1,5 +1,9 @@
 # L1 Certification
 
+## Status: CERTIFIED ✓
+
+**Tripoli Level 1 - Certified 24 January 2026**
+
 ## Tripoli Membership
 
 ![Tripoli Membership Card](../photos/tripoli_card.jpg)
@@ -8,32 +12,102 @@
 |-------|-------|
 | Organization | Tripoli Rocketry Association |
 | Member Number | 38105 |
-| Status | Sr. Member - Insured |
-| Current Cert Level | 0 |
+| Status | L1 Certified |
 | Expires | November 2026 |
 
-## L1 Requirements
+## L1 Certification Flight
 
-Per Tripoli certification standards:
+### Flight Details
 
-- Successfully fly and recover a rocket using an H or I motor
-- Witnessed by a Tripoli Prefect or TAP member
-- Rocket must be built by the flyer (kits allowed)
-- Safe flight with successful recovery
+| Parameter | Value |
+|-----------|-------|
+| Date | 24 January 2026 |
+| Location | Enköping, Sweden |
+| Organization | SMRK (Swedish Model Rocket Club) |
+| Motor | AeroTech H128W-14A |
+| Result | **Successful** |
 
-## Certification Attempt
+### Rocket Configuration
 
-*Pending - See [Flight Log](../flight/log.md)*
+| Parameter | Value |
+|-----------|-------|
+| Kit | Apogee Peregrine |
+| Length | 175 cm |
+| Diameter | 100 mm |
+| Liftoff weight | 2350 g |
+| CG | 115 cm from nose tip |
+| CP | 130 cm from nose tip |
+| Stability margin | 15 cm (~1.5 calibers) |
 
-### Planned Details
+### Flight Data
 
-- **Location**: Sweden (see [Why Sweden](../decisions/why-sweden.md))
-- **Rocket**: Apogee Peregrine
-- **Motor**: AeroTech H128W (see [Motor Procurement](../decisions/motor-procurement.md))
+| Parameter | Predicted | Actual |
+|-----------|-----------|--------|
+| Apogee | 208 m | **140.8 m** |
+| Recovery | Dual electronic | Motor ejection |
 
-## Post-Certification
+The lower actual altitude was likely due to additional unplanned weight (two flight computers, LiPo batteries, etc.) beyond the original weight budget.
 
-After L1, eligible for:
+### Electronics
 
-- L2 certification (J, K, L motors)
-- Eventually L3 (M+ motors)
+| Device | Purpose | Notes |
+|--------|---------|-------|
+| CATS Vega | Primary flight computer | Data logging only - not used for deployment |
+| Friend's logger | Backup data logging | Additional altitude verification |
+
+### Recovery Configuration
+
+Originally planned dual deployment with electronic ejection. Pivoted to motor ejection on launch day due to:
+
+1. Cold weather conditions
+2. Swedish safety rules requiring ejection charge testing before flight
+3. Simplified approach for certification flight
+
+**Delay adjustment**: H128W-14A has 14s factory delay. Calculated 6s needed for 208m apogee. Drilled out 8 seconds, but unknowingly had +2s disk in delay adjustment tool. Actual delay ~8 seconds - still successful deployment past apogee.
+
+### Certifying Authority
+
+| Field | Value |
+|-------|-------|
+| Name | Rolf Örell |
+| TRA # | 3728 |
+| Role | Tripoli Prefect |
+
+Rolf is one of Tripoli's [Lifetime Members](https://tripoli.clubexpress.com/content.aspx?page_id=22&club_id=795696&module_id=494497) and reportedly the first Tripoli Prefect in Europe.
+
+## Acknowledgments
+
+Special thanks to those who helped make this certification possible:
+
+- **Rolf Örell** - Certifying authority, signed the certificate
+- **Peter Steen** - Launch support and guidance  
+- **Anton Vannesjö** - Launch support and guidance
+
+## Lessons Learned
+
+1. **Know your tools** - The Aerotech delay adjustment tool has a +2s disk; understand all components before launch day
+2. **Swedish launch requirements** - Ejection charge testing required; plan for motor ejection as fallback
+3. **Weight matters** - Additional electronics increased weight beyond budget, reducing altitude by ~30%
+4. **Motor procurement** - Cannot transport motors on Tallink passenger ferries (blanket ban on dangerous substances); must purchase locally in Sweden or find alternative transport
+
+## What's Next: L2 Certification
+
+L2 written exam already passed:
+
+| Field | Value |
+|-------|-------|
+| Date | 27 January 2026 |
+| Certificate # | 2343 |
+| Score | Pass (90% required) |
+
+Next step: L2 certification flight with J, K, or L motor.
+
+## Official Documents
+
+### L1 Certification Form
+
+[Download L1 Certification Form (PDF)](../photos/l1_certification_form.pdf)
+
+### L2 Written Exam Certificate
+
+![L2 Written Exam Certificate](../photos/l2_written_exam_certificate.jpg)

@@ -10,7 +10,7 @@
 body_tube_od = 102;
 
 // Body tube inner diameter (mm)
-body_tube_id = 99.1;
+body_tube_id = 99.3;
 
 // Nose cone length (mm) - typically 3-5 calibers
 // 150mm = 1.5 calibers (blunter, more drag, slower flight)
@@ -39,7 +39,7 @@ ogive_factor = 1.0;
 
 /* [CATS Vega Flight Computer] */
 // Include CATS Vega mount
-include_vega_mount = true;
+include_vega_mount = false;
 
 // CATS Vega PCB length (mm) - from catsystems.io specs
 vega_length = 100;
