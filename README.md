@@ -1,54 +1,70 @@
 # Peregrine L1
 
-Documentation for my Tripoli Level 1 certification attempt using the Apogee Peregrine dual deployment rocket.
+**L1 CERTIFIED** ✓ — 24 January 2026, Enköping, Sweden
+
+Documentation for my Tripoli Level 1 certification using the Apogee Peregrine dual deployment rocket, named **SIPSIK** after the beloved Estonian cartoon character.
 
 **📖 Documentation Site: [tonuonu.github.io/MyLevel1Peregrine](https://tonuonu.github.io/MyLevel1Peregrine/)**
 
-## Quick Info
+## L1 Certification Flight
 
 | | |
 |---|---|
-| **Rocket** | Apogee Peregrine |
-| **Motor** | AeroTech H128W (29mm) |
-| **Launch Date** | 24 January 2026 |
-| **Location** | Långtora, Sweden ([SMRK](https://smrk.space/)) |
-| **Tripoli #** | 38105 |
+| **Date** | 24 January 2026 |
+| **Location** | Enköping, Sweden (SMRK) |
+| **Motor** | AeroTech H128W-14A |
+| **Altitude** | 140.8 m |
+| **Recovery** | Motor ejection, single chute |
+| **Certifying Authority** | Rolf Örell (TRA# 3728) |
+| **Result** | **CERTIFIED** |
+
+## Next: L2 Certification
+
+| | |
+|---|---|
+| **Written Exam** | ✅ Passed (27 Jan 2026) |
+| **Target Flight** | 7 February 2026 (tentative) |
+| **Motor** | AeroTech J420R-14A (ordered) |
 
 ## Repository Contents
 
 - `docs/` — MkDocs documentation source
-- `openrocket/` — OpenRocket simulation files
-- `openscad/` — 3D printable parts (nose cone with CATS Vega mount)
+- `openrocket/` — OpenRocket simulation files (.ork)
+- `openscad/` — 3D printable parts:
+  - Nose cone with CATS Vega mount
+  - Motor retainer
+  - Mass dummy motors (H128W, J420R) for ground testing
 - `.github/workflows/` — CI for automatic deployment
 
-## L1 Configuration
+## Rocket Specs
 
-Flying in simplified configuration for certification:
-- Shortened airframe (126cm vs 175cm full length)
-- Motor ejection (no electronics)
-- Nose ballast (~600g epoxy) for stability
-- Single 48" main parachute
+| | |
+|---|---|
+| **Kit** | Apogee Peregrine |
+| **Length** | 175 cm |
+| **Diameter** | 100 mm |
+| **Motor mount** | 38mm (29mm with adapter) |
+| **Flight computer** | CATS Vega |
+| **Tripoli #** | 38105 |
 
-**Flight Parameters:**
-- Rail exit velocity: 16.6 m/s (180cm rail)
-- Stability: 1.0 caliber
-- Expected apogee: ~235m
+## Hardware
 
-## Documentation Sections
+Motor casings purchased from Rolf Örell:
+- **38/720** — J motors (L2 certification)
+- **29/180** — H motors (L1 class)
 
-- **Certification** — Tripoli membership, L1 requirements
-- **Specifications** — Rocket specs, kit contents, dimensions
-- **Construction** — Build log, motor mount, fins, e-bay
-- **Calculations** — Stability, ejection charges, vent holes
-- **Simulations** — OpenRocket results, motor selection
-- **Decisions** — Technical choices and reasoning
+## The Story
+
+This blue rocket teaches my daughters Liza (5) and Elsa (2) real engineering through the Estonian cartoon character Sipsik. In the cartoon, siblings build a cardboard rocket to send their toy to the moon. Now we're doing it for real.
+
+A small "Sipsik of Sipsik" flew on the L1 certification flight — the real doll was too valuable to risk.
 
 ## Local Development
 
 ```bash
 # Install MkDocs
 brew install mkdocs
-brew install mkdocs-material
+pip install mkdocs-material --break-system-packages
 
 # Serve locally
 mkdocs serve
