@@ -76,7 +76,13 @@ This site documents the complete build and certification process:
 
 ## What's Next
 
-L2 certification flight — written exam already passed (27 Jan 2026, Certificate #2343).
+**L2 certification flight** — target 7 February 2026 (tentative)
+
+- Written exam passed (27 Jan 2026, Certificate #2343)
+- Motor ordered: AeroTech J420R-14A
+- Hardware: 38/720 and 29/180 casings purchased from Rolf
+
+See [L2 Planning](certification/l2-planning.md) for details.
 
 ---
 

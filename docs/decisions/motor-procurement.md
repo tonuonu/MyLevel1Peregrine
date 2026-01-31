@@ -35,15 +35,13 @@ Even if legally obtained in Estonia:
 - Each country may have different rules
 - Additional bureaucratic overhead for one-time use
 
-### Ferry Transport Risk Assessment
+### Ferry Transport - Confirmed Ban
 
-Considered taking motor by car on Tallink ferry to Sweden:
+Contacted Tallink to inquire about procedure for transporting rocket motors.
 
-- Would require one-time permission from Tallink
-- From ferry operator's perspective: risk/reward doesn't make sense
-- Small theoretical incident = millions in losses
-- ~100 EUR ticket revenue not worth any risk
-- Would likely be denied
+**Result**: Blanket ban on dangerous substances on passenger ferries. No procedure exists, no exceptions.
+
+Cargo ferries might allow it, but Tallink operates no cargo ferries on the Estonia-Sweden route.
 
 ### Swedish Solution
 
@@ -57,3 +55,22 @@ Contacted Swedish Tripoli members who confirmed:
 ## Outcome
 
 Motor will be purchased at or near launch site in Sweden. Eliminates all transport and regulatory complications.
+
+## Hardware Acquired
+
+Purchased Aerotech reloadable motor casings from Rolf Örell (Sweden):
+
+| Casing | Diameter | Max Impulse | Use |
+|--------|----------|-------------|-----|
+| **38/720** | 38mm | 720 N-s | J motors (L2 certification) |
+| **29/180** | 29mm | 180 N-s | H motors (L1 class flights) |
+
+Casings are reusable - only reload kits needed for future flights. More economical long-term than single-use motors.
+
+## L2 Motor Procurement
+
+For L2 certification attempt (target: 7 February 2026):
+
+- Ordered [AeroTech J420R-14A](https://www.spacerockettechnology-shop.de/en/J420R-14A.html) from Space Rocket Technology (Germany)
+- Shipping to Peter Steen in Sweden
+- Awaiting shipping confirmation

@@ -102,7 +102,9 @@ Five days after the L1 flight, I passed the Tripoli L2 written exam:
 | Date | 27 January 2026 |
 | Certificate # | 2343 |
 
-Next milestone: L2 certification flight with a J, K, or L motor.
+Next milestone: L2 certification flight with a J, K, or L motor. Target date: 7 February 2026.
+
+Motor ordered (AeroTech J420R-14A), casings purchased (38/720, 29/180). Now waiting for shipping confirmation.
 
 The journey continues.
 

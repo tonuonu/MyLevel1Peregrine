@@ -98,7 +98,9 @@ extra_javascript:
 nav:
   - Home: index.md
   - Configurations: configurations.md
-  - Certification: certification/index.md
+  - Certification:
+    - L1 Certified: certification/index.md
+    - L2 Planning: certification/l2-planning.md
   - Rocket Specifications:
     - Overview: specifications/overview.md
     - Kit Contents: specifications/kit-contents.md
