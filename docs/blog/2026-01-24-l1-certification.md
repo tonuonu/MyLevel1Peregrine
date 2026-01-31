@@ -50,7 +50,7 @@ Lesson learned: know your tools before launch day.
 
 ### Flight
 
-First attempt. The certificate comment reads "Beautiful flight" - and it was.
+First attempt. The certificate comment reads "Beautiful low flight" - acknowledging both the successful flight and the lower-than-expected altitude.
 
 **CATS Vega recorded: 140.8 meters**
 
