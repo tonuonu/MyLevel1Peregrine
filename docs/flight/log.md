@@ -11,7 +11,7 @@
 | Parameter | Value |
 |-----------|-------|
 | Location | Enköping, Sweden |
-| Weather | Winter, snow on ground |
+| Weather | Winter, snow on ground, -5°C |
 | Event | SMRK Launch Day |
 
 ### Configuration
@@ -28,11 +28,14 @@
 
 ### Flight Data
 
-| Parameter | Predicted | Actual |
-|-----------|-----------|--------|
-| Apogee | 208 m | 140.8 m |
+| Parameter | Predicted | Actual (CATS) |
+|-----------|-----------|---------------|
+| Apogee | 208 m | 141.58 m |
+| Burnout velocity | — | 45.69 m/s |
+| Burnout altitude | — | 39.84 m |
+| Burn time | 1.4 s | 1.33 s |
 
-Altitude recorded by CATS Vega flight computer.
+Altitude recorded by CATS Vega flight computer (file: fl001.cfl).
 
 ### Results
 
@@ -42,17 +45,17 @@ Altitude recorded by CATS Vega flight computer.
 - [x] Recovered intact
 - [x] **L1 CERTIFICATION ACHIEVED**
 
-### Notes
+### Analysis Summary
 
-Originally planned dual deployment with CATS Vega electronic ejection. Pivoted to motor ejection on launch day due to cold weather and Swedish safety requirement for ejection charge ground testing.
+The 32% altitude shortfall (208m predicted → 141.58m actual) has three identified causes:
 
-Lower than predicted altitude (~32% reduction) attributed to unplanned additional weight:
+1. **Mass discrepancy (primary)**: Burnout velocity of 45.69 m/s at 39.84m gives theoretical max of ~146m (no drag). Reaching 208m would require ~58-60 m/s burnout velocity, indicating rocket was heavier than simulated.
 
-- Two flight computers instead of one
-- Additional LiPo batteries
-- Other small items
+2. **Temperature compensation gap**: MS5607 barometer uses hardcoded 15°C in altitude formula, but flight was at -5°C. This causes +7.5% altitude overestimate (~10m). True apogee approximately 132m.
 
-Delay adjustment lesson learned: the +2s disk was in the delay tool during drilling, resulting in ~8s delay instead of planned 6s. Flight still successful - deployed past apogee during descent.
+3. **Venting lag**: No venting holes in rocket body. Evidence: altitude plateau at apogee (141.4-141.6m for ~1 second), pressure oscillation 100680-100730 Pa for 1.5s. Ascent velocities appear artificially low with only 4.6m apparent drag loss vs expected 15-25m.
+
+See [Flight #1 Analysis](flight1-analysis.md) for detailed telemetry and recommendations.
 
 ### Certification
 
