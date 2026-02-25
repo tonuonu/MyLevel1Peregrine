@@ -13,11 +13,13 @@
 
 ## Motor
 
-Originally planned AeroTech J420R-14A, flew with AeroTech J350.
+Originally ordered an AeroTech J420R-14A reload from [Space Rocket Technology](https://www.spacerockettechnology-shop.de/) (Germany) in late January, to be shipped to Peter Steen in Sweden. A DHL shipping label (CD042602182DE) was created on 4 February 2026, but the package was never actually picked up — no tracking movement after three weeks.
+
+Rolf Örell had some ~25-year-old AeroTech J350 reloads in stock and offered one for the certification flight. It worked perfectly.
 
 | Parameter | Value |
 |-----------|-------|
-| Motor | AeroTech J350 |
+| Motor | AeroTech J350 (~25-year-old reload from Rolf Örell) |
 | Casing | 38/720 (38mm, 720 N-s max) |
 
 ### Hardware
