@@ -4,6 +4,64 @@
 
 ---
 
+## Flight #2 - 2026-02-22 (L2 Certification)
+
+### Conditions
+
+| Parameter | Value |
+|-----------|-------|
+| Location | Enköping, Sweden |
+| Weather | Winter |
+| Event | SMRK Launch Day |
+
+### Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| Motor | AeroTech J350 (~25-year-old reload from Rolf Örell) |
+| Casing | 38/720 |
+| Liftoff weight | 3100 g |
+| CG location | 115 cm from nose tip |
+| CP location | 130 cm from nose tip |
+| Recovery mode | Dual deploy (electronic, CATS Vega) |
+| Drogue | 18" at apogee |
+| Main | 48" at lower altitude |
+
+### Flight Data
+
+| Parameter | Value |
+|-----------|-------|
+| Expected altitude | 1100 m |
+| Actual altitude | ~1000 m (estimated, flight log pending) |
+
+Flight log not yet downloaded from CATS Vega.
+
+### Results
+
+- [x] Successful launch
+- [x] Stable flight
+- [x] Dual deployment worked
+- [x] Recovered intact
+- [x] **L2 CERTIFICATION ACHIEVED**
+
+### Motor Story
+
+Originally ordered an AeroTech J420R-14A from Space Rocket Technology (Germany). DHL shipping label created 4 February but the package was never picked up — no tracking movement after three weeks. Rolf Örell had some ~25-year-old AeroTech J350 reloads in stock and offered one. It worked perfectly.
+
+### Certification
+
+| Field | Value |
+|-------|-------|
+| Certification | Tripoli L2 |
+| Certifying Authority | Rolf Örell (TRA# 3728) |
+| Flyer | Tõnu Samuel (TRA# 38105) |
+
+### Flight Video
+
+See [L2 Certification](../certification/index.md#l2-certification-flight) for video.
+
+---
+
 ## Flight #1 - 2026-01-24 (L1 Certification)
 
 ### Conditions
@@ -71,13 +129,3 @@ See [Flight #1 Analysis](flight1-analysis.md) for detailed telemetry and recomme
 ### Photos
 
 Launch photo and recovery photo with Liza holding "SIPSIK" rocket - see certification documentation.
-
----
-
-## Future Flights
-
-### Planned: L2 Certification Flight
-
-- L2 written exam passed (27 January 2026, Certificate #2343)
-- Motor class: J, K, or L required
-- Location: Sweden (motor procurement constraint)
