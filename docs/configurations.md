@@ -13,7 +13,7 @@ The Apogee Peregrine is designed for dual-deployment but can be flown in simplif
 | Level | Configuration | Recovery | Rocket Length |
 |-------|--------------|----------|---------------|
 | **L1** | Full length, no e-bay deployment | Motor ejection | 175 cm |
-| **L2** | Full length, dual deploy | Electronic dual-deploy | 175 cm |
+| **L2** | Full length, dual deploy | Electronic dual-deploy + motor backup | 175 cm |
 
 ## L1 Configuration (as flown)
 
@@ -50,17 +50,21 @@ Removing e-bay deployment function moves risk profile. See [OpenRocket Analysis]
 - CATS Vega flight computer controlling deployment
 - 18" drogue parachute (upper section)
 - 48" main parachute (lower section)
+- Motor delay charge (14s, unmodified) as safety backup
 
 ### Recovery Sequence
 1. Motor burns out
 2. Rocket coasts to apogee
-3. **Apogee:** Flight computer fires drogue charge
+3. **Apogee:** Flight computer fires drogue charge (electronic #1)
 4. Drogue deploys, fast descent (~15-20 m/s)
-5. **Lower altitude:** Flight computer fires main charge
+5. **Lower altitude:** Flight computer fires main charge (electronic #2)
 6. Main chute deploys, slow descent (~5 m/s)
 7. Rocket lands close to pad
 
+Motor's original 14s delay charge left unmodified as a third, independent backup ejection source.
+
 ### Why Dual Deployment
+- **Required by 500m landing radius constraint** — simulations showed that with main-only recovery from ~1000m, any wind above 4 m/s would carry the rocket beyond the allowed radius
 - Smaller landing footprint
 - Reduced wind drift
 - What Peregrine is designed for
@@ -74,7 +78,9 @@ Removing e-bay deployment function moves risk profile. See [OpenRocket Analysis]
 | CATS Vega | Data logging only | ✓ Controls deployment |
 | Drogue chute | ❌ None | ✓ 18" at apogee |
 | Main chute | ✓ 48" | ✓ 48" at lower altitude |
-| Deployment | Motor delay | Electronic |
+| Electronic charges | ❌ None | ✓ 2× black powder |
+| Motor backup charge | ✓ Primary deployment | ✓ 14s safety backup |
+| Deployment | Motor delay | Electronic + motor backup |
 | Nose ballast | ✓ Included | ✓ Included |
 
 ## Flight Parameters
