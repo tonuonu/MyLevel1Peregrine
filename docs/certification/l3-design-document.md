@@ -44,7 +44,7 @@ Tripoli Level 3 high-power certification using a scratch-built rocket with a sin
 | Dry weight (no motor) | TBD |
 | Liftoff weight (with motor) | TBD |
 | Motor | AeroTech M1350W-PS (75mm, 5178 N-s) |
-| Recovery | Dual deploy, dual redundant electronics, servo-actuated spring release |
+| Recovery | Dual deploy, dual redundant electronics, dual-half bayonet spring release |
 | Expected altitude | TBD |
 | Number of fins | TBD |
 | Fin material | Spectrum PC CF (3D printed polycarbonate + carbon fiber) |
@@ -55,7 +55,7 @@ Tripoli Level 3 high-power certification using a scratch-built rocket with a sin
 - Progressive flight testing on J and L motors before cert flight
 - 3D printed fin can in PC CF with carbon rod reinforcement for flutter resistance
 - Dual redundant electronics as required by Tripoli L3 rules
-- Servo-actuated spring release instead of black powder ejection charges
+- Symmetric dual-half bayonet spring release — one design, two identical halves, true independent redundancy
 - Single-use motor to avoid reloadable hardware risk
 
 ---
@@ -199,11 +199,10 @@ For pre-certification test flights:
 |------|--------------|----------|--------|
 | Drogue parachute | TBD size | 1 | TBD |
 | Main parachute | TBD size | 1 | TBD |
-| Nomex chute protectors | TBD | 2 | TBD |
-| Separation springs | TBD | TBD | TBD |
-| Separation mechanism hardware | TBD (pins/bayonet/hybrid) | TBD | TBD |
-| Servos (separation) | TBD | TBD | TBD |
-| Tether cord (mechanism retention) | TBD | TBD | TBD |
+| Separation springs | TBD | TBD per joint | TBD |
+| Bayonet half (printed) | Spectrum PC CF, identical part | 2 per joint (4 total for dual deploy) | Printed by candidate |
+| Servos (separation) | TBD | 1 per bayonet half (4 total) | TBD |
+| Tether cord (mechanism retention) | TBD | As needed | TBD |
 
 ### 3.3 Electronics
 
@@ -215,8 +214,6 @@ For pre-certification test flights:
 | Battery (backup) | TBD | 1 | TBD |
 | Key switch (primary) | TBD | 1 | TBD |
 | Key switch (backup) | TBD | 1 | TBD |
-| Servos (drogue separation) | TBD | TBD per system | TBD |
-| Servos (main separation) | TBD | TBD per system | TBD |
 
 ### 3.4 Motor
 
@@ -232,21 +229,21 @@ For pre-certification test flights:
 
 ### 4.1 Recovery Architecture
 
-Dual deployment using servo-actuated spring release mechanisms, controlled by dual redundant electronics:
+Dual deployment using symmetric dual-half bayonet release mechanisms with spring separation, controlled by dual redundant electronics:
 
 | Event | Altitude | Device | Action |
 |-------|----------|--------|--------|
-| Apogee | Apogee detection | Primary FC + Backup FC | Servo releases mechanism → spring separates body → drogue deploys |
-| Main | TBD (e.g., 300m AGL) | Primary FC + Backup FC | Servo releases mechanism → spring separates body → main deploys |
+| Apogee | Apogee detection | Primary FC + Backup FC | Either servo releases its bayonet half → spring separates body → drogue deploys |
+| Main | TBD (e.g., 300m AGL) | Primary FC + Backup FC | Either servo releases its bayonet half → spring separates body → main deploys |
 
 ### 4.2 Separation Mechanism Concept
 
 Instead of black powder ejection charges, separation is achieved mechanically:
 
 1. **Springs** are preloaded between body sections during assembly, providing separation force
-2. **Retention mechanism** holds the sections together against the spring preload during flight
-3. **Servos** actuate the release mechanism on command from the flight computer
-4. Once released, springs push the sections apart and deploy the parachute
+2. **Dual-half bayonet** holds the sections together against the spring preload during flight
+3. **Servos** release the bayonet halves on command from the flight computer
+4. Once either half is released, the remaining half cannot hold against the spring force alone, and the sections separate
 
 **Advantages over BP charges**:
 
@@ -255,52 +252,86 @@ Instead of black powder ejection charges, separation is achieved mechanically:
 - No hot gas near parachutes — no Nomex protectors needed
 - Clean separation — no soot, no pressure spike
 
-### 4.3 Separation Mechanism Candidates
+### 4.3 Selected Mechanism: Symmetric Dual-Half Bayonet
 
-The central design challenge is Tripoli's redundancy requirement: each FC must independently be able to trigger separation, while the mechanism must reliably hold during boost loads. Several candidate approaches are under consideration.
+The bayonet joint is split into two identical halves, positioned 180° apart. Each half is an independent latch controlled by its own servo and FC system.
 
-#### Option A: Dual Pin
+#### Operating Principle
 
-Two independent pins per separation joint, each controlled by one servo (one per FC system). Each pin carries part of the flight loads.
+```
+    LOCKED STATE                    EITHER HALF RELEASED
+    ┌──────────┐                    ┌──────────┐
+    │  Body A  │                    │  Body A  │
+    ├──┐    ┌──┤                    ├──┐       │
+    │H1│    │H2│  ← both halves    │H1│       │  ← half 2 released
+    ├──┘    └──┤    engaged         ├──┘       │    by servo #2
+    │  Body B  │                    │  Body B  │ ←── springs push apart
+    └──────────┘                    └──────────┘
+```
 
-- **Release**: Either pin removal alone allows springs to push sections apart (pin geometry and spring force designed so one pin cannot hold against springs)
-- **Retention during flight**: Both pins together handle full aerodynamic and thrust loads
-- **Independence**: Each servo controls its own pin — no mechanical interaction
-- **Concern**: If one pin alone must NOT hold against the springs, each pin is only carrying partial load. Need to verify that vibration or G-forces cannot cause a single pin to slip. Careful geometry needed — tapered pins, detent depth, etc.
+- **Locked**: Both bayonet halves (H1, H2) engaged. Together they carry full flight loads (axial thrust, drag, bending)
+- **Released**: Either servo releases its half. One half alone cannot resist the spring preload → sections separate
+- Each half is designed to carry approximately 50% of the axial load when both are engaged, but is deliberately unable to resist the full spring force alone
 
-#### Option B: Bayonet
+#### Key Design Properties
 
-A bayonet-style rotary latch between body sections. Two servos are mounted on opposite sides, each capable of rotating the bayonet to the release position.
+| Property | Value |
+|----------|-------|
+| Number of halves per joint | 2 (identical parts) |
+| Halves per separation event | 2 (drogue joint + main joint) |
+| Total bayonet halves | 4 (2 joints × 2 halves) |
+| Servos total | 4 (one per half) |
+| Parts to design | **1** (same part used everywhere) |
+| FC #1 controls | Half A at drogue joint + Half A at main joint |
+| FC #2 controls | Half B at drogue joint + Half B at main joint |
 
-- **Release**: Either servo rotates the bayonet to unlock position — both rotate in opposing directions so they don't fight each other
-- **Retention during flight**: Bayonet lugs carry full axial and bending loads in the locked position
-- **Independence**: Two servos acting on the same bayonet ring via opposing rotational inputs. Either one alone can unlock
-- **Advantages**: Strong retention in locked state (bayonet lugs are load-bearing surfaces), clean single-mechanism design, well-understood locking geometry
-- **Concerns**: Bayonet must rotate freely under all conditions (cold, vibration, slight misalignment). Binding under load is the main failure mode. Tolerances critical. Must not rotate under vibration alone — needs a detent or friction hold in the locked position that either servo can overcome
+#### Redundancy Analysis
 
-#### Option C: Hybrid (Bayonet + Pin Bypass)
+| Scenario | Result |
+|----------|--------|
+| Both FCs fire normally | Both halves release simultaneously → clean separation |
+| FC #1 fires, FC #2 fails | Half A releases → half B alone cannot hold → separation |
+| FC #2 fires, FC #1 fails | Half B releases → half A alone cannot hold → separation |
+| Both FCs fail | Both halves remain locked → no separation (ballistic) |
+| Servo #1 jams (mechanical) | FC #2 releases half B → half A alone cannot hold → separation |
+| Servo #2 jams (mechanical) | FC #1 releases half A → half B alone cannot hold → separation |
 
-Primary separation via bayonet (servo #1 rotates to unlock). Independent backup via pin pull (servo #2 pulls a pin that releases the entire bayonet mechanism from the body).
+True independent redundancy: no single electrical or mechanical failure prevents separation.
 
-- **Primary path (System 1)**: Servo rotates bayonet to unlock → springs separate
-- **Backup path (System 2)**: Servo pulls pin → bayonet assembly detaches from one body section entirely → springs separate. The released bayonet mechanism stays attached via tether cord to avoid separate falling parts
-- **Independence**: Two completely different mechanical paths to the same result. No shared failure modes between rotary and linear release
-- **Advantages**: True mechanical independence — a jammed bayonet doesn't prevent pin-pull separation. The pin bypass is a simple, robust backup
-- **Concerns**: More complex mechanism, more parts. Tether management (bayonet assembly must not tangle with parachute). Pin must hold under flight loads but release cleanly when pulled. Need to ensure the pin-pull path provides enough clearance for springs to push sections apart even with bayonet still partially engaged
+#### Manufacturing Advantage
 
-#### Tethering
+One OpenSCAD design, one STL/3MF, print multiples. All four bayonet halves (2 per joint) are the same part. Spares are trivial — bring extras to the launch.
 
-All separation mechanism hardware (pins, bayonet assemblies, servos) must remain attached to a rocket section via tether cords. No parts may descend without a recovery system — this is a Tripoli non-certification condition ("components which descend without a recovery system").
+#### Design Challenges — TODO
+
+- **Lug geometry**: Each half carries ~50% of flight loads when locked. Lug shape must be strong enough for this but unable to resist spring force alone. This is the critical design parameter — lug engagement depth and spring force must be carefully matched
+- **Rotational vs. linear release**: Decide whether the servo rotates the half (traditional bayonet twist) or pulls it linearly (slide out). Rotation may be simpler for a 3D printed part; linear pull may be more reliable with a servo arm
+- **Anti-vibration**: Each half must not creep toward release under motor vibration. Options: detent, friction fit, slight interference, servo holding torque
+- **Spring sizing**: Springs must overcome friction of one remaining half plus parachute packing resistance. Must separate reliably at all altitudes. Ground test required
+- **Servo torque/force**: Must overcome detent + friction to release the half. Must not back-drive under vibration. Servo selection and torque analysis needed
+- **Tolerances**: 3D printed parts — test fit, iterate. Print several and measure variation
+- **Cold weather**: Verify mechanism operation at expected Swedish winter temperatures (-10 to -20°C at altitude). PC CF should be fine, but servo grease and spring rate may change
+- **Discuss with Rolf**: Get TAP approval of non-pyro separation concept before detailed design
+
+#### Considered Alternatives
+
+The following approaches were evaluated before selecting the symmetric dual-half bayonet:
+
+- **Dual pin**: Two independent pins, each pulled by one servo. Simpler mechanically, but harder to ensure one pin alone cannot hold against springs while both together resist flight loads. Pin geometry is fussy.
+- **Single bayonet with dual servos**: One bayonet ring, two servos rotating it in opposite directions. Cleaner single mechanism, but a jammed bayonet blocks both systems — not truly independent failure paths.
+- **Hybrid (bayonet + pin bypass)**: Primary via bayonet rotation, backup via pin pull releasing entire bayonet assembly. True mechanical independence, but more complex, more parts, tether management concerns.
+
+The symmetric dual-half bayonet was selected because it combines true independent redundancy with manufacturing simplicity — one part printed multiple times.
 
 ### 4.4 Design Challenges — TODO
 
-Regardless of which mechanism is selected:
+General challenges regardless of mechanism specifics:
 
-- **Redundancy logic**: Must satisfy Tripoli requirement that each system independently triggers recovery, without creating a mechanism that is too easy to release accidentally
-- **Structural analysis**: Retention mechanism must handle boost loads (axial: motor thrust + drag, bending: wind loads, vibration: motor resonance). Analysis needed for the selected mechanism
+- **Structural analysis**: Combined halves must handle boost loads (axial: motor thrust + drag, bending: wind loads, vibration: motor resonance)
 - **Spring force**: Must reliably push sections apart and deploy parachute at all expected altitudes. Validated by ground testing
 - **Servo selection**: Must reliably actuate in cold weather (Swedish winter), under vibration, after sustaining boost G-loads. Torque margin needed
-- **Tolerances**: 3D printed mechanism parts have different tolerances than machined parts. If mechanism is printed, test under realistic conditions
+- **Tolerances**: 3D printed mechanism parts have different tolerances than machined parts. Test under realistic conditions, print spares
+- **Tethering**: All released mechanism parts (bayonet halves, servos) must remain attached to a rocket section via tether. No parts may descend without a recovery system (Tripoli non-certification condition)
 - **Discuss with Rolf early**: Non-pyro separation is less common for L3. TAP approval of the concept is needed before detailed design
 
 ### 4.5 Drogue Deployment
@@ -308,7 +339,7 @@ Regardless of which mechanism is selected:
 | Parameter | Value |
 |-----------|-------|
 | Trigger | Apogee detection (barometric) |
-| Mechanism | Servo-actuated release + spring separation |
+| Mechanism | Dual-half bayonet release + spring separation |
 | Parachute | TBD size drogue |
 | Descent rate under drogue | TBD m/s |
 | Separation point | TBD |
@@ -318,7 +349,7 @@ Regardless of which mechanism is selected:
 | Parameter | Value |
 |-----------|-------|
 | Trigger | Altitude-based (TBD meters AGL) |
-| Mechanism | Servo-actuated release + spring separation |
+| Mechanism | Dual-half bayonet release + spring separation |
 | Parachute | TBD size main |
 | Descent rate under main | TBD m/s (must not exceed 35 ft/s = 10.7 m/s per Tripoli rules) |
 | Separation point | TBD |
@@ -336,17 +367,17 @@ Regardless of which mechanism is selected:
 
 Per Tripoli L3 rules: *"Dual redundant electronics are required for all recovery events. Two completely independent and separate electronic recovery systems must be incorporated. Neither system must adversely affect the other. Redundancy means completely separate systems, including batteries, switches, avionics, and energetics."*
 
-Note: "energetics" in the Tripoli rules refers to ejection charges. With servo-actuated separation, the equivalent is the servo + mechanism + spring system. Each system must independently be capable of triggering separation.
+With the dual-half bayonet, "energetics" is replaced by servo + bayonet half + spring. Each system controls its own bayonet halves across both separation joints.
 
-| Component | Primary System | Backup System |
-|-----------|---------------|---------------|
+| Component | Primary System (FC #1) | Backup System (FC #2) |
+|-----------|----------------------|---------------------|
 | Flight computer | Custom FC (CATS Vega clone, improved) | CATS Vega (original) or second custom clone |
 | Battery | Dedicated battery #1 | Dedicated battery #2 |
 | Arming switch | Key switch #1 | Key switch #2 |
-| Drogue release | Servo #1 → mechanism path A | Servo #2 → mechanism path B |
-| Main release | Servo #3 → mechanism path A | Servo #4 → mechanism path B |
+| Drogue release | Servo #1 → bayonet half A (drogue joint) | Servo #2 → bayonet half B (drogue joint) |
+| Main release | Servo #3 → bayonet half A (main joint) | Servo #4 → bayonet half B (main joint) |
 
-The two systems share no electrical connections. Each has independent power, switching, sensing, and servo output. The mechanical release paths are designed so either system alone can trigger separation (see section 4.3 for mechanism options).
+The two systems share no electrical connections. Each has independent power, switching, sensing, and servo output. Each controls one of the two identical bayonet halves at each joint. Either system alone triggers separation.
 
 ### 4.9 Motor Note
 
@@ -364,11 +395,11 @@ The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depe
 
 *TODO: Create wiring diagram showing:*
 
-- Battery #1 → Key switch #1 → Primary FC → Drogue servo #1 + Main servo #1
-- Battery #2 → Key switch #2 → Backup FC → Drogue servo #2 + Main servo #2
+- Battery #1 → Key switch #1 → Primary FC → Servo #1 (drogue half A) + Servo #3 (main half A)
+- Battery #2 → Key switch #2 → Backup FC → Servo #2 (drogue half B) + Servo #4 (main half B)
 - Physical separation between systems
 - Servo connections (signal + power)
-- Mechanical linkage to release mechanism (conceptual)
+- Mechanical linkage to bayonet halves (conceptual)
 
 ### 5.2 Primary System
 
@@ -376,8 +407,8 @@ The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depe
 |-----------|------|-----|
 | Power | Battery #1 (TBD V) | Key switch #1 |
 | Switched power | Key switch #1 | Primary FC power input |
-| Servo channel 1 | Primary FC drogue output | Servo #1 → drogue release path A |
-| Servo channel 2 | Primary FC main output | Servo #3 → main release path A |
+| Servo channel 1 | Primary FC drogue output | Servo #1 → drogue joint bayonet half A |
+| Servo channel 2 | Primary FC main output | Servo #3 → main joint bayonet half A |
 
 ### 5.3 Backup System
 
@@ -385,8 +416,8 @@ The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depe
 |-----------|------|-----|
 | Power | Battery #2 (TBD V) | Key switch #2 |
 | Switched power | Key switch #2 | Backup FC power input |
-| Servo channel 1 | Backup FC drogue output | Servo #2 → drogue release path B |
-| Servo channel 2 | Backup FC main output | Servo #4 → main release path B |
+| Servo channel 1 | Backup FC drogue output | Servo #2 → drogue joint bayonet half B |
+| Servo channel 2 | Backup FC main output | Servo #4 → main joint bayonet half B |
 
 ---
 
@@ -575,18 +606,19 @@ If flutter margin insufficient with PC CF alone:
 - [ ] Motor mount assembly
 - [ ] Centering ring installation
 - [ ] Body tube preparation
-- [ ] Separation mechanism fabrication and testing
+- [ ] Bayonet half printing and fit testing
+- [ ] Separation mechanism assembly and bench testing
 - [ ] Electronics bay / nose cone electronics construction
 - [ ] Dual flight computer installation and wiring
-- [ ] Servo mechanism installation and testing
+- [ ] Servo installation and testing
 - [ ] Recovery harness assembly
 - [ ] Parachute packing
-- [ ] Spring preload and retention mechanism testing
+- [ ] Spring preload and bayonet engagement testing
 - [ ] Final assembly
 - [ ] Weight and CG measurements
 - [ ] CP marking on airframe
 - [ ] Ground test of electronics (both systems independently)
-- [ ] Separation mechanism ground testing (both systems independently)
+- [ ] Separation mechanism ground testing (each half independently)
 
 ### 10.2 Construction Photos
 
@@ -623,7 +655,7 @@ Electronic deployment count: 1 of 2 minimum complete.
 - [ ] Igniter (FirstFire)
 - [ ] Batteries charged (2×, one per system)
 - [ ] Key switches and keys (2×)
-- [ ] Spare servos
+- [ ] Spare bayonet halves and servos
 - [ ] Tools for field assembly
 
 ### 12.2 At Launch Site — Before Assembly
@@ -642,12 +674,13 @@ Electronic deployment count: 1 of 2 minimum complete.
 - [ ] Pack drogue parachute
 - [ ] Pack main parachute
 - [ ] Preload separation springs
-- [ ] Engage retention mechanism (pins/bayonet)
-- [ ] Verify mechanism engagement
-- [ ] Verify tethers attached
-- [ ] Connect servo mechanisms
-- [ ] Connect primary FC wiring and servos
-- [ ] Connect backup FC wiring and servos
+- [ ] Engage both bayonet halves at drogue joint
+- [ ] Engage both bayonet halves at main joint
+- [ ] Verify bayonet engagement at both joints
+- [ ] Verify all tethers attached
+- [ ] Connect servo mechanisms to bayonet halves
+- [ ] Connect primary FC wiring and servos (#1, #3)
+- [ ] Connect backup FC wiring and servos (#2, #4)
 - [ ] Arm primary system (key switch #1)
 - [ ] Verify primary FC status (LED/beep)
 - [ ] Arm backup system (key switch #2)
@@ -674,14 +707,14 @@ Electronic deployment count: 1 of 2 minimum complete.
 |-------------|------------|-------------|
 | Motor CATO | Single-use motor, proper assembly | Non-certification |
 | Motor retention failure | Adequate retention hardware, inspection | Non-certification |
-| Primary electronics failure | Backup system actuates servos via independent path | Successful recovery |
-| Backup electronics failure | Primary system actuates servos via independent path | Successful recovery |
+| Primary electronics failure | Backup system releases half B → separation | Successful recovery |
+| Backup electronics failure | Primary system releases half A → separation | Successful recovery |
 | Both electronics fail | Design for reliability, ground test | Non-certification (ballistic descent) |
-| Servo failure (single) | Redundant servo on other system releases via independent mechanical path | Successful recovery |
-| Servo failure (both on same joint) | Ground testing, servo selection, cold testing | Failed separation |
-| Mechanism jammed (bayonet binding / pin stuck) | Tolerances, lubrication, vibration testing; hybrid option provides alternate path | Failed separation |
+| Single servo failure | Other system's servo releases its half → one half cannot hold alone → separation | Successful recovery |
+| Both servos fail on same joint | Ground testing, servo selection, cold testing | Failed separation |
+| Bayonet half jammed | Tolerances, lubrication, vibration testing, print spares, test fit | Failed separation (mitigated: other half release still causes separation) |
 | Spring insufficient | Ground testing at various temperatures, margin in spring force | Incomplete separation |
-| Premature release (vibration/G) | Structural analysis, detent design, locking geometry | Drag separation during boost |
+| Premature bayonet release (vibration/G) | Detent design, lug geometry, servo holding torque, vibration testing | Drag separation during boost |
 | Tether tangle with parachute | Tether routing, length management, ground test | Tangled recovery |
 | Fin flutter | Flutter analysis, carbon reinforcement, progressive test flights | Structural failure |
 | Unstable flight | Stability analysis, CP/CG verification, OpenRocket sim | Unsafe flight |
@@ -691,12 +724,13 @@ Electronic deployment count: 1 of 2 minimum complete.
 
 | Test | Purpose | When |
 |------|---------|------|
-| Separation mechanism bench test | Verify servo releases mechanism, spring separates sections | During construction |
-| Redundancy test (path A only) | Verify primary system alone triggers separation | During construction |
-| Redundancy test (path B only) | Verify backup system alone triggers separation | During construction |
-| Cold temperature test | Verify servo and mechanism operation at expected launch temps | During construction |
-| Vibration/shake test | Verify mechanism doesn't release under simulated flight loads | During construction |
-| Tether deployment test | Verify mechanism hardware doesn't tangle with parachute | During construction |
+| Bayonet half fit test | Verify printed parts engage/release cleanly | After printing |
+| Separation bench test (both halves) | Verify spring separates when both released | During construction |
+| Redundancy test (half A only) | Verify releasing half A alone causes separation | During construction |
+| Redundancy test (half B only) | Verify releasing half B alone causes separation | During construction |
+| Cold temperature test | Verify servo and mechanism operation at -10 to -20°C | During construction |
+| Vibration/shake test | Verify bayonet halves don't disengage under simulated flight loads | During construction |
+| Tether deployment test | Verify tethered parts don't tangle with parachute | During construction |
 | Flight #2 (J420R) | Validate airframe, electronics, separation mechanism in flight | Before L flight |
 | Flight #3 (L1000W) | Stress test at higher loads and speeds | Before M flight |
 | Electronics ground test | Verify both systems detect apogee/altitude correctly | Before each flight |
@@ -709,7 +743,7 @@ Electronic deployment count: 1 of 2 minimum complete.
 | FAR 101.25 | Altitude prediction within waiver |
 | Waiver radius | Wind simulation, dual deploy for tight landing |
 | Landing velocity ≤ 35 ft/s | Parachute sizing calculation |
-| Dual redundant electronics | Two independent systems with independent mechanical release paths |
+| Dual redundant electronics | Two independent systems, each controlling one bayonet half |
 | No untethered components | All mechanism parts tethered to rocket sections |
 | CP marked on rocket | External marking |
 
@@ -723,7 +757,7 @@ Electronic deployment count: 1 of 2 minimum complete.
 
 ### B. OpenSCAD Design Files
 
-*TODO: Include .scad source for fin can and fins*
+*TODO: Include .scad source for fin can, fins, and bayonet half*
 
 ### C. Thrust Curve Data
 
@@ -739,17 +773,18 @@ Electronic deployment count: 1 of 2 minimum complete.
 
 ### F. Separation Mechanism Design
 
-*TODO: Detailed drawings of selected separation mechanism, including:*
+*TODO: Detailed drawings of dual-half bayonet mechanism, including:*
 
-- Mechanism selection rationale (Option A/B/C from section 4.3)
-- Detailed drawings with dimensions
-- Structural analysis of retention under flight loads
-- Spring selection and force calculations
+- Bayonet half geometry (OpenSCAD parametric design)
+- Lug engagement depth and load analysis
+- Spring selection and force calculations (must overcome single-half friction)
 - Servo selection and torque requirements
-- Redundancy verification (both paths independently tested)
+- Anti-vibration detent design
+- Redundancy verification test results (each half independently)
 - Tether routing plan
 - Assembly and preload procedure
-- 3D printing considerations (if mechanism is printed)
+- Print settings and tolerance measurements
+- Cold weather test results
 
 ### G. Forms
 
