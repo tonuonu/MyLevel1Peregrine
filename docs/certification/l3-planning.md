@@ -32,7 +32,7 @@ Incremental approach: build the L3 airframe early, fly it on progressively large
 | 1 | AeroTech J350 | 38mm | — | Peregrine | L2 certification | ✓ CATS Vega | ✅ Done |
 | 2 | AeroTech J420R | 38mm | 75→38mm | L3 airframe | Test new airframe, electronic deploy #2 | ✓ Custom FC | Planned |
 | 3 | AeroTech L1000W | 54mm | 75→54mm | L3 airframe | Stress test at higher impulse, electronic deploy #3 | ✓ Custom FC | Planned |
-| 4 | TBD M-class | 75mm | None | L3 airframe | **L3 certification flight** | ✓ Custom FC | Planned |
+| 4 | AeroTech M1350W-PS | 75mm | None | L3 airframe | **L3 certification flight** | ✓ Custom FC | Planned |
 
 ### Flight #2: J420R in L3 Airframe
 
@@ -60,6 +60,33 @@ Thrust-to-weight: 1000N average, 5:1 minimum → max liftoff mass 20.4 kg. Very 
 
 This flight validates the airframe under significantly higher loads and speeds before committing to the M-class cert flight.
 
+### Flight #4: M1350W-PS Certification
+
+The AeroTech M1350W-PS is the selected M-class motor for the L3 certification flight:
+
+| Parameter | Value |
+|-----------|-------|
+| Designation | M1350W |
+| Diameter | 75mm (native — no adapter) |
+| Length | 622mm |
+| Total impulse | 5178 N-s (1% into M-class) |
+| Average thrust | 1357 N |
+| Max thrust | 1766 N |
+| Burn time | 3.8 s |
+| Total weight | 4808 g |
+| Propellant | White Lightning |
+| Type | Single-use DMS |
+| Delay | **Plugged + Smoke** (no ejection charge) |
+
+Thrust-to-weight: 1357N average, 5:1 minimum → max liftoff mass 27.7 kg. Very generous margin.
+
+**Important notes**:
+
+- "-PS" = Plugged + Smoke. No motor ejection charge — electronic deployment is the **only** recovery mechanism. No motor backup unlike L2 flight. This makes flight computer reliability critical.
+- Requires L3 certification to purchase. Must be sourced through TAP members or prefect for the certification attempt.
+- Barely into M-class (5178 N-s vs 5120 N-s M threshold) — keeps velocities and forces as low as possible while meeting the requirement.
+- Built-in 3/8-16 threaded aluminum bulkhead for eye bolt attachment.
+
 ### Motor Adapter Strategy
 
 The 75mm motor mount is the native size for the L3 cert flight. Smaller motors require centering adapters:
@@ -68,19 +95,11 @@ The 75mm motor mount is the native size for the L3 cert flight. Smaller motors r
 |---------|-----------|---------|
 | 75mm → 38mm | J420R and other 38mm J motors | Flight #2 |
 | 75mm → 54mm | L1000W and other 54mm L motors | Flight #3 |
-| None (native 75mm) | M-class cert motor | Flight #4 |
+| None (native 75mm) | M1350W-PS | Flight #4 (cert) |
 
 Adapters can be 3D printed in PC CF or machined from phenolic/aluminum.
 
 ## Motor Selection
-
-### L3 Certification Motor (Flight #4)
-
-M-class motors are the minimum for L3. 75mm is the smallest available diameter for M-class single-use motors. 98mm is a fallback if 75mm options are insufficient.
-
-| Motor | Diameter | Total Impulse | Notes |
-|-------|----------|--------------|-------|
-| TBD | 75mm | M-class (5120-10240 N-s) | Research needed |
 
 ### Motor Type: Single-Use
 
@@ -106,7 +125,9 @@ The custom flight computer will be validated on flights #2 and #3 before the L3 
 
 ### Redundancy
 
-Following the L2 approach: electronic dual deployment as primary, with motor delay charge as independent safety backup.
+For flights #2 and #3 (with delay-equipped motors): electronic dual deployment as primary, with motor delay charge as independent safety backup.
+
+For flight #4 (M1350W-PS, plugged): **no motor backup available**. Recovery depends entirely on electronic deployment. This makes dual redundant electronics critical — consider flying two independent flight computers (primary + backup) for the cert flight.
 
 ## Airframe Design
 
@@ -221,11 +242,13 @@ This documentation will live in this repo initially. May move to a separate repo
 
 ## Open Questions
 
-1. Specific 75mm single-use M motor selection for cert flight
+1. ~~Specific 75mm single-use M motor selection for cert flight~~ → AeroTech M1350W-PS
 2. Airframe material and diameter
 3. Nose cone — 3D printed or purchased?
 4. Custom flight computer detailed design
 5. Second TAP member
 6. Launch site — Enköping (SMRK) or elsewhere?
 7. J420R weight budget — will L3 airframe stay under 8.56 kg for 5:1 T/W?
-8. Timeline
+8. Dual redundant electronics for cert flight (plugged motor, no backup)?
+9. Motor procurement logistics — M1350W-PS requires L3 cert to buy
+10. Timeline
