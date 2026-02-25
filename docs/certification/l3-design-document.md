@@ -55,7 +55,7 @@ Tripoli Level 3 high-power certification using a scratch-built rocket with a sin
 - Progressive flight testing on J and L motors before cert flight
 - 3D printed fin can in PC CF with carbon rod reinforcement for flutter resistance
 - Dual redundant electronics as required by Tripoli L3 rules
-- Servo-actuated spring release instead of black powder ejection charges — mechanism under evaluation (dual-half bayonet or hinged door)
+- Servo-actuated spring release instead of black powder ejection charges — mechanism under evaluation (C-hinge with lateral pins or dual-half bayonet)
 - Symmetric design: identical parts for both redundancy halves to simplify manufacturing and spares
 - Single-use motor to avoid reloadable hardware risk
 
@@ -220,6 +220,7 @@ The separation servos and their batteries must be located near the separation jo
 | Main parachute | TBD size | 1 | TBD |
 | Separation springs | TBD | TBD per joint | TBD |
 | Separation mechanism parts (printed) | Spectrum PC CF, identical parts | 2 per joint (4 total) | Printed by candidate |
+| Lateral pins | TBD (steel or carbon rod) | 2 per joint (4 total) | TBD |
 | Servo wall-hugging enclosures (printed) | Spectrum PC CF, matched to tube ID | 4 total (2 per joint) | Printed by candidate |
 | Servos (separation) | TBD | 4 total (1 per mechanism half) | TBD |
 | Tether cord (mechanism retention) | TBD | As needed | TBD |
@@ -253,17 +254,17 @@ Dual deployment using servo-actuated spring release mechanisms, controlled by du
 
 | Event | Altitude | Device | Action |
 |-------|----------|--------|--------|
-| Apogee | Apogee detection | Primary FC + Backup FC | Either servo releases its mechanism half → spring pushes parachute out → drogue deploys |
-| Main | TBD (e.g., 300m AGL) | Primary FC + Backup FC | Either servo releases its mechanism half → spring pushes parachute out → main deploys |
+| Apogee | Apogee detection | Primary FC + Backup FC | Either servo pulls its lateral pin → C-hinge separates → springs push sections apart → drogue deploys |
+| Main | TBD (e.g., 300m AGL) | Primary FC + Backup FC | Either servo pulls its lateral pin → C-hinge separates → springs push sections apart → main deploys |
 
 ### 4.2 Separation Mechanism Concept
 
 Instead of black powder ejection charges, separation is achieved mechanically:
 
-1. **Springs** are preloaded behind the parachute during assembly, providing deployment force
-2. **Retention mechanism** (two identical halves) holds the sections together against the spring preload during flight
-3. **Servos** release the mechanism halves on command from the flight computer
-4. Once either half is released, the remaining half cannot hold against the spring force alone, and the parachute is pushed out
+1. **Springs** are preloaded between body sections during assembly, providing separation force
+2. **Retention mechanism** (two identical C-hinge pairs at 180° apart) holds the sections together against the spring preload during flight
+3. **Servos** pull lateral pins on command from the flight computer
+4. Once either pin is pulled, the C-loops at that position fall apart — one remaining C-hinge pair cannot hold against the spring force alone → sections separate axially
 
 **Advantages over BP charges**:
 
@@ -276,81 +277,100 @@ Instead of black powder ejection charges, separation is achieved mechanically:
 
 Two leading candidates are under evaluation. Both share the same core principle: two identical halves per joint, each controlled by one FC system, either half's release alone causes separation. The selection will be made after prototyping and discussion with Rolf.
 
-#### Option A: Symmetric Dual-Half Bayonet
+#### Option A: C-Hinge with Lateral Pin (Preferred)
 
-The bayonet joint is split into two identical halves, positioned 180° apart. Each half is an independent latch controlled by its own servo and FC system.
+Interlocking C-shaped hinge loops at two positions 180° apart around the separation joint. Each C-hinge pair is held together by a lateral pin. The servo pulls the pin sideways to release.
 
 **Operating principle:**
 
 ```
-    LOCKED STATE                    EITHER HALF RELEASED
-    ┌──────────┐                    ┌──────────┐
-    │  Body A  │                    │  Body A  │
-    ├──┐    ┌──┤                    ├──┐       │
-    │H1│    │H2│  ← both halves    │H1│       │  ← half 2 released
-    ├──┘    └──┤    engaged         ├──┘       │    by servo #2
-    │  Body B  │                    │  Body B  │ ←── springs push apart
-    └──────────┘                    └──────────┘
+    CROSS-SECTION AT ONE C-HINGE PAIR
+
+    LOCKED (pin inserted)            RELEASED (pin pulled sideways)
+
+    Body A      Body B               Body A      Body B
+    ┌───┐       ┌───┐               ┌───┐       ┌───┐
+    │   ╰─╮ ╭─╯   │               │   ╰─╮   ╭─╯   │
+    │     │P│     │               │     │   │     │  ← C-loops separate,
+    │   ╭─╯ ╰─╮   │               │   ╭─╯   ╰─╮   │    nothing to interlock
+    └───┘       └───┘               └───┘       └───┘
+
+    P = lateral pin through           Pin pulled sideways by servo
+        interlocking C-loops          C-loops fall apart
+
+
+    FULL JOINT (top view, looking down into tube)
+
+         C-hinge #1 (FC #1)
+              ┌─┐
+         ╭────┤P├────╮
+        │    └─┘    │
+    Body A           Body A
+        │            │
+         ╰────┤P├────╯
+              └─┘
+         C-hinge #2 (FC #2)
+
+    Two C-hinge pairs at 180° apart
+    Each has its own lateral pin
+    Either pin removal → that pair falls apart → other pair can't hold → separation
 ```
 
+- **Locked**: Both C-hinge pairs engaged with lateral pins. Together they carry full flight loads (axial thrust, drag, bending). The interlocking C-loops transfer axial loads through the pin in shear
+- **Released**: Either servo pulls its pin sideways. The C-loops at that position have nothing to interlock around — they simply separate. One remaining C-hinge pair cannot resist the full spring preload → sections push apart axially
+- **Geometry guarantee**: Unlike the bayonet (which requires careful force-balancing between lug engagement and spring force), the C-hinge release is binary — with pin present, the loops interlock and carry load; with pin removed, there is physically nothing connecting the loops. No force engineering needed for the release
+
+**Key design properties:**
+
+| Property | Value |
+|----------|-------|
+| C-hinge pairs per joint | 2 (at 180° apart) |
+| Lateral pins per joint | 2 (one per C-hinge pair) |
+| Total C-hinge pairs | 4 (2 joints × 2 pairs) |
+| Total lateral pins | 4 |
+| Servos total | 4 (one per pin) |
+| Unique parts to design | **1 C-hinge half** (same part on both body sections, both joints) + **1 pin** |
+| FC #1 controls | Pin at C-hinge #1 (drogue joint) + Pin at C-hinge #1 (main joint) |
+| FC #2 controls | Pin at C-hinge #2 (drogue joint) + Pin at C-hinge #2 (main joint) |
+
+**Advantages:**
+
+- **Binary release**: Pin in = locked, pin out = separated. No force balancing, no partial engagement, no "can one half hold?" uncertainty. The geometry guarantees separation when a pin is removed
+- **Simple servo action**: Linear pin pull (sideways). No rotation, no twist, no complex mechanism. Servo arm pulls pin through a short linear stroke
+- **Strong when locked**: C-loops transfer axial load through the pin in shear. Pin shear strength is well-understood and easy to calculate
+- **Symmetric**: Same C-hinge part printed multiple times. Same pin used everywhere
+- **Full axial separation**: Body sections push apart completely, standard parachute deployment geometry
+- **No tube cutout**: Joint is at the separation plane, no weakening of the body tube
+
+**Concerns:**
+
+- **Pin extraction force**: Pin must slide out cleanly under servo pull. Friction, corrosion, or deformation under load could impede extraction. Smooth pin surface, correct tolerances, and lubrication needed. Pin should not be under compression when loaded axially (C-loop geometry should transfer loads through shear, not clamping)
+- **C-loop strength**: The printed C-loops must handle flight loads without cracking or deforming. Wall thickness, infill, and print orientation critical. PC CF should have adequate strength, but needs analysis
+- **Pin retention during flight**: Pin must not slide out under vibration or G-loads. Options: friction fit, slight taper, detent notch, or servo holding the pin in place. The pin pull direction should be perpendicular to the primary load direction (axial) so flight loads don't tend to push the pin out
+- **Servo torque**: Must overcome pin friction + any detent. Linear pull via servo arm — calculate required force and arm geometry
+- **Tolerances**: C-loops must interlock cleanly. 3D printing tolerance for the loop gap and pin hole diameter. Print and test iterate
+- **Cold weather**: Pin friction and servo performance at -10 to -20°C
+- **Tethering**: After pin extraction, the pin itself must be tethered (to the servo arm or enclosure). Released C-loop halves separate with the body sections they're attached to — inherently tethered
+
+#### Option B: Symmetric Dual-Half Bayonet (Alternative)
+
+The bayonet joint is split into two identical halves, positioned 180° apart. Each half is an independent rotary latch controlled by its own servo and FC system.
+
 - **Locked**: Both bayonet halves engaged. Together they carry full flight loads
-- **Released**: Either servo releases its half. One half alone cannot resist the spring preload → sections separate axially
+- **Released**: Either servo releases its half (rotary or linear disengage). One half alone cannot resist the spring preload → sections separate axially
 - Each half carries ~50% of axial load when both engaged, but cannot resist spring force alone
 
 **Advantages:**
 
-- Full axial separation — body sections push apart completely
+- Full axial separation
 - Bayonet lugs are strong load-bearing surfaces
 - One part design, print four copies
 
 **Concerns:**
 
-- Lug geometry is the critical design parameter — must hold flight loads with two halves but release under spring force with one half. Narrow design window
+- Lug geometry is the critical design parameter — must hold flight loads with two halves but release under spring force with one half. This is the key weakness vs. the C-hinge: the bayonet requires careful force-balancing between lug engagement depth and spring force, whereas the C-hinge release is binary (pin in/out)
 - Must not creep under vibration — needs detent or servo holding torque
-- Servo and battery must be housed inside parachute bay (wall-hugging enclosure, see section 2.9)
-- Bayonet parts stay in the bay after release — potential tangle with parachute. Tethering and routing needed
-
-#### Option B: Hinged Door
-
-A hatch/door section at each separation joint, with hinge pins on two opposing sides (180° apart). Each FC controls one hinge pin. Springs behind the parachute push it out through the opened door.
-
-**Operating principle:**
-
-```
-    LOCKED STATE               ONE PIN PULLED           BOTH PINS PULLED
-    ┌──────────┐               ┌──────────┐             ┌──────────┐
-    │  Body    │               │  Body    │             │  Body    │
-    │ P1 door P2│              │    door⟋  │            │   ____   │
-    │          │               │  swings   │             │  open    │
-    └──────────┘               │  open on  │             │  door    │
-                               │  P1 hinge │             │  detached│
-                               └──────────┘             └──────────┘
-    P1, P2 = hinge pins        P2 removed →             Both removed →
-    Both locked                door swings on P1         door free, springs
-                               Springs push chute out    push chute out
-```
-
-- **Locked**: Both hinge pins inserted. Door is held firmly closed. Pins carry flight loads in shear
-- **One pin pulled (single FC fires)**: Door swings open on the remaining hinge pin (which acts as the pivot). Springs push parachute out through the opening. The door stays attached via the remaining hinge — no tether needed for the door itself
-- **Both pins pulled (both FCs fire)**: Door detaches completely (tethered separately). Full opening
-
-**Advantages:**
-
-- Degraded mode is mechanically obvious and guaranteed — a door with one hinge removed *must* swing open under spring load. No careful "one half can't hold" engineering needed
-- The remaining hinge pin acts as both pivot and tether — door cannot become a separate falling object in the single-FC case
-- Simpler redundancy argument for TAP review: "pull either pin, door opens" is easy to demonstrate and explain
-- Springs push parachute out sideways through the hatch opening — spring force acts directly on parachute, not requiring full axial body separation
-- Servo and battery enclosures can be positioned near hinge pins, integrated into the door frame
-
-**Concerns:**
-
-- Body tube structural integrity — the door cutout weakens the tube. Need reinforcement around the hatch opening (thicker frame, doubler plate, or integrated printed frame)
-- Aerodynamic discontinuity — door edges and frame create surface irregularities. At subsonic speeds this may be acceptable but needs analysis
-- Door size — must be large enough for parachute to exit cleanly when pushed by springs. Parachute packing must account for sideways deployment
-- Hinge pin loads — pins carry flight loads in shear. Pin diameter and material must be sized for worst-case axial + bending loads
-- Spring arrangement — springs push parachute toward the door opening. Spring orientation and mount points differ from axial separation designs
-- Swing clearance — door must swing open without hitting launch rail, other body sections, or fin can
-- Two-pin-pulled case — door detaches, needs tether. Tether must not tangle with parachute
+- Bayonet parts stay in the bay after release — potential tangle with parachute
 
 #### Common Design Elements
 
@@ -358,8 +378,8 @@ Both options share:
 
 | Element | Description |
 |---------|-------------|
-| **Identical halves** | Same part printed twice per joint (bayonet halves or door+frame assemblies). One design, multiple prints |
-| **Spring deployment** | Preloaded springs push parachute out after release |
+| **Identical halves** | Same part printed multiple times. One design, multiple prints |
+| **Spring deployment** | Preloaded springs push body sections apart after release |
 | **Wall-hugging servo enclosures** | Servo + battery in smooth 3D printed fairings against tube wall (see section 2.9) |
 | **4 servos total** | One per mechanism half, 2 per joint, 2 joints |
 | **Tethering** | All released parts remain attached to a rocket section |
@@ -371,8 +391,8 @@ Applies to both mechanism options:
 
 | Scenario | Result |
 |----------|--------|
-| Both FCs fire normally | Both halves release → clean separation/opening |
-| FC #1 fires, FC #2 fails | Half A releases → separation (bayonet: one half can't hold; door: swings open on remaining hinge) |
+| Both FCs fire normally | Both halves release → clean separation |
+| FC #1 fires, FC #2 fails | Half A releases → separation (C-hinge: loops fall apart; bayonet: one half can't hold) |
 | FC #2 fires, FC #1 fails | Half B releases → separation (same logic) |
 | Both FCs fail | Both halves remain locked → no separation (ballistic) |
 | Servo #1 jams (mechanical) | FC #2 releases half B → separation |
@@ -382,25 +402,26 @@ True independent redundancy in both options: no single electrical or mechanical 
 
 ### 4.5 Mechanism Selection — TODO
 
-Decision criteria for selecting between Option A (bayonet) and Option B (hinged door):
+Decision criteria for selecting between Option A (C-hinge) and Option B (bayonet):
 
 1. **Prototype both** — print test versions of each, test fit and release on a body tube section
-2. **Structural analysis** — which is more robust under flight loads?
-3. **Reliability of degraded mode** — door swing-open is inherently more reliable than "one bayonet half can't hold." This favors Option B
-4. **Airframe impact** — bayonet requires no tube cutout; door weakens the tube. This favors Option A
-5. **Parachute deployment path** — axial (bayonet) vs. sideways through hatch (door). Which is more reliable?
-6. **TAP feedback** — discuss both with Rolf before committing
-7. **Ease of field assembly** — which is simpler to set up and verify at the launch site?
+2. **Release reliability** — C-hinge has binary release (pin in/out), bayonet requires force-balancing. This strongly favors Option A
+3. **Structural analysis** — compare load capacity of C-loops vs. bayonet lugs under flight loads
+4. **Pin extraction testing** — verify pin pulls cleanly under realistic conditions (load, cold, vibration)
+5. **TAP feedback** — discuss both with Rolf before committing
+6. **Ease of field assembly** — which is simpler to set up and verify at the launch site?
+
+Current preference: **Option A (C-hinge)** due to binary release guarantee.
 
 ### 4.6 Design Challenges — TODO
 
 Regardless of which mechanism is selected:
 
 - **Structural analysis**: Mechanism must handle boost loads (axial: motor thrust + drag, bending: wind loads, vibration: motor resonance)
-- **Spring force**: Must reliably push parachute out at all expected altitudes. Validated by ground testing
+- **Spring force**: Must reliably push sections apart and deploy parachute at all expected altitudes. Validated by ground testing
 - **Servo selection**: Must reliably actuate in cold weather (Swedish winter, -10 to -20°C at altitude), under vibration, after sustaining boost G-loads. Torque margin needed
 - **Tolerances**: 3D printed parts have different tolerances than machined parts. Test under realistic conditions, print spares
-- **Tethering**: All released parts must remain attached to a rocket section. No parts may descend without a recovery system (Tripoli non-certification condition)
+- **Tethering**: All released parts (pins, mechanism halves) must remain attached to a rocket section. No parts may descend without a recovery system (Tripoli non-certification condition)
 - **Wall-hugging enclosures**: Must not snag parachute or shock cord. Ground test with actual parachute packing
 - **Discuss with Rolf early**: Non-pyro separation is less common for L3. TAP approval of the concept is needed before detailed design
 
@@ -409,7 +430,7 @@ Regardless of which mechanism is selected:
 | Parameter | Value |
 |-----------|-------|
 | Trigger | Apogee detection (barometric) |
-| Mechanism | Servo-actuated release + spring deployment (TBD: bayonet or hinged door) |
+| Mechanism | Servo-actuated release + spring separation (TBD: C-hinge or bayonet) |
 | Parachute | TBD size drogue |
 | Descent rate under drogue | TBD m/s |
 | Separation point | TBD |
@@ -419,7 +440,7 @@ Regardless of which mechanism is selected:
 | Parameter | Value |
 |-----------|-------|
 | Trigger | Altitude-based (TBD meters AGL) |
-| Mechanism | Servo-actuated release + spring deployment (TBD: bayonet or hinged door) |
+| Mechanism | Servo-actuated release + spring separation (TBD: C-hinge or bayonet) |
 | Parachute | TBD size main |
 | Descent rate under main | TBD m/s (must not exceed 35 ft/s = 10.7 m/s per Tripoli rules) |
 | Separation point | TBD |
@@ -437,17 +458,17 @@ Regardless of which mechanism is selected:
 
 Per Tripoli L3 rules: *"Dual redundant electronics are required for all recovery events. Two completely independent and separate electronic recovery systems must be incorporated. Neither system must adversely affect the other. Redundancy means completely separate systems, including batteries, switches, avionics, and energetics."*
 
-With servo-actuated separation, "energetics" is replaced by servo + mechanism half + spring. Each system controls its own mechanism halves across both separation joints.
+With servo-actuated separation, "energetics" is replaced by servo + pin/mechanism + spring. Each system controls its own mechanism halves across both separation joints.
 
 | Component | Primary System (FC #1) | Backup System (FC #2) |
 |-----------|----------------------|---------------------|
 | Flight computer | Custom FC (CATS Vega clone, improved) | CATS Vega (original) or second custom clone |
 | Battery | Dedicated battery #1 | Dedicated battery #2 |
 | Arming switch | Key switch #1 | Key switch #2 |
-| Drogue release | Servo #1 → mechanism half A (drogue joint) | Servo #2 → mechanism half B (drogue joint) |
-| Main release | Servo #3 → mechanism half A (main joint) | Servo #4 → mechanism half B (main joint) |
+| Drogue release | Servo #1 → lateral pin at C-hinge #1 (drogue joint) | Servo #2 → lateral pin at C-hinge #2 (drogue joint) |
+| Main release | Servo #3 → lateral pin at C-hinge #1 (main joint) | Servo #4 → lateral pin at C-hinge #2 (main joint) |
 
-The two systems share no electrical connections. Each has independent power, switching, sensing, and servo output. Each controls one of the two identical mechanism halves at each joint. Either system alone triggers deployment.
+The two systems share no electrical connections. Each has independent power, switching, sensing, and servo output. Each controls one of the two identical C-hinge pairs at each joint. Either system alone triggers separation.
 
 ### 4.11 Motor Note
 
@@ -457,9 +478,10 @@ The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depe
 
 The following approaches were evaluated earlier and set aside:
 
-- **Dual pin**: Two independent pins, each pulled by one servo. Simpler mechanically, but harder to ensure one pin alone cannot hold against springs while both together resist flight loads. Pin geometry is fussy
+- **Dual pin (without C-hinge)**: Two independent pins, each pulled by one servo. Simpler mechanically, but harder to ensure one pin alone cannot hold against springs while both together resist flight loads. The C-hinge solves this by making the release binary
 - **Single bayonet with dual servos**: One bayonet ring, two servos rotating it in opposite directions. Cleaner single mechanism, but a jammed bayonet blocks both systems — not truly independent failure paths
 - **Hybrid (bayonet + pin bypass)**: Primary via bayonet rotation, backup via pin pull releasing entire bayonet assembly. True mechanical independence, but asymmetric design — two different part types, more complex, tether management concerns
+- **Hinged door**: Hatch in body tube wall with hinge pins on two sides. Pull either pin → door swings open → parachute deploys sideways. Mechanically elegant degraded mode, but the tube cutout weakens structural integrity, creates aerodynamic discontinuity, and requires sideways parachute deployment which is non-standard. The C-hinge achieves the same binary release guarantee while maintaining full axial separation and no tube cutout
 
 ---
 
@@ -473,11 +495,11 @@ The following approaches were evaluated earlier and set aside:
 
 *TODO: Create wiring diagram showing:*
 
-- Battery #1 → Key switch #1 → Primary FC → Servo #1 (drogue half A) + Servo #3 (main half A)
-- Battery #2 → Key switch #2 → Backup FC → Servo #2 (drogue half B) + Servo #4 (main half B)
+- Battery #1 → Key switch #1 → Primary FC → Servo #1 (drogue C-hinge #1 pin) + Servo #3 (main C-hinge #1 pin)
+- Battery #2 → Key switch #2 → Backup FC → Servo #2 (drogue C-hinge #2 pin) + Servo #4 (main C-hinge #2 pin)
 - Physical separation between systems
 - Servo connections (signal + power)
-- Mechanical linkage to mechanism halves (conceptual)
+- Mechanical linkage: servo arm → pin pull (conceptual)
 
 ### 5.2 Primary System
 
@@ -485,8 +507,8 @@ The following approaches were evaluated earlier and set aside:
 |-----------|------|-----|
 | Power | Battery #1 (TBD V) | Key switch #1 |
 | Switched power | Key switch #1 | Primary FC power input |
-| Servo channel 1 | Primary FC drogue output | Servo #1 → drogue joint mechanism half A |
-| Servo channel 2 | Primary FC main output | Servo #3 → main joint mechanism half A |
+| Servo channel 1 | Primary FC drogue output | Servo #1 → pulls lateral pin at drogue C-hinge #1 |
+| Servo channel 2 | Primary FC main output | Servo #3 → pulls lateral pin at main C-hinge #1 |
 
 ### 5.3 Backup System
 
@@ -494,8 +516,8 @@ The following approaches were evaluated earlier and set aside:
 |-----------|------|-----|
 | Power | Battery #2 (TBD V) | Key switch #2 |
 | Switched power | Key switch #2 | Backup FC power input |
-| Servo channel 1 | Backup FC drogue output | Servo #2 → drogue joint mechanism half B |
-| Servo channel 2 | Backup FC main output | Servo #4 → main joint mechanism half B |
+| Servo channel 1 | Backup FC drogue output | Servo #2 → pulls lateral pin at drogue C-hinge #2 |
+| Servo channel 2 | Backup FC main output | Servo #4 → pulls lateral pin at main C-hinge #2 |
 
 ---
 
@@ -684,8 +706,8 @@ If flutter margin insufficient with PC CF alone:
 - [ ] Motor mount assembly
 - [ ] Centering ring installation
 - [ ] Body tube preparation
-- [ ] Separation mechanism prototype printing and testing (both options)
-- [ ] Mechanism selection (bayonet vs. hinged door) after prototyping
+- [ ] Separation mechanism prototype printing and testing (C-hinge and bayonet)
+- [ ] Mechanism selection after prototyping
 - [ ] Final mechanism parts printing and fit testing
 - [ ] Wall-hugging servo enclosure printing and fit testing
 - [ ] Electronics bay / nose cone electronics construction
@@ -735,7 +757,7 @@ Electronic deployment count: 1 of 2 minimum complete.
 - [ ] Igniter (FirstFire)
 - [ ] Batteries charged (2×, one per system)
 - [ ] Key switches and keys (2×)
-- [ ] Spare mechanism halves and servos
+- [ ] Spare C-hinge halves, pins, and servos
 - [ ] Tools for field assembly
 
 ### 12.2 At Launch Site — Before Assembly
@@ -754,11 +776,11 @@ Electronic deployment count: 1 of 2 minimum complete.
 - [ ] Pack drogue parachute
 - [ ] Pack main parachute
 - [ ] Preload separation springs
-- [ ] Engage both mechanism halves at drogue joint
-- [ ] Engage both mechanism halves at main joint
-- [ ] Verify mechanism engagement at both joints
-- [ ] Verify all tethers attached
-- [ ] Connect servo mechanisms
+- [ ] Engage C-hinge pairs and insert lateral pins at drogue joint
+- [ ] Engage C-hinge pairs and insert lateral pins at main joint
+- [ ] Verify pin engagement at both joints (visual + tactile check)
+- [ ] Verify all tethers attached (pins tethered to servo arms/enclosures)
+- [ ] Connect servo mechanisms to pins
 - [ ] Connect primary FC wiring and servos (#1, #3)
 - [ ] Connect backup FC wiring and servos (#2, #4)
 - [ ] Arm primary system (key switch #1)
@@ -770,7 +792,7 @@ Electronic deployment count: 1 of 2 minimum complete.
 
 ### 12.4 Post-Flight
 
-- [ ] Recover rocket (all parts)
+- [ ] Recover rocket (all parts, including pins)
 - [ ] Present to TAP as recovered
 - [ ] TAP inspects for excessive damage
 - [ ] TAP determines certification result
@@ -787,16 +809,16 @@ Electronic deployment count: 1 of 2 minimum complete.
 |-------------|------------|-------------|
 | Motor CATO | Single-use motor, proper assembly | Non-certification |
 | Motor retention failure | Adequate retention hardware, inspection | Non-certification |
-| Primary electronics failure | Backup system releases half B → deployment | Successful recovery |
-| Backup electronics failure | Primary system releases half A → deployment | Successful recovery |
+| Primary electronics failure | Backup system pulls pin at C-hinge #2 → separation | Successful recovery |
+| Backup electronics failure | Primary system pulls pin at C-hinge #1 → separation | Successful recovery |
 | Both electronics fail | Design for reliability, ground test | Non-certification (ballistic descent) |
-| Single servo failure | Other system's servo releases its half → deployment | Successful recovery |
-| Both servos fail on same joint | Ground testing, servo selection, cold testing | Failed deployment |
-| Mechanism half jammed | Tolerances, lubrication, testing, print spares; other half release still triggers deployment | Successful recovery (degraded) |
-| Spring insufficient | Ground testing at various temperatures, margin in spring force | Incomplete deployment |
-| Premature release (vibration/G) | Structural analysis, detent/pin design, vibration testing | Premature deployment during boost |
+| Single servo failure | Other system's servo pulls its pin → separation | Successful recovery |
+| Both servos fail on same joint | Ground testing, servo selection, cold testing | Failed separation |
+| Pin stuck (friction/deformation) | Smooth pin surface, lubrication, tolerances, cold testing; other pin still releases | Successful recovery (degraded) |
+| C-loop cracked/broken | PC CF strength analysis, print orientation, infill, test loads | Structural failure at joint |
+| Spring insufficient | Ground testing at various temperatures, margin in spring force | Incomplete separation |
+| Premature pin extraction (vibration/G) | Pin pull direction perpendicular to axial loads, detent, servo holding | Premature separation during boost |
 | Tether tangle with parachute | Tether routing, length management, ground test | Tangled recovery |
-| Body tube weakened by door cutout (Option B) | Reinforced frame, doubler plate, structural analysis | Structural failure |
 | Parachute snags on servo enclosure | Wall-hugging smooth fairing, ground test with actual packing | Failed deployment |
 | Fin flutter | Flutter analysis, carbon reinforcement, progressive test flights | Structural failure |
 | Unstable flight | Stability analysis, CP/CG verification, OpenRocket sim | Unsafe flight |
@@ -806,16 +828,17 @@ Electronic deployment count: 1 of 2 minimum complete.
 
 | Test | Purpose | When |
 |------|---------|------|
-| Mechanism prototype (Option A) | Print and test bayonet half engagement/release | Early prototyping |
-| Mechanism prototype (Option B) | Print and test hinged door engagement/release/swing | Early prototyping |
+| C-hinge prototype | Print and test C-loop engagement, pin insertion/extraction | Early prototyping |
+| Bayonet prototype | Print and test bayonet half engagement/release | Early prototyping |
 | Mechanism selection | Compare prototypes, select winner | After prototyping |
+| Pin extraction force measurement | Quantify force needed to pull pin under load and no-load | After mechanism selection |
 | Servo enclosure fit test | Verify parachute slides past without snagging | During construction |
-| Separation bench test (both halves) | Verify spring deploys parachute when both released | During construction |
-| Redundancy test (half A only) | Verify releasing half A alone causes deployment | During construction |
-| Redundancy test (half B only) | Verify releasing half B alone causes deployment | During construction |
+| Separation bench test (both pins) | Verify spring separates when both pins pulled | During construction |
+| Redundancy test (pin #1 only) | Verify pulling pin #1 alone causes separation | During construction |
+| Redundancy test (pin #2 only) | Verify pulling pin #2 alone causes separation | During construction |
 | Cold temperature test | Verify servo and mechanism operation at -10 to -20°C | During construction |
-| Vibration/shake test | Verify mechanism doesn't release under simulated flight loads | During construction |
-| Tether deployment test | Verify tethered parts don't tangle with parachute | During construction |
+| Vibration/shake test | Verify pins don't extract under simulated flight loads | During construction |
+| Tether deployment test | Verify tethered pins/parts don't tangle with parachute | During construction |
 | Flight #2 (J420R) | Validate airframe, electronics, separation mechanism in flight | Before L flight |
 | Flight #3 (L1000W) | Stress test at higher loads and speeds | Before M flight |
 | Electronics ground test | Verify both systems detect apogee/altitude correctly | Before each flight |
@@ -828,8 +851,8 @@ Electronic deployment count: 1 of 2 minimum complete.
 | FAR 101.25 | Altitude prediction within waiver |
 | Waiver radius | Wind simulation, dual deploy for tight landing |
 | Landing velocity ≤ 35 ft/s | Parachute sizing calculation |
-| Dual redundant electronics | Two independent systems, each controlling one mechanism half |
-| No untethered components | All mechanism parts tethered to rocket sections |
+| Dual redundant electronics | Two independent systems, each controlling one C-hinge pin |
+| No untethered components | All pins and mechanism parts tethered to rocket sections |
 | CP marked on rocket | External marking |
 
 ---
@@ -842,7 +865,7 @@ Electronic deployment count: 1 of 2 minimum complete.
 
 ### B. OpenSCAD Design Files
 
-*TODO: Include .scad source for fin can, fins, mechanism halves, and servo enclosures*
+*TODO: Include .scad source for fin can, fins, C-hinge halves, and servo enclosures*
 
 ### C. Thrust Curve Data
 
@@ -860,18 +883,19 @@ Electronic deployment count: 1 of 2 minimum complete.
 
 *TODO: Detailed drawings of selected separation mechanism, including:*
 
-- Mechanism half geometry (OpenSCAD parametric design)
-- Load analysis (engagement depth / hinge pin shear)
+- C-hinge loop geometry (OpenSCAD parametric design)
+- Lateral pin dimensions and material (shear strength analysis)
+- Pin extraction force analysis (friction, detent, servo torque margin)
 - Spring selection and force calculations
-- Servo selection and torque requirements
-- Anti-vibration design (detent / pin retention)
+- Servo selection and arm geometry for linear pin pull
+- Anti-vibration pin retention design
 - Wall-hugging servo enclosure design
-- Redundancy verification test results (each half independently)
-- Tether routing plan
+- Redundancy verification test results (each pin independently)
+- Tether routing plan (pins tethered to servo arms)
 - Assembly and preload procedure
 - Print settings and tolerance measurements
 - Cold weather test results
-- Prototype comparison results (bayonet vs. hinged door)
+- Prototype comparison results (C-hinge vs. bayonet)
 
 ### G. Forms
 
