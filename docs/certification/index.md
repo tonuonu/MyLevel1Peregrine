@@ -41,6 +41,7 @@
 | CG | 115 cm from nose tip |
 | CP | 130 cm from nose tip |
 | Expected altitude | 1100 m |
+| Actual altitude | ~1000 m (estimated, flight log pending) |
 
 ### Recovery Configuration
 
