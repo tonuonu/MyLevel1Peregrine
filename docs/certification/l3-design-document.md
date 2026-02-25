@@ -266,12 +266,19 @@ Instead of black powder ejection charges, separation is achieved mechanically:
 3. **Servos** pull lateral pins on command from the flight computer
 4. Once either pin is pulled, the C-loops at that position fall apart — one remaining C-hinge pair cannot hold against the spring force alone → sections separate axially
 
-**Advantages over BP charges**:
+**Why not black powder ejection charges?**
 
-- No pyrotechnics — simpler handling, no e-matches, no charge sizing
-- Repeatable and testable — same force every time
+The conventional approach for HPR recovery separation uses black powder (BP) ejection charges. This design uses mechanical separation instead, for two reasons:
+
+1. **Legal constraint (Estonia)**: Black powder is classified as an explosive under Estonian law. The candidate has no legal basis to possess even small quantities. Rocket motors are classified separately as pyrotechnics and are legally permissible. This is a hard constraint — BP-based separation is not an option for a builder based in Estonia
+2. **Electronics protection**: BP charges deposit soot and combustion residue throughout the recovery bay. This rocket carries custom-built flight computers that are expensive and difficult to replace. Mechanical separation keeps the interior clean
+
+**Additional advantages of mechanical separation**:
+
+- Repeatable and testable — same force every time, no charge sizing uncertainty
 - No hot gas near parachutes — no Nomex protectors needed
-- Clean separation — no soot, no pressure spike
+- No e-matches — simpler wiring, no igniter reliability concerns
+- No pressure spike — gentler on airframe and recovery harness
 
 ### 4.3 Separation Mechanism Candidates
 
