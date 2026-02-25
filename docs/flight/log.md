@@ -23,9 +23,16 @@
 | Liftoff weight | 3100 g |
 | CG location | 115 cm from nose tip |
 | CP location | 130 cm from nose tip |
-| Recovery mode | Dual deploy (electronic, CATS Vega) |
-| Drogue | 18" at apogee |
-| Main | 48" at lower altitude |
+| Recovery mode | Dual deploy (electronic, CATS Vega) + motor backup |
+| Drogue | 18" at apogee (electronic) |
+| Main | 48" at lower altitude (electronic) |
+| Motor delay | 14s factory (unmodified, backup safety charge) |
+
+### Recovery Design
+
+Dual deployment was required by the 500m landing radius constraint. Simulations showed that with main-only recovery from ~1000m, any wind above 4 m/s would carry the rocket beyond the allowed radius.
+
+Triple-redundant ejection: two electronic black powder charges via CATS Vega (drogue at apogee, main at altitude), plus the motor's original 14s delay charge left unmodified as a safety backup.
 
 ### Flight Data
 
