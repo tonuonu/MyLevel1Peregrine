@@ -1,8 +1,8 @@
-# Peregrine L1
+# Peregrine
 
 <div class="hero" markdown>
 
-**Tripoli Level 1 Certified** ✓
+**Tripoli Level 2 Certified** ✓
 
 Apogee Peregrine dual deployment rocket • Tripoli #38105 • Estonia → Sweden
 
@@ -13,41 +13,45 @@ Apogee Peregrine dual deployment rocket • Tripoli #38105 • Estonia → Swede
 <div class="grid" markdown>
 
 <div class="card" markdown>
-### Rocket Specs
+### L2 Flight
 | | |
 |---|---|
-| **Length** | 175 cm |
-| **Diameter** | 100 mm |
-| **Weight** | 2350 g |
-| **Motor** | H128W-14A |
-| **Recovery** | Motor ejection |
+| **Date** | 22 Feb 2026 |
+| **Location** | Enköping, Sweden |
+| **Motor** | J350 |
+| **Weight** | 3100 g |
+| **Recovery** | Dual deploy |
 </div>
 
 <div class="card" markdown>
-### Certification Flight
+### L1 Flight
 | | |
 |---|---|
 | **Date** | 24 Jan 2026 |
 | **Location** | Enköping, Sweden |
+| **Motor** | H128W-14A |
 | **Altitude** | 140.8 m |
-| **Witness** | Rolf Örell |
+| **Recovery** | Motor ejection |
 </div>
 
 <div class="card" markdown>
 ### Status
-<span class="status status-complete">L1 CERTIFIED</span>
+<span class="status status-complete">L2 CERTIFIED</span>
 
-Tripoli #38105  
-L2 written exam: **Passed**
+Tripoli #38105
+L1: 24 Jan 2026
+L2: 22 Feb 2026
 </div>
 
 </div>
 
 ---
 
-## Mission Accomplished
+## L2 Certified
 
-This rocket, named **SIPSIK** after the beloved Estonian cartoon character, successfully flew on 24 January 2026 at Enköping, Sweden, achieving Tripoli L1 certification.
+This rocket, named **SIPSIK** after the beloved Estonian cartoon character, achieved Tripoli L2 certification on 22 February 2026 at Enköping, Sweden, flying on an AeroTech J350 with dual deployment recovery via CATS Vega.
+
+L1 certification was achieved one month earlier on 24 January 2026 at the same location.
 
 ### The Story Behind Sipsik
 
@@ -59,8 +63,8 @@ This site documents the complete build and certification process:
 
 | Section | Description |
 |---------|-------------|
-| [**Certification**](certification/index.md) | L1 achieved, L2 exam passed |
-| [**Flight Log**](flight/log.md) | Flight #1 data and analysis |
+| [**Certification**](certification/index.md) | L1 and L2 achieved |
+| [**Flight Log**](flight/log.md) | Flight data and analysis |
 | [**Specifications**](specifications/overview.md) | Detailed rocket specs |
 | [**Construction**](construction/build-log.md) | Build progress and techniques |
 | [**Calculations**](calculations/stability.md) | Stability, ejection charges |
@@ -70,23 +74,13 @@ This site documents the complete build and certification process:
 
 ## Acknowledgments
 
-- **Rolf Örell** (TRA# 3728) — Certifying authority, first European Tripoli Prefect
+- **Rolf Örell** (TRA# 3728) — Certifying authority for both L1 and L2, first European Tripoli Prefect
 - **Peter Steen** — Launch support and guidance
 - **Anton Vannesjö** — Launch support and guidance
-
-## What's Next
-
-**L2 certification flight** — target 7 February 2026 (tentative)
-
-- Written exam passed (27 Jan 2026, Certificate #2343)
-- Motor ordered: AeroTech J420R-14A
-- Hardware: 38/720 and 29/180 casings purchased from Rolf
-
-See [L2 Planning](certification/l2-planning.md) for details.
 
 ---
 
 <small>
-[Tõnu Samuel](https://www.linkedin.com/in/tonusamuel/) • Software engineer • Tallinn, Estonia  
+[Tõnu Samuel](https://www.linkedin.com/in/tonusamuel/) • Software engineer • Tallinn, Estonia
 Build: [BUILD_COMMIT_HASH](BUILD_COMMIT_URL) (BUILD_DATE)
 </small>

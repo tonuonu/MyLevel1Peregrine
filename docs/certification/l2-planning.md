@@ -1,71 +1,60 @@
-# L2 Certification Planning
+# L2 Certification
 
-## Status: IN PROGRESS
+## Status: CERTIFIED ✓
 
-Target date: **7 February 2026** (tentative, pending motor delivery confirmation)
+**Certified 22 February 2026** at Enköping, Sweden.
 
-## Written Exam
+## Timeline
 
-✅ **Passed** - 27 January 2026, Certificate #2343
-
-![L2 Written Exam Certificate](../photos/l2_written_exam_certificate.jpg)
+| Date | Milestone |
+|------|-----------|
+| 27 January 2026 | L2 written exam passed (Certificate #2343) |
+| 22 February 2026 | L2 certification flight — **Successful** |
 
 ## Motor
 
-### Ordered
+Originally ordered an AeroTech J420R-14A reload from [Space Rocket Technology](https://www.spacerockettechnology-shop.de/) (Germany) in late January, to be shipped to Peter Steen in Sweden. A DHL shipping label (CD042602182DE) was created on 4 February 2026, but the package was never actually picked up — no tracking movement after three weeks.
 
-| Item | Source | Ship To | Status |
-|------|--------|---------|--------|
-| [AeroTech J420R-14A](https://www.spacerockettechnology-shop.de/en/J420R-14A.html) | Space Rocket Technology (Germany) | Peter Steen (Sweden) | Awaiting shipping confirmation |
+Rolf Örell had some ~25-year-old AeroTech J350 reloads in stock and offered one for the certification flight. It worked perfectly.
 
-Motor specs:
-- Total impulse: 658 N-s (full J)
-- Average thrust: 420 N
-- Burn time: 1.6 s
-- Total weight: 635 g
-- Propellant: Redline
+| Parameter | Value |
+|-----------|-------|
+| Motor | AeroTech J350 (~25-year-old reload from Rolf Örell) |
+| Casing | 38/720 (38mm, 720 N-s max) |
 
 ### Hardware
 
-Purchased Aerotech reloadable motor casings from Rolf Örell:
+Aerotech reloadable motor casings purchased from Rolf Örell:
 
 | Casing | Diameter | Max Impulse | Use |
 |--------|----------|-------------|-----|
-| **38/720** | 38mm | 720 N-s | J420R, future J motors |
-| **29/180** | 29mm | 180 N-s | H128W, future H motors |
-
-## Logistics
-
-### Uncertainty
-
-- Motor shipping confirmation not yet received
-- Ferry tickets not booked (prices increasing daily)
-- Cannot commit to travel until motor delivery confirmed
-
-### Contingencies
-
-If J420R doesn't arrive in time:
-1. Postpone to next SMRK launch date
-2. Check local Swedish availability (Peter/Rolf/Anton)
-3. Check Swedish retailers
-
-### Transport
-
-Same as L1: car on Tallinn-Stockholm ferry, drive to Enköping.
-
-Reminder: rocket motors cannot be transported on Tallink passenger ferries (blanket ban). Motor must be purchased/shipped within Sweden.
+| **38/720** | 38mm | 720 N-s | J350 (L2), future J motors |
+| **29/180** | 29mm | 180 N-s | H128W (L1), future H motors |
 
 ## Rocket Configuration
 
-Using same Apogee Peregrine "SIPSIK" rocket in L2 configuration:
-- Full length with e-bay (175 cm)
-- 38mm motor mount (no adapter needed for J420R)
-- Dual deployment with CATS Vega
+Apogee Peregrine "SIPSIK" in full L2 configuration:
+
+| Parameter | Value |
+|-----------|-------|
+| Length | 175 cm |
+| Diameter | 100 mm |
+| Liftoff weight | 3100 g |
+| CG | 115 cm from nose tip |
+| CP | 130 cm from nose tip |
+| Expected altitude | 1100 m |
+| Actual altitude | ~1000 m (estimated, flight log not yet downloaded) |
+| Recovery | Dual deploy, 18" + 48" electronic |
+| Flight computer | CATS Vega |
 
 ## Requirements
 
 Per Tripoli L2 certification:
 - [x] Current L1 certification
 - [x] Pass L2 written exam
-- [ ] Successfully fly and recover rocket using J, K, or L motor
-- [ ] Witnessed by Prefect, TAP, or Board member
+- [x] Successfully fly and recover rocket using J, K, or L motor
+- [x] Witnessed by Prefect, TAP, or Board member
+
+## Logistics
+
+Same as L1: car on Tallinn-Stockholm ferry, drive to Enköping. Motor purchased/shipped within Sweden (Tallink ferry ban on dangerous substances).
