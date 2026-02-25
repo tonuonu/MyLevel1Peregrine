@@ -44,7 +44,7 @@ Tripoli Level 3 high-power certification using a scratch-built rocket with a sin
 | Dry weight (no motor) | TBD |
 | Liftoff weight (with motor) | TBD |
 | Motor | AeroTech M1350W-PS (75mm, 5178 N-s) |
-| Recovery | Dual deploy, dual redundant electronics |
+| Recovery | Dual deploy, dual redundant electronics, servo-actuated spring release |
 | Expected altitude | TBD |
 | Number of fins | TBD |
 | Fin material | Spectrum PC CF (3D printed polycarbonate + carbon fiber) |
@@ -55,6 +55,7 @@ Tripoli Level 3 high-power certification using a scratch-built rocket with a sin
 - Progressive flight testing on J and L motors before cert flight
 - 3D printed fin can in PC CF with carbon rod reinforcement for flutter resistance
 - Dual redundant electronics as required by Tripoli L3 rules
+- Servo-actuated spring release instead of black powder ejection charges
 - Single-use motor to avoid reloadable hardware risk
 
 ---
@@ -75,12 +76,13 @@ Tripoli Level 3 high-power certification using a scratch-built rocket with a sin
 - Electronics bay location
 - Recovery section layout
 - Motor mount position and length
+- Separation mechanism locations
 
 ### 2.2 Body Tube
 
 | Parameter | Value |
 |-----------|-------|
-| Material | TBD |
+| Material | TBD (commercial prebuilt tube) |
 | Outer diameter | TBD |
 | Inner diameter | TBD |
 | Wall thickness | TBD |
@@ -94,6 +96,8 @@ Tripoli Level 3 high-power certification using a scratch-built rocket with a sin
 | Material | TBD (3D printed or commercial) |
 | Length | TBD |
 | Shoulder length | TBD |
+
+Electronics may be housed in the nose cone — see section 2.8.
 
 ### 2.4 Fin Can Assembly
 
@@ -146,11 +150,16 @@ For pre-certification test flights:
 
 | Parameter | Value |
 |-----------|-------|
-| Location | TBD (typically mid-body between recovery sections) |
+| Location | TBD — either mid-body or nose cone |
 | Length | TBD |
 | Sled material | TBD |
 | Switch access | External key switches (2×, one per system) |
-| Charge wells | 4× (2 drogue + 2 main, one per system) |
+
+**Nose cone option**: Placing electronics in the nose cone simplifies wiring (all forward), and the electronics mass helps CG stay forward for stability. Trade-off is accessibility and nose cone structural requirements.
+
+**Mid-body option**: Traditional e-bay between recovery sections. Easier access, standard approach.
+
+*TODO: Decide based on airframe layout and CG analysis.*
 
 ### 2.9 Rail Guides
 
@@ -170,7 +179,7 @@ For pre-certification test flights:
 
 | Item | Specification | Quantity | Source |
 |------|--------------|----------|--------|
-| Body tube | TBD | TBD | TBD |
+| Body tube | TBD (commercial prebuilt) | TBD | TBD |
 | Nose cone | TBD | 1 | TBD |
 | Fin can body (printed) | Spectrum PC CF | 1 set | Printed by candidate |
 | Fins (printed) | Spectrum PC CF | TBD | Printed by candidate |
@@ -178,7 +187,7 @@ For pre-certification test flights:
 | Centering rings | TBD | TBD | TBD |
 | Motor mount tube | 75mm ID | 1 | TBD |
 | Motor retainer | TBD | 1 | TBD |
-| E-bay sled | TBD | 1 | TBD |
+| E-bay structure | TBD | 1 | TBD |
 | Bulkheads | TBD | 2 | TBD |
 | Rail guides | TBD | TBD | TBD |
 | Shock cord | TBD | TBD | TBD |
@@ -191,20 +200,22 @@ For pre-certification test flights:
 | Drogue parachute | TBD size | 1 | TBD |
 | Main parachute | TBD size | 1 | TBD |
 | Nomex chute protectors | TBD | 2 | TBD |
-| Shear pins | TBD | TBD | TBD |
-| Ejection charges (BP) | TBD grams each | 4 (2 per system) | TBD |
+| Separation springs | TBD | TBD | TBD |
+| Retention pins | TBD | TBD | TBD |
+| Servos (separation) | TBD | TBD | TBD |
 
 ### 3.3 Electronics
 
 | Item | Specification | Quantity | Source |
 |------|--------------|----------|--------|
-| Primary flight computer | Custom (CATS Vega-based) | 1 | Built by candidate |
-| Backup flight computer | TBD | 1 | TBD |
+| Primary flight computer | Custom (CATS Vega clone, improved) | 1 | Built by candidate |
+| Backup flight computer | CATS Vega (original) or second custom clone | 1 | TBD |
 | Battery (primary) | TBD | 1 | TBD |
 | Battery (backup) | TBD | 1 | TBD |
 | Key switch (primary) | TBD | 1 | TBD |
 | Key switch (backup) | TBD | 1 | TBD |
-| E-matches / igniters | TBD | 4 | TBD |
+| Servos (drogue separation) | TBD | TBD per system | TBD |
+| Servos (main separation) | TBD | TBD per system | TBD |
 
 ### 3.4 Motor
 
@@ -220,34 +231,66 @@ For pre-certification test flights:
 
 ### 4.1 Recovery Architecture
 
-Dual deployment with dual redundant electronics:
+Dual deployment using servo-actuated spring release mechanisms, controlled by dual redundant electronics:
 
 | Event | Altitude | Device | Action |
 |-------|----------|--------|--------|
-| Apogee | Apogee detection | Primary FC + Backup FC | Drogue parachute deployment |
-| Main | TBD (e.g., 300m AGL) | Primary FC + Backup FC | Main parachute deployment |
+| Apogee | Apogee detection | Primary FC + Backup FC | Servo releases pin → spring separates body → drogue deploys |
+| Main | TBD (e.g., 300m AGL) | Primary FC + Backup FC | Servo releases pin → spring separates body → main deploys |
 
-### 4.2 Drogue Deployment
+### 4.2 Separation Mechanism Concept
+
+Instead of black powder ejection charges, separation is achieved mechanically:
+
+1. **Springs** are preloaded between body sections during assembly, providing separation force
+2. **Retention pins** hold the sections together against the spring preload during flight
+3. **Servos** pull the pins out on command from the flight computer
+4. Once pins are removed, springs push the sections apart and deploy the parachute
+
+**Advantages over BP charges**:
+
+- No pyrotechnics — simpler handling, no e-matches, no charge sizing
+- Repeatable and testable — same force every time
+- No hot gas near parachutes — no Nomex protectors needed
+- Clean separation — no soot, no pressure spike
+
+**Design challenges — TODO**:
+
+- **Redundancy logic problem**: Tripoli requires each system to independently trigger recovery. This means each FC must be able to independently release the pins. But if two independent servos can each release, the pin retention is only as strong as the weaker servo holding mechanism. Need a design where:
+  - Either servo can independently release the pin (true redundancy)
+  - But the pin cannot accidentally release under flight loads (vibration, G-forces)
+  - And one servo failure does not jam the other servo's ability to release
+- **Possible approaches (all need analysis)**:
+  - Two pins per joint, each controlled by one servo — either pin removal destabilizes enough for separation, but both pins together handle flight loads
+  - Single pin with two independent pull mechanisms (e.g., two cables to same pin, either can pull it)
+  - Rotary latch with two independent release paths
+  - Other mechanisms TBD
+- **Pin structural requirements**: Pins must withstand aerodynamic loads, motor thrust loads, and vibration during boost without premature release. Shear strength analysis needed.
+- **Spring force**: Must be sufficient to overcome friction and reliably push sections apart and deploy parachute at all expected altitudes (varying air density). Must be validated by ground testing.
+- **Servo reliability**: Servo must reliably actuate in cold weather (Swedish winter conditions), under vibration, and after sustaining boost G-loads. Servo selection and testing critical.
+- **Discuss with Rolf early**: Non-pyro separation is less common for L3. TAP approval of the concept is needed before detailed design.
+
+### 4.3 Drogue Deployment
 
 | Parameter | Value |
 |-----------|-------|
 | Trigger | Apogee detection (barometric) |
+| Mechanism | Servo-actuated pin release + spring separation |
 | Parachute | TBD size drogue |
 | Descent rate under drogue | TBD m/s |
 | Separation point | TBD |
-| Charge size | TBD grams BP (×2, one per system) |
 
-### 4.3 Main Deployment
+### 4.4 Main Deployment
 
 | Parameter | Value |
 |-----------|-------|
 | Trigger | Altitude-based (TBD meters AGL) |
+| Mechanism | Servo-actuated pin release + spring separation |
 | Parachute | TBD size main |
 | Descent rate under main | TBD m/s (must not exceed 35 ft/s = 10.7 m/s per Tripoli rules) |
 | Separation point | TBD |
-| Charge size | TBD grams BP (×2, one per system) |
 
-### 4.4 Landing Velocity
+### 4.5 Landing Velocity
 
 | Parameter | Value |
 |-----------|-------|
@@ -256,21 +299,25 @@ Dual deployment with dual redundant electronics:
 | Liftoff weight | TBD |
 | Main parachute Cd | TBD |
 
-### 4.5 Redundancy Architecture
+### 4.6 Redundancy Architecture
 
 Per Tripoli L3 rules: *"Dual redundant electronics are required for all recovery events. Two completely independent and separate electronic recovery systems must be incorporated. Neither system must adversely affect the other. Redundancy means completely separate systems, including batteries, switches, avionics, and energetics."*
 
+Note: "energetics" in the Tripoli rules refers to ejection charges. With servo-actuated separation, the equivalent is the servo + pin + spring mechanism. Each system must independently be capable of triggering separation.
+
 | Component | Primary System | Backup System |
 |-----------|---------------|---------------|
-| Flight computer | Custom FC #1 | TBD (Custom FC #2 or commercial) |
+| Flight computer | Custom FC (CATS Vega clone, improved) | CATS Vega (original) or second custom clone |
 | Battery | Dedicated battery #1 | Dedicated battery #2 |
 | Arming switch | Key switch #1 | Key switch #2 |
-| Drogue charge | Charge #1 | Charge #2 |
-| Main charge | Charge #3 | Charge #4 |
+| Drogue release | Servo #1 → pin/mechanism | Servo #2 → pin/mechanism |
+| Main release | Servo #3 → pin/mechanism | Servo #4 → pin/mechanism |
 
-The two systems share no electrical connections. Each has independent power, switching, sensing, and pyro output.
+The two systems share no electrical connections. Each has independent power, switching, sensing, and servo output.
 
-### 4.6 Motor Note
+*TODO: Design the mechanical interface so that either servo can independently cause separation without the other. See section 4.2 design challenges.*
+
+### 4.7 Motor Note
 
 The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depends entirely on the dual redundant electronic systems. There is no motor backup.
 
@@ -280,17 +327,17 @@ The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depe
 
 *Per Tripoli L3 requirement 1.a.iii: "A wiring diagram that accurately reflects the wiring provided by the candidate from the power source, switches, and ejection charges."*
 
-*Note: Schematics of the actual flight computer internals are NOT required — only the wiring from power source, through switches, to the flight computers and ejection charges.*
+*Note: With servo-actuated separation, the wiring diagram shows servo connections instead of e-match/charge connections. Schematics of the actual flight computer internals are NOT required — only the wiring from power source, through switches, to the flight computers and servos.*
 
 ### 5.1 Wiring Diagram
 
 *TODO: Create wiring diagram showing:*
 
-- Battery #1 → Key switch #1 → Primary FC → Drogue charge #1 + Main charge #1
-- Battery #2 → Key switch #2 → Backup FC → Drogue charge #2 + Main charge #2
+- Battery #1 → Key switch #1 → Primary FC → Drogue servo #1 + Main servo #1
+- Battery #2 → Key switch #2 → Backup FC → Drogue servo #2 + Main servo #2
 - Physical separation between systems
-- E-match connections
-- Charge well layout
+- Servo connections (signal + power)
+- Mechanical linkage to pins (conceptual)
 
 ### 5.2 Primary System
 
@@ -298,8 +345,8 @@ The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depe
 |-----------|------|-----|
 | Power | Battery #1 (TBD V) | Key switch #1 |
 | Switched power | Key switch #1 | Primary FC power input |
-| Pyro channel 1 | Primary FC drogue output | E-match → drogue charge #1 |
-| Pyro channel 2 | Primary FC main output | E-match → main charge #1 |
+| Servo channel 1 | Primary FC drogue output | Servo #1 → drogue pin release |
+| Servo channel 2 | Primary FC main output | Servo #3 → main pin release |
 
 ### 5.3 Backup System
 
@@ -307,8 +354,8 @@ The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depe
 |-----------|------|-----|
 | Power | Battery #2 (TBD V) | Key switch #2 |
 | Switched power | Key switch #2 | Backup FC power input |
-| Pyro channel 1 | Backup FC drogue output | E-match → drogue charge #2 |
-| Pyro channel 2 | Backup FC main output | E-match → main charge #2 |
+| Servo channel 1 | Backup FC drogue output | Servo #2 → drogue pin release |
+| Servo channel 2 | Backup FC main output | Servo #4 → main pin release |
 
 ---
 
@@ -336,7 +383,7 @@ The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depe
 | Parameter | Value |
 |-----------|-------|
 | Method | TBD |
-| Rating | Must retain motor under full thrust + ejection loads |
+| Rating | Must retain motor under full thrust loads |
 
 ### 6.3 Thrust-to-Weight Ratio
 
@@ -497,16 +544,18 @@ If flutter margin insufficient with PC CF alone:
 - [ ] Motor mount assembly
 - [ ] Centering ring installation
 - [ ] Body tube preparation
-- [ ] Electronics bay construction
-- [ ] E-bay sled with dual flight computers
-- [ ] Wiring of dual redundant systems
+- [ ] Separation mechanism fabrication and testing
+- [ ] Electronics bay / nose cone electronics construction
+- [ ] Dual flight computer installation and wiring
+- [ ] Servo mechanism installation and testing
 - [ ] Recovery harness assembly
 - [ ] Parachute packing
+- [ ] Spring preload and pin retention testing
 - [ ] Final assembly
 - [ ] Weight and CG measurements
 - [ ] CP marking on airframe
-- [ ] Ground test of electronics
-- [ ] Ejection charge ground testing
+- [ ] Ground test of electronics (both systems independently)
+- [ ] Separation mechanism ground testing (both systems independently)
 
 ### 10.2 Construction Photos
 
@@ -541,12 +590,10 @@ Electronic deployment count: 1 of 2 minimum complete.
 - [ ] Rocket fully assembled and inspected
 - [ ] Motor (M1350W-PS)
 - [ ] Igniter (FirstFire)
-- [ ] Ejection charges prepared (4×: 2 drogue + 2 main)
-- [ ] E-matches (4×)
 - [ ] Batteries charged (2×, one per system)
 - [ ] Key switches and keys (2×)
+- [ ] Spare servos
 - [ ] Tools for field assembly
-- [ ] Recovery wadding / Nomex protectors
 
 ### 12.2 At Launch Site — Before Assembly
 
@@ -563,10 +610,12 @@ Electronic deployment count: 1 of 2 minimum complete.
 - [ ] Install motor in rocket with retention
 - [ ] Pack drogue parachute
 - [ ] Pack main parachute
-- [ ] Install ejection charges (4×)
-- [ ] Install e-matches in charges
-- [ ] Connect primary FC wiring
-- [ ] Connect backup FC wiring
+- [ ] Preload separation springs
+- [ ] Install retention pins
+- [ ] Verify pin engagement
+- [ ] Connect servo mechanisms
+- [ ] Connect primary FC wiring and servos
+- [ ] Connect backup FC wiring and servos
 - [ ] Arm primary system (key switch #1)
 - [ ] Verify primary FC status (LED/beep)
 - [ ] Arm backup system (key switch #2)
@@ -593,23 +642,28 @@ Electronic deployment count: 1 of 2 minimum complete.
 |-------------|------------|-------------|
 | Motor CATO | Single-use motor, proper assembly | Non-certification |
 | Motor retention failure | Adequate retention hardware, inspection | Non-certification |
-| Primary electronics failure | Backup system fires charges | Successful recovery |
-| Backup electronics failure | Primary system fires charges | Successful recovery |
+| Primary electronics failure | Backup system actuates servos | Successful recovery |
+| Backup electronics failure | Primary system actuates servos | Successful recovery |
 | Both electronics fail | Design for reliability, ground test | Non-certification (ballistic descent) |
+| Servo failure (single) | Redundant servo on other system releases same joint | Successful recovery |
+| Servo failure (both on same joint) | Ground testing, servo selection, cold testing | Failed separation |
+| Pin jammed | Design for clean release, lubrication, vibration testing | Failed separation |
+| Spring insufficient | Ground testing at various temperatures, margin in spring force | Incomplete separation |
+| Premature pin release (vibration/G) | Pin shear strength analysis, locking mechanism | Drag separation during boost |
 | Fin flutter | Flutter analysis, carbon reinforcement, progressive test flights | Structural failure |
 | Unstable flight | Stability analysis, CP/CG verification, OpenRocket sim | Unsafe flight |
-| Parachute tangle | Proper packing, Nomex protectors, ground test | Failed recovery |
-| Shear pin failure (premature separation) | Correct shear pin sizing, ground test | Drag separation |
-| Ejection charge insufficient | Ground test charges, calculate volume | Failed deployment |
-| Ejection charge excessive | Ground test charges, calculate volume | Structural damage |
+| Parachute tangle | Proper packing, ground test | Failed recovery |
 
 ### 13.2 Risk Mitigation Through Testing
 
 | Test | Purpose | When |
 |------|---------|------|
-| Flight #2 (J420R) | Validate airframe, electronics, recovery | Before L flight |
+| Separation mechanism bench test | Verify servo releases pin, spring separates sections | During construction |
+| Redundancy test | Verify each system independently triggers separation | During construction |
+| Cold temperature test | Verify servo and spring operation at expected launch temps | During construction |
+| Vibration/shake test | Verify pins don't release under simulated flight loads | During construction |
+| Flight #2 (J420R) | Validate airframe, electronics, separation mechanism | Before L flight |
 | Flight #3 (L1000W) | Stress test at higher loads and speeds | Before M flight |
-| Ejection charge ground test | Verify charge sizes separate rocket | Before each flight |
 | Electronics ground test | Verify both systems detect apogee/altitude correctly | Before each flight |
 
 ### 13.3 Compliance
@@ -620,7 +674,7 @@ Electronic deployment count: 1 of 2 minimum complete.
 | FAR 101.25 | Altitude prediction within waiver |
 | Waiver radius | Wind simulation, dual deploy for tight landing |
 | Landing velocity ≤ 35 ft/s | Parachute sizing calculation |
-| Dual redundant electronics | Two independent systems |
+| Dual redundant electronics | Two independent systems with independent servos |
 | CP marked on rocket | External marking |
 
 ---
@@ -647,7 +701,17 @@ Electronic deployment count: 1 of 2 minimum complete.
 
 *TODO: Custom FC schematic, PCB layout, firmware overview*
 
-### F. Forms
+### F. Separation Mechanism Design
+
+*TODO: Detailed drawings of servo-actuated pin release mechanism, including:*
+
+- Pin geometry and shear strength analysis
+- Spring selection and force calculations
+- Servo selection and torque requirements
+- Redundancy solution (how either FC independently triggers release)
+- Assembly and preload procedure
+
+### G. Forms
 
 - [Universal Certification Form (UCF)](https://www.tripoli.org/docs.ashx?id=859597)
 - [Pre-Flight Data Capture Form](https://www.tripoli.org/docs.ashx?id=891494)
