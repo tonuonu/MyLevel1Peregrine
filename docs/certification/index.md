@@ -20,6 +20,12 @@
 
 ## L2 Certification Flight
 
+### Flight Video
+
+<video controls width="100%">
+  <source src="../photos/l2_certification_flight.mp4" type="video/mp4">
+</video>
+
 ### Flight Details
 
 | Parameter | Value |
