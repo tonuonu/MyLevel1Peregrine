@@ -43,8 +43,14 @@ The PNC-98 nose cone:
 
 ## Motor Recommendations
 
-### For L1 Certification (38mm motors)
+### For L2 Certification (38mm J motors)
 
+- AeroTech J350 (used for SIPSIK L2 flight)
+- AeroTech J420R
+
+### For L1 Certification (38mm H motors, or 29mm with adapter)
+
+- AeroTech H128W (used for SIPSIK L1 flight)
 - AeroTech H100W
 - AeroTech H180W  
 - AeroTech H210 Redline
@@ -56,5 +62,5 @@ The PNC-98 nose cone:
 - AeroTech G80T (max non-HP motor)
 - Various G motors with 29/38mm adapter
 
-!!! warning "Certification Advice"
-    Apogee recommends NOT using dual deployment for L1/L2 certification flights. Use single deployment with motor ejection for simplicity.
+!!! note "Certification Note"
+    Apogee recommends single deployment with motor ejection for L1 certification for simplicity. SIPSIK used motor ejection for L1 and dual deployment (CATS Vega) for L2 — both successful.

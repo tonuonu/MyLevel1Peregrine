@@ -1,5 +1,5 @@
 site_name: Peregrine
-site_description: Tõnu's Tripoli L1 & L2 certification rocket build documentation
+site_description: Tõnu's Tripoli L1, L2 & L3 certification rocket build documentation
 site_author: Tõnu Samuel
 site_url: https://tonuonu.github.io/MyLevel1Peregrine/
 
@@ -101,6 +101,7 @@ nav:
   - Certification:
     - Overview: certification/index.md
     - L2 Certified: certification/l2-planning.md
+    - L3 Planning: certification/l3-planning.md
   - Rocket Specifications:
     - Overview: specifications/overview.md
     - Kit Contents: specifications/kit-contents.md

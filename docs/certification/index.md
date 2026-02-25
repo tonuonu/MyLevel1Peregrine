@@ -51,16 +51,19 @@
 
 ### Recovery Configuration
 
-Dual deployment with electronic ejection via CATS Vega:
+Dual deployment was required by the 500m landing radius constraint. Simulations showed that with main-only recovery from ~1000m, any wind above 4 m/s would carry the rocket beyond the allowed radius.
 
-- **Drogue**: 18" parachute at apogee
-- **Main**: 48" parachute at lower altitude
+Triple-redundant ejection system:
+
+- **Electronic #1 (CATS Vega)**: 18" drogue parachute at apogee
+- **Electronic #2 (CATS Vega)**: 48" main parachute at lower altitude
+- **Motor backup**: Original 14s factory delay left unmodified as independent safety charge
 
 ### Electronics
 
 | Device | Purpose |
 |--------|---------|
-| CATS Vega | Flight computer, dual deployment control |
+| CATS Vega | Flight computer, dual deployment control (2 pyro channels) |
 
 ### L2 Written Examination
 
@@ -148,6 +151,21 @@ Rolf is one of Tripoli's [Lifetime Members](https://tripoli.clubexpress.com/cont
 ### Official Documents
 
 [Download L1 Certification Form (PDF)](../photos/l1_certification_form.pdf)
+
+---
+
+## What's Next: L3
+
+L1 and L2 served as verification that the fundamentals were understood correctly. L3 is a different challenge — building a rocket from scratch rather than using a kit.
+
+| Requirement | Status |
+|-------------|--------|
+| Current L2 certification | ✓ |
+| TAP member #1 | Rolf Örell (confirmed) |
+| TAP member #2 | TBD |
+| Scratch-built rocket | Design phase |
+| Documentation package | Not started |
+| Review flight | Not scheduled |
 
 ---
 
