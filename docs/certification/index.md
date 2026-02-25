@@ -1,7 +1,8 @@
-# L1 Certification
+# Certification
 
-## Status: CERTIFIED ✓
+## Status: L2 CERTIFIED ✓
 
+**Tripoli Level 2 - Certified 22 February 2026**
 **Tripoli Level 1 - Certified 24 January 2026**
 
 ## Tripoli Membership
@@ -12,8 +13,70 @@
 |-------|-------|
 | Organization | Tripoli Rocketry Association |
 | Member Number | 38105 |
-| Status | L1 Certified |
+| Status | L2 Certified |
 | Expires | November 2026 |
+
+---
+
+## L2 Certification Flight
+
+### Flight Details
+
+| Parameter | Value |
+|-----------|-------|
+| Date | 22 February 2026 |
+| Location | Enköping, Sweden |
+| Organization | SMRK (Swedish Model Rocket Club) |
+| Motor | AeroTech J350 |
+| Result | **Successful** |
+
+### Rocket Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| Kit | Apogee Peregrine |
+| Length | 175 cm |
+| Diameter | 100 mm |
+| Liftoff weight | 3100 g |
+| CG | 115 cm from nose tip |
+| CP | 130 cm from nose tip |
+| Expected altitude | 1100 m |
+
+### Recovery Configuration
+
+Dual deployment with electronic ejection via CATS Vega:
+
+- **Drogue**: 18" parachute at apogee
+- **Main**: 48" parachute at lower altitude
+
+### Electronics
+
+| Device | Purpose |
+|--------|---------|
+| CATS Vega | Flight computer, dual deployment control |
+
+### L2 Written Examination
+
+| Field | Value |
+|-------|-------|
+| Passed | 27 January 2026 |
+| Certificate # | 2343 |
+
+![L2 Written Exam Certificate](../photos/l2_written_exam_certificate.jpg)
+
+### Certifying Authority
+
+| Field | Value |
+|-------|-------|
+| Name | Rolf Örell |
+| TRA # | 3728 |
+| Role | Tripoli Prefect |
+
+### Official Documents
+
+[Download L2 Certification Form (PDF)](../photos/l2_certification_form.pdf)
+
+---
 
 ## L1 Certification Flight
 
@@ -75,21 +138,24 @@ Originally planned dual deployment with electronic ejection. Pivoted to motor ej
 
 Rolf is one of Tripoli's [Lifetime Members](https://tripoli.clubexpress.com/content.aspx?page_id=22&club_id=795696&module_id=494497) and reportedly the first Tripoli Prefect in Europe.
 
+### Official Documents
+
+[Download L1 Certification Form (PDF)](../photos/l1_certification_form.pdf)
+
+---
+
 ## Acknowledgments
 
-Special thanks to those who helped make this certification possible:
+Special thanks to those who helped make both certifications possible:
 
-- **Rolf Örell** - Certifying authority, signed the certificate
-- **Peter Steen** - Launch support and guidance  
+- **Rolf Örell** - Certifying authority for L1 and L2
+- **Peter Steen** - Launch support and guidance
 - **Anton Vannesjö** - Launch support and guidance
 
 ## Lessons Learned
 
+### L1
 1. **Know your tools** - The Aerotech delay adjustment tool has a +2s disk; understand all components before launch day
 2. **Swedish launch requirements** - Ejection charge testing required; plan for motor ejection as fallback
 3. **Weight matters** - Additional electronics increased weight beyond budget, reducing altitude by ~30%
 4. **Motor procurement** - Cannot transport motors on Tallink passenger ferries (blanket ban on dangerous substances); must purchase locally in Sweden or find alternative transport
-
-## Official Documents
-
-[Download L1 Certification Form (PDF)](../photos/l1_certification_form.pdf)

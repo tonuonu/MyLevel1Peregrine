@@ -1,10 +1,23 @@
-# Peregrine L1
+# Peregrine
 
-**L1 CERTIFIED** ✓ — 24 January 2026, Enköping, Sweden
+**L2 CERTIFIED** ✓ — 22 February 2026, Enköping, Sweden
 
-Documentation for my Tripoli Level 1 certification using the Apogee Peregrine dual deployment rocket, named **SIPSIK** after the beloved Estonian cartoon character.
+Documentation for my Tripoli Level 1 and Level 2 certification rocket build using the Apogee Peregrine dual deployment kit, named **SIPSIK** after the beloved Estonian cartoon character.
 
 **📖 Documentation Site: [tonuonu.github.io/MyLevel1Peregrine](https://tonuonu.github.io/MyLevel1Peregrine/)**
+
+## L2 Certification Flight
+
+| | |
+|---|---|
+| **Date** | 22 February 2026 |
+| **Location** | Enköping, Sweden (SMRK) |
+| **Motor** | AeroTech J350 |
+| **Weight** | 3100 g |
+| **Expected Altitude** | 1100 m |
+| **Recovery** | Dual deploy, 18" + 48" electronic (CATS Vega) |
+| **Certifying Authority** | Rolf Örell (TRA# 3728) |
+| **Result** | **CERTIFIED** |
 
 ## L1 Certification Flight
 
@@ -17,14 +30,6 @@ Documentation for my Tripoli Level 1 certification using the Apogee Peregrine du
 | **Recovery** | Motor ejection, single chute |
 | **Certifying Authority** | Rolf Örell (TRA# 3728) |
 | **Result** | **CERTIFIED** |
-
-## Next: L2 Certification
-
-| | |
-|---|---|
-| **Written Exam** | ✅ Passed (27 Jan 2026) |
-| **Target Flight** | 7 February 2026 (tentative) |
-| **Motor** | AeroTech J420R-14A (ordered) |
 
 ## Repository Contents
 
