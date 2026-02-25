@@ -201,8 +201,9 @@ For pre-certification test flights:
 | Main parachute | TBD size | 1 | TBD |
 | Nomex chute protectors | TBD | 2 | TBD |
 | Separation springs | TBD | TBD | TBD |
-| Retention pins | TBD | TBD | TBD |
+| Separation mechanism hardware | TBD (pins/bayonet/hybrid) | TBD | TBD |
 | Servos (separation) | TBD | TBD | TBD |
+| Tether cord (mechanism retention) | TBD | TBD | TBD |
 
 ### 3.3 Electronics
 
@@ -235,17 +236,17 @@ Dual deployment using servo-actuated spring release mechanisms, controlled by du
 
 | Event | Altitude | Device | Action |
 |-------|----------|--------|--------|
-| Apogee | Apogee detection | Primary FC + Backup FC | Servo releases pin → spring separates body → drogue deploys |
-| Main | TBD (e.g., 300m AGL) | Primary FC + Backup FC | Servo releases pin → spring separates body → main deploys |
+| Apogee | Apogee detection | Primary FC + Backup FC | Servo releases mechanism → spring separates body → drogue deploys |
+| Main | TBD (e.g., 300m AGL) | Primary FC + Backup FC | Servo releases mechanism → spring separates body → main deploys |
 
 ### 4.2 Separation Mechanism Concept
 
 Instead of black powder ejection charges, separation is achieved mechanically:
 
 1. **Springs** are preloaded between body sections during assembly, providing separation force
-2. **Retention pins** hold the sections together against the spring preload during flight
-3. **Servos** pull the pins out on command from the flight computer
-4. Once pins are removed, springs push the sections apart and deploy the parachute
+2. **Retention mechanism** holds the sections together against the spring preload during flight
+3. **Servos** actuate the release mechanism on command from the flight computer
+4. Once released, springs push the sections apart and deploy the parachute
 
 **Advantages over BP charges**:
 
@@ -254,43 +255,75 @@ Instead of black powder ejection charges, separation is achieved mechanically:
 - No hot gas near parachutes — no Nomex protectors needed
 - Clean separation — no soot, no pressure spike
 
-**Design challenges — TODO**:
+### 4.3 Separation Mechanism Candidates
 
-- **Redundancy logic problem**: Tripoli requires each system to independently trigger recovery. This means each FC must be able to independently release the pins. But if two independent servos can each release, the pin retention is only as strong as the weaker servo holding mechanism. Need a design where:
-  - Either servo can independently release the pin (true redundancy)
-  - But the pin cannot accidentally release under flight loads (vibration, G-forces)
-  - And one servo failure does not jam the other servo's ability to release
-- **Possible approaches (all need analysis)**:
-  - Two pins per joint, each controlled by one servo — either pin removal destabilizes enough for separation, but both pins together handle flight loads
-  - Single pin with two independent pull mechanisms (e.g., two cables to same pin, either can pull it)
-  - Rotary latch with two independent release paths
-  - Other mechanisms TBD
-- **Pin structural requirements**: Pins must withstand aerodynamic loads, motor thrust loads, and vibration during boost without premature release. Shear strength analysis needed.
-- **Spring force**: Must be sufficient to overcome friction and reliably push sections apart and deploy parachute at all expected altitudes (varying air density). Must be validated by ground testing.
-- **Servo reliability**: Servo must reliably actuate in cold weather (Swedish winter conditions), under vibration, and after sustaining boost G-loads. Servo selection and testing critical.
-- **Discuss with Rolf early**: Non-pyro separation is less common for L3. TAP approval of the concept is needed before detailed design.
+The central design challenge is Tripoli's redundancy requirement: each FC must independently be able to trigger separation, while the mechanism must reliably hold during boost loads. Several candidate approaches are under consideration.
 
-### 4.3 Drogue Deployment
+#### Option A: Dual Pin
+
+Two independent pins per separation joint, each controlled by one servo (one per FC system). Each pin carries part of the flight loads.
+
+- **Release**: Either pin removal alone allows springs to push sections apart (pin geometry and spring force designed so one pin cannot hold against springs)
+- **Retention during flight**: Both pins together handle full aerodynamic and thrust loads
+- **Independence**: Each servo controls its own pin — no mechanical interaction
+- **Concern**: If one pin alone must NOT hold against the springs, each pin is only carrying partial load. Need to verify that vibration or G-forces cannot cause a single pin to slip. Careful geometry needed — tapered pins, detent depth, etc.
+
+#### Option B: Bayonet
+
+A bayonet-style rotary latch between body sections. Two servos are mounted on opposite sides, each capable of rotating the bayonet to the release position.
+
+- **Release**: Either servo rotates the bayonet to unlock position — both rotate in opposing directions so they don't fight each other
+- **Retention during flight**: Bayonet lugs carry full axial and bending loads in the locked position
+- **Independence**: Two servos acting on the same bayonet ring via opposing rotational inputs. Either one alone can unlock
+- **Advantages**: Strong retention in locked state (bayonet lugs are load-bearing surfaces), clean single-mechanism design, well-understood locking geometry
+- **Concerns**: Bayonet must rotate freely under all conditions (cold, vibration, slight misalignment). Binding under load is the main failure mode. Tolerances critical. Must not rotate under vibration alone — needs a detent or friction hold in the locked position that either servo can overcome
+
+#### Option C: Hybrid (Bayonet + Pin Bypass)
+
+Primary separation via bayonet (servo #1 rotates to unlock). Independent backup via pin pull (servo #2 pulls a pin that releases the entire bayonet mechanism from the body).
+
+- **Primary path (System 1)**: Servo rotates bayonet to unlock → springs separate
+- **Backup path (System 2)**: Servo pulls pin → bayonet assembly detaches from one body section entirely → springs separate. The released bayonet mechanism stays attached via tether cord to avoid separate falling parts
+- **Independence**: Two completely different mechanical paths to the same result. No shared failure modes between rotary and linear release
+- **Advantages**: True mechanical independence — a jammed bayonet doesn't prevent pin-pull separation. The pin bypass is a simple, robust backup
+- **Concerns**: More complex mechanism, more parts. Tether management (bayonet assembly must not tangle with parachute). Pin must hold under flight loads but release cleanly when pulled. Need to ensure the pin-pull path provides enough clearance for springs to push sections apart even with bayonet still partially engaged
+
+#### Tethering
+
+All separation mechanism hardware (pins, bayonet assemblies, servos) must remain attached to a rocket section via tether cords. No parts may descend without a recovery system — this is a Tripoli non-certification condition ("components which descend without a recovery system").
+
+### 4.4 Design Challenges — TODO
+
+Regardless of which mechanism is selected:
+
+- **Redundancy logic**: Must satisfy Tripoli requirement that each system independently triggers recovery, without creating a mechanism that is too easy to release accidentally
+- **Structural analysis**: Retention mechanism must handle boost loads (axial: motor thrust + drag, bending: wind loads, vibration: motor resonance). Analysis needed for the selected mechanism
+- **Spring force**: Must reliably push sections apart and deploy parachute at all expected altitudes. Validated by ground testing
+- **Servo selection**: Must reliably actuate in cold weather (Swedish winter), under vibration, after sustaining boost G-loads. Torque margin needed
+- **Tolerances**: 3D printed mechanism parts have different tolerances than machined parts. If mechanism is printed, test under realistic conditions
+- **Discuss with Rolf early**: Non-pyro separation is less common for L3. TAP approval of the concept is needed before detailed design
+
+### 4.5 Drogue Deployment
 
 | Parameter | Value |
 |-----------|-------|
 | Trigger | Apogee detection (barometric) |
-| Mechanism | Servo-actuated pin release + spring separation |
+| Mechanism | Servo-actuated release + spring separation |
 | Parachute | TBD size drogue |
 | Descent rate under drogue | TBD m/s |
 | Separation point | TBD |
 
-### 4.4 Main Deployment
+### 4.6 Main Deployment
 
 | Parameter | Value |
 |-----------|-------|
 | Trigger | Altitude-based (TBD meters AGL) |
-| Mechanism | Servo-actuated pin release + spring separation |
+| Mechanism | Servo-actuated release + spring separation |
 | Parachute | TBD size main |
 | Descent rate under main | TBD m/s (must not exceed 35 ft/s = 10.7 m/s per Tripoli rules) |
 | Separation point | TBD |
 
-### 4.5 Landing Velocity
+### 4.7 Landing Velocity
 
 | Parameter | Value |
 |-----------|-------|
@@ -299,25 +332,23 @@ Instead of black powder ejection charges, separation is achieved mechanically:
 | Liftoff weight | TBD |
 | Main parachute Cd | TBD |
 
-### 4.6 Redundancy Architecture
+### 4.8 Redundancy Architecture
 
 Per Tripoli L3 rules: *"Dual redundant electronics are required for all recovery events. Two completely independent and separate electronic recovery systems must be incorporated. Neither system must adversely affect the other. Redundancy means completely separate systems, including batteries, switches, avionics, and energetics."*
 
-Note: "energetics" in the Tripoli rules refers to ejection charges. With servo-actuated separation, the equivalent is the servo + pin + spring mechanism. Each system must independently be capable of triggering separation.
+Note: "energetics" in the Tripoli rules refers to ejection charges. With servo-actuated separation, the equivalent is the servo + mechanism + spring system. Each system must independently be capable of triggering separation.
 
 | Component | Primary System | Backup System |
 |-----------|---------------|---------------|
 | Flight computer | Custom FC (CATS Vega clone, improved) | CATS Vega (original) or second custom clone |
 | Battery | Dedicated battery #1 | Dedicated battery #2 |
 | Arming switch | Key switch #1 | Key switch #2 |
-| Drogue release | Servo #1 → pin/mechanism | Servo #2 → pin/mechanism |
-| Main release | Servo #3 → pin/mechanism | Servo #4 → pin/mechanism |
+| Drogue release | Servo #1 → mechanism path A | Servo #2 → mechanism path B |
+| Main release | Servo #3 → mechanism path A | Servo #4 → mechanism path B |
 
-The two systems share no electrical connections. Each has independent power, switching, sensing, and servo output.
+The two systems share no electrical connections. Each has independent power, switching, sensing, and servo output. The mechanical release paths are designed so either system alone can trigger separation (see section 4.3 for mechanism options).
 
-*TODO: Design the mechanical interface so that either servo can independently cause separation without the other. See section 4.2 design challenges.*
-
-### 4.7 Motor Note
+### 4.9 Motor Note
 
 The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depends entirely on the dual redundant electronic systems. There is no motor backup.
 
@@ -337,7 +368,7 @@ The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depe
 - Battery #2 → Key switch #2 → Backup FC → Drogue servo #2 + Main servo #2
 - Physical separation between systems
 - Servo connections (signal + power)
-- Mechanical linkage to pins (conceptual)
+- Mechanical linkage to release mechanism (conceptual)
 
 ### 5.2 Primary System
 
@@ -345,8 +376,8 @@ The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depe
 |-----------|------|-----|
 | Power | Battery #1 (TBD V) | Key switch #1 |
 | Switched power | Key switch #1 | Primary FC power input |
-| Servo channel 1 | Primary FC drogue output | Servo #1 → drogue pin release |
-| Servo channel 2 | Primary FC main output | Servo #3 → main pin release |
+| Servo channel 1 | Primary FC drogue output | Servo #1 → drogue release path A |
+| Servo channel 2 | Primary FC main output | Servo #3 → main release path A |
 
 ### 5.3 Backup System
 
@@ -354,8 +385,8 @@ The M1350W-PS is a plugged motor — no motor ejection charge. All recovery depe
 |-----------|------|-----|
 | Power | Battery #2 (TBD V) | Key switch #2 |
 | Switched power | Key switch #2 | Backup FC power input |
-| Servo channel 1 | Backup FC drogue output | Servo #2 → drogue pin release |
-| Servo channel 2 | Backup FC main output | Servo #4 → main pin release |
+| Servo channel 1 | Backup FC drogue output | Servo #2 → drogue release path B |
+| Servo channel 2 | Backup FC main output | Servo #4 → main release path B |
 
 ---
 
@@ -550,7 +581,7 @@ If flutter margin insufficient with PC CF alone:
 - [ ] Servo mechanism installation and testing
 - [ ] Recovery harness assembly
 - [ ] Parachute packing
-- [ ] Spring preload and pin retention testing
+- [ ] Spring preload and retention mechanism testing
 - [ ] Final assembly
 - [ ] Weight and CG measurements
 - [ ] CP marking on airframe
@@ -611,8 +642,9 @@ Electronic deployment count: 1 of 2 minimum complete.
 - [ ] Pack drogue parachute
 - [ ] Pack main parachute
 - [ ] Preload separation springs
-- [ ] Install retention pins
-- [ ] Verify pin engagement
+- [ ] Engage retention mechanism (pins/bayonet)
+- [ ] Verify mechanism engagement
+- [ ] Verify tethers attached
 - [ ] Connect servo mechanisms
 - [ ] Connect primary FC wiring and servos
 - [ ] Connect backup FC wiring and servos
@@ -642,14 +674,15 @@ Electronic deployment count: 1 of 2 minimum complete.
 |-------------|------------|-------------|
 | Motor CATO | Single-use motor, proper assembly | Non-certification |
 | Motor retention failure | Adequate retention hardware, inspection | Non-certification |
-| Primary electronics failure | Backup system actuates servos | Successful recovery |
-| Backup electronics failure | Primary system actuates servos | Successful recovery |
+| Primary electronics failure | Backup system actuates servos via independent path | Successful recovery |
+| Backup electronics failure | Primary system actuates servos via independent path | Successful recovery |
 | Both electronics fail | Design for reliability, ground test | Non-certification (ballistic descent) |
-| Servo failure (single) | Redundant servo on other system releases same joint | Successful recovery |
+| Servo failure (single) | Redundant servo on other system releases via independent mechanical path | Successful recovery |
 | Servo failure (both on same joint) | Ground testing, servo selection, cold testing | Failed separation |
-| Pin jammed | Design for clean release, lubrication, vibration testing | Failed separation |
+| Mechanism jammed (bayonet binding / pin stuck) | Tolerances, lubrication, vibration testing; hybrid option provides alternate path | Failed separation |
 | Spring insufficient | Ground testing at various temperatures, margin in spring force | Incomplete separation |
-| Premature pin release (vibration/G) | Pin shear strength analysis, locking mechanism | Drag separation during boost |
+| Premature release (vibration/G) | Structural analysis, detent design, locking geometry | Drag separation during boost |
+| Tether tangle with parachute | Tether routing, length management, ground test | Tangled recovery |
 | Fin flutter | Flutter analysis, carbon reinforcement, progressive test flights | Structural failure |
 | Unstable flight | Stability analysis, CP/CG verification, OpenRocket sim | Unsafe flight |
 | Parachute tangle | Proper packing, ground test | Failed recovery |
@@ -658,11 +691,13 @@ Electronic deployment count: 1 of 2 minimum complete.
 
 | Test | Purpose | When |
 |------|---------|------|
-| Separation mechanism bench test | Verify servo releases pin, spring separates sections | During construction |
-| Redundancy test | Verify each system independently triggers separation | During construction |
-| Cold temperature test | Verify servo and spring operation at expected launch temps | During construction |
-| Vibration/shake test | Verify pins don't release under simulated flight loads | During construction |
-| Flight #2 (J420R) | Validate airframe, electronics, separation mechanism | Before L flight |
+| Separation mechanism bench test | Verify servo releases mechanism, spring separates sections | During construction |
+| Redundancy test (path A only) | Verify primary system alone triggers separation | During construction |
+| Redundancy test (path B only) | Verify backup system alone triggers separation | During construction |
+| Cold temperature test | Verify servo and mechanism operation at expected launch temps | During construction |
+| Vibration/shake test | Verify mechanism doesn't release under simulated flight loads | During construction |
+| Tether deployment test | Verify mechanism hardware doesn't tangle with parachute | During construction |
+| Flight #2 (J420R) | Validate airframe, electronics, separation mechanism in flight | Before L flight |
 | Flight #3 (L1000W) | Stress test at higher loads and speeds | Before M flight |
 | Electronics ground test | Verify both systems detect apogee/altitude correctly | Before each flight |
 
@@ -674,7 +709,8 @@ Electronic deployment count: 1 of 2 minimum complete.
 | FAR 101.25 | Altitude prediction within waiver |
 | Waiver radius | Wind simulation, dual deploy for tight landing |
 | Landing velocity ≤ 35 ft/s | Parachute sizing calculation |
-| Dual redundant electronics | Two independent systems with independent servos |
+| Dual redundant electronics | Two independent systems with independent mechanical release paths |
+| No untethered components | All mechanism parts tethered to rocket sections |
 | CP marked on rocket | External marking |
 
 ---
@@ -703,13 +739,17 @@ Electronic deployment count: 1 of 2 minimum complete.
 
 ### F. Separation Mechanism Design
 
-*TODO: Detailed drawings of servo-actuated pin release mechanism, including:*
+*TODO: Detailed drawings of selected separation mechanism, including:*
 
-- Pin geometry and shear strength analysis
+- Mechanism selection rationale (Option A/B/C from section 4.3)
+- Detailed drawings with dimensions
+- Structural analysis of retention under flight loads
 - Spring selection and force calculations
 - Servo selection and torque requirements
-- Redundancy solution (how either FC independently triggers release)
+- Redundancy verification (both paths independently tested)
+- Tether routing plan
 - Assembly and preload procedure
+- 3D printing considerations (if mechanism is printed)
 
 ### G. Forms
 
