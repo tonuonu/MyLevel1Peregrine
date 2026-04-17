@@ -131,8 +131,26 @@ def generate_charts(records, output_path, liftoff_ts=278340):
     """
     # Convert filtered data to arrays
     f_times = np.array([(r[0] - liftoff_ts) / 1000 for r in records['filtered']])
-    f_alt = np.array([r[1] for r in records['filtered']])
-    f_vel = np.array([r[2] for r in records['filtered']])
+    f_alt_raw = np.array([r[1] for r in records['filtered']])
+    f_vel_raw = np.array([r[2] for r in records['filtered']])
+    
+    # Fix 1: Zero altitude at liftoff (subtract baseline from pre-liftoff)
+    pre_liftoff_mask = f_times < 0
+    if pre_liftoff_mask.sum() > 0:
+        alt_baseline = f_alt_raw[pre_liftoff_mask].mean()
+    else:
+        alt_baseline = f_alt_raw[0]
+    f_alt = f_alt_raw - alt_baseline
+    
+    # Fix 2: Calculate velocity from altitude derivative when FILTERED is unreliable
+    # CATS Kalman filter sometimes shows 0 velocity during descent
+    f_vel_calc = np.gradient(f_alt, f_times)
+    
+    # Use calculated velocity where filtered velocity is suspiciously zero during descent
+    f_vel = f_vel_raw.copy()
+    descent_phase = f_times > 6  # After apogee
+    zero_vel_mask = descent_phase & (np.abs(f_vel_raw) < 0.5)
+    f_vel[zero_vel_mask] = f_vel_calc[zero_vel_mask]
     
     # Convert raw accelerometer data
     r_times = np.array([(r[0] - liftoff_ts) / 1000 for r in records['raw']])
