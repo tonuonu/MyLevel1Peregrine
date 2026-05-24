@@ -2355,7 +2355,32 @@
 </tr>
 </tbody>
 </table>
-<p>The main charge fired at <strong>146 m AGL</strong>, matching the configured CATS Vega <code>main_altitude</code> setting. Touchdown velocity of 0.5 m/s indicates a clean, well-cushioned landing.</p>
+<p>The main charge fired at <strong>146 m AGL</strong> after the rocket descended through the configured <strong><code>main_altitude</code> = 150 m</strong> threshold. The 4 m gap is the firmware's <code>MAIN_SAFETY_COUNTER = 30</code> hold: the FSM requires altitude &lt; threshold for 30 consecutive 100 Hz samples (≈ 0.3 s) before transitioning to MAIN to reject barometer noise. At a ~13 m/s descent rate, the rocket dropped 4 m during the hold:</p>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>ts (ms)</th>
+<th>Altitude</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First sample below threshold</td>
+<td>200810</td>
+<td>149.94 m</td>
+<td><code>memory[0]</code> starts counting</td>
+</tr>
+<tr>
+<td><code>memory[0] &gt; 30</code>, MAIN fired</td>
+<td>201130</td>
+<td>145.94 m</td>
+<td>320 ms / 32 samples later</td>
+</tr>
+</tbody>
+</table>
+<p>The CATS Vega factory default <code>main_altitude</code> is 200 m (per <code>flight_computer/src/config/cats_config.cpp</code>); this rocket was configured to 150 m via the CATS Configurator. Touchdown velocity of 0.5 m/s indicates a clean, well-cushioned landing.</p>
 <p>The drogue descent rate of ~13 m/s is in the expected range for a small drogue on a 3.1 kg rocket — the drogue's job is to keep the rocket vertical and prevent zipper, not to slow it significantly.</p>
 <h2 id="apogee-shortfall-analysis-104">Apogee Shortfall Analysis (10.4 %)<a class="headerlink" href="#apogee-shortfall-analysis-104" title="Permanent link">&para;</a></h2>
 <p>The actual 986 m vs predicted 1100 m gap is much smaller than L1's 32 % shortfall. Two factors:</p>
