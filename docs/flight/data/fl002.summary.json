@@ -1,0 +1,28 @@
+{
+  "liftoff_ts_ms": 124510,
+  "apogee_m": 986.4312744140625,
+  "apogee_t_s": 12.67,
+  "max_velocity_m_s": 172.559326171875,
+  "max_velocity_t_s": 1.81,
+  "max_acceleration_m_s2": 171.6302032470703,
+  "state_transitions": {
+    "THRUSTING": 0.0,
+    "COASTING": 1.86,
+    "DROGUE": 12.98,
+    "MAIN": 76.62,
+    "TOUCHDOWN": 102.07
+  },
+  "state_transitions_raw_ms": {
+    "THRUSTING": 124510,
+    "COASTING": 126370,
+    "DROGUE": 137490,
+    "MAIN": 201130,
+    "TOUCHDOWN": 226580
+  },
+  "flight_info_count": 10283,
+  "imu_count": 10283,
+  "baro_count": 10283,
+  "filtered_count": 10283,
+  "voltage_count": 103,
+  "duration_s": 102.07
+}

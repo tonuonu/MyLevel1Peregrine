@@ -36,18 +36,24 @@ Triple-redundant ejection: two electronic black powder charges via CATS Vega (dr
 
 ### Flight Data
 
-| Parameter | Value |
-|-----------|-------|
-| Expected altitude | 1100 m |
-| Actual altitude | ~1000 m (estimated, flight log pending) |
+| Parameter | Predicted | Actual (CATS Vega) |
+|-----------|-----------|--------------------|
+| Apogee | 1100 m | **986.43 m** |
+| Max velocity | — | **172.56 m/s** (≈ Mach 0.50) |
+| Max acceleration | — | **17.5 g** |
+| Burn time | ~2.0 s | 1.86 s |
+| Time to apogee | — | 12.67 s |
+| Total flight time | — | 102.07 s |
+| Liftoff UTC | — | 12:26:44 |
 
-Flight log not yet downloaded from CATS Vega.
+Flight data downloaded from CATS Vega (file: `fl002.cfl`). See [Flight #2 Analysis](flight2-analysis.md) for full telemetry, FSM event timeline, and recovery system performance.
 
 ### Results
 
 - [x] Successful launch
 - [x] Stable flight
-- [x] Dual deployment worked
+- [x] Dual deployment worked (drogue at apogee, main at 146 m AGL)
+- [x] Touchdown velocity 0.5 m/s — clean landing
 - [x] Recovered intact
 - [x] **L2 CERTIFICATION ACHIEVED**
 

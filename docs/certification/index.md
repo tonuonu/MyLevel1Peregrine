@@ -47,7 +47,11 @@
 | CG | 115 cm from nose tip |
 | CP | 130 cm from nose tip |
 | Expected altitude | 1100 m |
-| Actual altitude | ~1000 m (estimated, flight log pending) |
+| Actual altitude | **986.43 m** (CATS Vega) |
+| Max velocity | 172.56 m/s (≈ Mach 0.50) |
+| Max acceleration | 17.5 g |
+
+See [Flight #2 Analysis](../flight/flight2-analysis.md) for full telemetry analysis.
 
 ### Recovery Configuration
 
