@@ -44,7 +44,14 @@ Dual deployment was mandatory for L2 because of the 500 m landing-radius rule (s
 | Under drogue (18") | 63.6 s | **13.17 m/s** (median 13.19) | Drogue descent from 986 m to 146 m |
 | Under main (48") | 25.5 s | **6.34 m/s** (median 6.13) | Main from 146 m to ground |
 
-The main charge fired at **146 m AGL**, matching the configured CATS Vega `main_altitude` setting. Touchdown velocity of 0.5 m/s indicates a clean, well-cushioned landing.
+The main charge fired at **146 m AGL** after the rocket descended through the configured **`main_altitude` = 150 m** threshold. The 4 m gap is the firmware's `MAIN_SAFETY_COUNTER = 30` hold: the FSM requires altitude < threshold for 30 consecutive 100 Hz samples (≈ 0.3 s) before transitioning to MAIN to reject barometer noise. At a ~13 m/s descent rate, the rocket dropped 4 m during the hold:
+
+| Event | ts (ms) | Altitude | Note |
+|-------|---------|----------|------|
+| First sample below threshold | 200810 | 149.94 m | `memory[0]` starts counting |
+| `memory[0] > 30`, MAIN fired | 201130 | 145.94 m | 320 ms / 32 samples later |
+
+The CATS Vega factory default `main_altitude` is 200 m (per `flight_computer/src/config/cats_config.cpp`); this rocket was configured to 150 m via the CATS Configurator. Touchdown velocity of 0.5 m/s indicates a clean, well-cushioned landing.
 
 The drogue descent rate of ~13 m/s is in the expected range for a small drogue on a 3.1 kg rocket — the drogue's job is to keep the rocket vertical and prevent zipper, not to slow it significantly.
 
