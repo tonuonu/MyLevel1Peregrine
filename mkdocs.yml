@@ -1,4 +1,4 @@
-site_name: Peregrine
+site_name: SIPSIK
 site_description: Tõnu's Tripoli L1, L2 & L3 certification rocket build documentation
 site_author: Tõnu Samuel
 site_url: https://tonuonu.github.io/MyLevel1Peregrine/
@@ -27,20 +27,18 @@ theme:
     - content.tabs.link
     - toc.follow
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: indigo
+    - scheme: slate
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-4
+        icon: material/weather-night
         name: Switch to light mode
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
   icon:
     repo: fontawesome/brands/github
 
