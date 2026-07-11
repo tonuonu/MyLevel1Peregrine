@@ -1,127 +1,171 @@
-/* Custom styles for Peregrine L1 documentation */
+/* Mission Control theme — SIPSIK / Peregrine docs
+   Spec: specs/2026-07-11-site-redesign-design.md */
 
 :root {
-  --md-primary-fg-color: #3f51b5;
-  --md-primary-fg-color--light: #5c6bc0;
-  --md-primary-fg-color--dark: #303f9f;
-  --md-accent-fg-color: #536dfe;
+  --mc-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-/* Better typography */
+/* ---------- tokens: dark (default) ---------- */
+[data-md-color-scheme="slate"] {
+  --mc-bg: #0a0e17;
+  --mc-panel: #0d1220;
+  --mc-border: #1f2937;
+  --mc-border-subtle: #131a2b;
+  --mc-text: #f8fafc;
+  --mc-body: #cbd5e1;
+  --mc-muted: #94a3b8;
+  --mc-faint: #64748b;
+  --mc-accent: #fbbf24;
+  --mc-accent-soft: rgba(251, 191, 36, 0.07);
+  --mc-success: #34d399;
+  --mc-info: #22d3ee;
+  --mc-danger: #f87171;
+  --mc-scanline: rgba(148, 163, 184, 0.05);
+
+  /* map tokens onto Material */
+  --md-default-bg-color: var(--mc-bg);
+  --md-default-fg-color: var(--mc-text);
+  --md-default-fg-color--light: var(--mc-body);
+  --md-default-fg-color--lighter: var(--mc-muted);
+  --md-default-fg-color--lightest: var(--mc-border);
+  --md-primary-fg-color: var(--mc-panel);
+  --md-primary-fg-color--dark: var(--mc-panel);
+  --md-primary-bg-color: var(--mc-text);
+  --md-primary-bg-color--light: var(--mc-muted);
+  --md-accent-fg-color: var(--mc-accent);
+  --md-accent-fg-color--transparent: var(--mc-accent-soft);
+  --md-typeset-a-color: var(--mc-accent);
+  --md-code-bg-color: var(--mc-panel);
+  --md-code-fg-color: #e2e8f0;
+  --md-footer-bg-color: var(--mc-panel);
+  --md-footer-bg-color--dark: var(--mc-bg);
+  --md-footer-fg-color: var(--mc-muted);
+  --md-footer-fg-color--light: var(--mc-faint);
+  --md-footer-fg-color--lighter: var(--mc-faint);
+}
+
+/* ---------- tokens: light (toggle) ---------- */
+[data-md-color-scheme="default"] {
+  --mc-bg: #faf9f7;
+  --mc-panel: #f1efeb;
+  --mc-border: #e2ded6;
+  --mc-border-subtle: #ece9e3;
+  --mc-text: #16181d;
+  --mc-body: #333944;
+  --mc-muted: #5f6672;
+  --mc-faint: #8a8f99;
+  --mc-accent: #b45309;
+  --mc-accent-soft: rgba(180, 83, 9, 0.08);
+  --mc-success: #047857;
+  --mc-info: #0e7490;
+  --mc-danger: #b91c1c;
+  --mc-scanline: rgba(22, 24, 29, 0.04);
+
+  --md-default-bg-color: var(--mc-bg);
+  --md-default-fg-color: var(--mc-text);
+  --md-default-fg-color--light: var(--mc-body);
+  --md-default-fg-color--lighter: var(--mc-muted);
+  --md-default-fg-color--lightest: var(--mc-border);
+  --md-primary-fg-color: var(--mc-panel);
+  --md-primary-fg-color--dark: var(--mc-panel);
+  --md-primary-bg-color: var(--mc-text);
+  --md-primary-bg-color--light: var(--mc-muted);
+  --md-accent-fg-color: var(--mc-accent);
+  --md-accent-fg-color--transparent: var(--mc-accent-soft);
+  --md-typeset-a-color: var(--mc-accent);
+  --md-code-bg-color: var(--mc-panel);
+  --md-code-fg-color: #1f2430;
+  --md-footer-bg-color: var(--mc-panel);
+  --md-footer-bg-color--dark: var(--mc-bg);
+  --md-footer-fg-color: var(--mc-muted);
+  --md-footer-fg-color--light: var(--mc-faint);
+  --md-footer-fg-color--lighter: var(--mc-faint);
+}
+
+/* ---------- header & nav tabs ---------- */
+.md-header {
+  border-bottom: 1px solid var(--mc-border);
+  box-shadow: none;
+}
+
+.md-header__topic {
+  font-family: var(--mc-mono);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.md-tabs {
+  border-bottom: 1px solid var(--mc-border);
+}
+
+.md-tabs__link {
+  font-family: var(--mc-mono);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.75;
+}
+
+.md-tabs__link--active,
+.md-tabs__item--active .md-tabs__link {
+  color: var(--mc-accent);
+  border-bottom: 2px solid var(--mc-accent);
+  opacity: 1;
+}
+
+/* search box */
+.md-search__form {
+  border: 1px solid var(--mc-border);
+  border-radius: 6px;
+}
+
+/* ---------- sidebar navigation ---------- */
+.md-nav__title {
+  font-family: var(--mc-mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--mc-faint);
+}
+
+.md-nav__item .md-nav__link--active,
+.md-nav__item .md-nav__link--active code {
+  color: var(--mc-accent);
+}
+
+.md-nav__item .md-nav__link--active {
+  border-left: 2px solid var(--mc-accent);
+  background: var(--mc-accent-soft);
+  padding-left: 0.35rem;
+}
+
+/* ---------- footer ---------- */
+.md-footer {
+  border-top: 1px solid var(--mc-border);
+}
+
+.md-footer-meta {
+  font-family: var(--mc-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* hide "made with mkdocs" */
+.md-footer-copyright {
+  display: none;
+}
+
+/* ---------- base typography ---------- */
 .md-typeset h1 {
   font-weight: 700;
   letter-spacing: -0.02em;
+  color: var(--mc-text);
 }
 
 .md-typeset h2 {
   font-weight: 600;
-  margin-top: 1.5em;
+  margin-top: 1.6em;
   padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--md-default-fg-color--lightest);
-}
-
-/* Hero section on home page */
-.md-typeset .hero {
-  text-align: center;
-  padding: 2rem 0;
-  margin-bottom: 2rem;
-}
-
-.md-typeset .hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.md-typeset .hero p {
-  font-size: 1.2rem;
-  color: var(--md-default-fg-color--light);
-}
-
-/* Cards for grid layout */
-.md-typeset .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
-
-.md-typeset .card {
-  padding: 1.5rem;
-  border-radius: 8px;
-  background: var(--md-code-bg-color);
-  border: 1px solid var(--md-default-fg-color--lightest);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.md-typeset .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.md-typeset .card h3 {
-  margin-top: 0;
-  color: var(--md-primary-fg-color);
-}
-
-/* Better tables */
-.md-typeset table:not([class]) {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.md-typeset table:not([class]) th {
-  background: var(--md-primary-fg-color);
-  color: white;
-  font-weight: 600;
-}
-
-/* Status badges */
-.md-typeset .status {
-  display: inline-block;
-  padding: 0.2em 0.6em;
-  border-radius: 4px;
-  font-size: 0.85em;
-  font-weight: 500;
-}
-
-.md-typeset .status-pending {
-  background: #fff8e1;
-  color: #f57c00;
-}
-
-.md-typeset .status-complete {
-  background: #e8f5e9;
-  color: #2e7d32;
-}
-
-.md-typeset .status-inprogress {
-  background: #e3f2fd;
-  color: #1565c0;
-}
-
-/* Image styling */
-.md-typeset img {
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* Admonition improvements */
-.md-typeset .admonition {
-  border-radius: 8px;
-}
-
-/* Footer cleanup */
-.md-footer-meta {
-  background: var(--md-primary-fg-color--dark);
-}
-
-/* Quick specs table on home */
-.md-typeset .specs-table {
-  max-width: 500px;
-}
-
-/* Hide "made with mkdocs" */
-.md-footer-copyright {
-  display: none;
+  border-bottom: 1px solid var(--mc-border);
 }
