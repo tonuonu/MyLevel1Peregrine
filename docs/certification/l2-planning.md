@@ -43,7 +43,7 @@ Apogee Peregrine "SIPSIK" in full L2 configuration:
 | CG | 115 cm from nose tip |
 | CP | 130 cm from nose tip |
 | Expected altitude | 1100 m |
-| Actual altitude | ~1000 m (estimated, flight log not yet downloaded) |
+| Actual altitude | 986.43 m (CATS Vega, see [Flight #2 Analysis](../flight/flight2-analysis.md)) |
 | Recovery | Dual deploy, 18" + 48" electronic |
 | Flight computer | CATS Vega |
 
