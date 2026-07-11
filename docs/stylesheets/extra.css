@@ -219,7 +219,11 @@
 /* type colors: note/info/question = cyan */
 .md-typeset .admonition.note,
 .md-typeset .admonition.info,
-.md-typeset .admonition.question {
+.md-typeset .admonition.question,
+.md-typeset details.note,
+.md-typeset details.info,
+.md-typeset details.question {
+  border-color: var(--mc-border);
   border-left-color: var(--mc-info);
 }
 .md-typeset .note > .admonition-title,
@@ -230,7 +234,10 @@
 
 /* tip/success = green */
 .md-typeset .admonition.tip,
-.md-typeset .admonition.success {
+.md-typeset .admonition.success,
+.md-typeset details.tip,
+.md-typeset details.success {
+  border-color: var(--mc-border);
   border-left-color: var(--mc-success);
 }
 .md-typeset .tip > .admonition-title,
@@ -240,7 +247,10 @@
 
 /* warning/important = amber */
 .md-typeset .admonition.warning,
-.md-typeset .admonition.important {
+.md-typeset .admonition.important,
+.md-typeset details.warning,
+.md-typeset details.important {
+  border-color: var(--mc-border);
   border-left-color: var(--mc-accent);
 }
 .md-typeset .warning > .admonition-title,
@@ -250,7 +260,10 @@
 
 /* danger/failure = red */
 .md-typeset .admonition.danger,
-.md-typeset .admonition.failure {
+.md-typeset .admonition.failure,
+.md-typeset details.danger,
+.md-typeset details.failure {
+  border-color: var(--mc-border);
   border-left-color: var(--mc-danger);
 }
 .md-typeset .danger > .admonition-title,
