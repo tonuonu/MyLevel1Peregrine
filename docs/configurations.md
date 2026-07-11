@@ -90,7 +90,7 @@ Motor's original 14s delay charge left unmodified as a third, independent backup
 | Rocket mass (no motor) | ~2350g (liftoff) | ~3100g (liftoff) |
 | Length | 175 cm | 175 cm |
 | Motor | H128W-14A | J350 |
-| Apogee | 141.6 m | ~1000 m (estimated) |
+| Apogee | 141.6 m | 986.4 m |
 
 ## References
 

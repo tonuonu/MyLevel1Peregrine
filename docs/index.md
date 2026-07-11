@@ -36,7 +36,7 @@ Built in Estonia · flown at Enköping, Sweden · next objective: L3</p>
 
 <div class="mc-log" markdown>
 <div class="mc-log-row" markdown="span"><span class="mc-log-ok">✓</span><span class="mc-log-date">2026-02-22</span><span class="mc-log-title">FLIGHT 02 — L2 CERTIFICATION</span><span class="mc-log-detail">J350 · DUAL DEPLOY · NOMINAL</span>[REPORT →](flight/flight2-analysis.md)</div>
-<div class="mc-log-row" markdown="span"><span class="mc-log-ok">✓</span><span class="mc-log-date">2026-01-24</span><span class="mc-log-title">FLIGHT 01 — L1 CERTIFICATION</span><span class="mc-log-detail">H128W · 140.8 M · MOTOR EJECT</span>[REPORT →](flight/flight1-analysis.md)</div>
+<div class="mc-log-row" markdown="span"><span class="mc-log-ok">✓</span><span class="mc-log-date">2026-01-24</span><span class="mc-log-title">FLIGHT 01 — L1 CERTIFICATION</span><span class="mc-log-detail">H128W · 141.6 M · MOTOR EJECT</span>[REPORT →](flight/flight1-analysis.md)</div>
 </div>
 
 <p class="mc-label">Documentation</p>

@@ -120,7 +120,7 @@ Triple-redundant ejection system:
 
 | Parameter | Predicted | Actual |
 |-----------|-----------|--------|
-| Apogee | 208 m | **140.8 m** |
+| Apogee | 208 m | **141.58 m** |
 | Recovery | Dual electronic | Motor ejection |
 
 The lower actual altitude was likely due to additional unplanned weight (two flight computers, LiPo batteries, etc.) beyond the original weight budget.
