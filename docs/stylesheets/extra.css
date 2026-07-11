@@ -169,3 +169,143 @@
   padding-bottom: 0.3em;
   border-bottom: 1px solid var(--mc-border);
 }
+
+/* ---------- tables ---------- */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--mc-border);
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+.md-typeset table:not([class]) th {
+  background: transparent;
+  color: var(--mc-faint);
+  font-family: var(--mc-mono);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border-bottom: 2px solid var(--mc-accent);
+}
+
+.md-typeset table:not([class]) td {
+  border-top: 1px solid var(--mc-border-subtle);
+}
+
+/* ---------- admonitions: flat console panels ---------- */
+.md-typeset .admonition,
+.md-typeset details {
+  background: var(--mc-panel);
+  border: 1px solid var(--mc-border);
+  border-left-width: 3px;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  background: transparent !important;
+  font-family: var(--mc-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.58rem;
+}
+
+/* icons inherit the title color */
+.md-typeset .admonition-title::before,
+.md-typeset summary::before {
+  background-color: currentColor !important;
+}
+
+/* type colors: note/info/question = cyan */
+.md-typeset .admonition.note,
+.md-typeset .admonition.info,
+.md-typeset .admonition.question {
+  border-left-color: var(--mc-info);
+}
+.md-typeset .note > .admonition-title,
+.md-typeset .info > .admonition-title,
+.md-typeset .question > .admonition-title {
+  color: var(--mc-info);
+}
+
+/* tip/success = green */
+.md-typeset .admonition.tip,
+.md-typeset .admonition.success {
+  border-left-color: var(--mc-success);
+}
+.md-typeset .tip > .admonition-title,
+.md-typeset .success > .admonition-title {
+  color: var(--mc-success);
+}
+
+/* warning/important = amber */
+.md-typeset .admonition.warning,
+.md-typeset .admonition.important {
+  border-left-color: var(--mc-accent);
+}
+.md-typeset .warning > .admonition-title,
+.md-typeset .important > .admonition-title {
+  color: var(--mc-accent);
+}
+
+/* danger/failure = red */
+.md-typeset .admonition.danger,
+.md-typeset .admonition.failure {
+  border-left-color: var(--mc-danger);
+}
+.md-typeset .danger > .admonition-title,
+.md-typeset .failure > .admonition-title {
+  color: var(--mc-danger);
+}
+
+/* ---------- display math (MathJax / arithmatex) ---------- */
+.md-typeset div.arithmatex {
+  background: var(--mc-panel);
+  border-left: 2px solid var(--mc-accent);
+  border-radius: 0 6px 6px 0;
+  padding: 0.7em 1em;
+  overflow-x: auto;
+}
+
+/* ---------- code blocks ---------- */
+.md-typeset pre {
+  border: 1px solid var(--mc-border);
+  border-radius: 6px;
+}
+
+/* ---------- images (skip inline emoji) ---------- */
+.md-typeset img:not(.twemoji) {
+  border-radius: 6px;
+  border: 1px solid var(--mc-border);
+  box-shadow: none;
+}
+
+/* ---------- status badges ---------- */
+.md-typeset .status {
+  display: inline-block;
+  font-family: var(--mc-mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.25em 0.7em;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.md-typeset .status-complete {
+  color: var(--mc-success);
+  border-color: var(--mc-success);
+  background: transparent;
+}
+
+.md-typeset .status-pending {
+  color: var(--mc-accent);
+  border-color: var(--mc-accent);
+  background: transparent;
+}
+
+.md-typeset .status-inprogress {
+  color: var(--mc-info);
+  border-color: var(--mc-info);
+  background: transparent;
+}
