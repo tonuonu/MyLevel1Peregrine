@@ -309,3 +309,160 @@
   border-color: var(--mc-info);
   background: transparent;
 }
+
+/* ---------- home page: mission control components ---------- */
+.mc-hero {
+  padding: 2.2rem 0 1.6rem;
+  background:
+    radial-gradient(60rem 16rem at 15% 0%, var(--mc-accent-soft), transparent),
+    repeating-linear-gradient(0deg, transparent 0 23px, var(--mc-scanline) 23px 24px);
+}
+
+.mc-eyebrow {
+  font-family: var(--mc-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--mc-accent);
+  margin-bottom: 0.6rem;
+}
+
+.mc-led {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mc-success);
+  box-shadow: 0 0 8px var(--mc-success);
+  margin: 0 0.3em;
+}
+
+.md-typeset .mc-hero h1 {
+  font-size: 1.9rem;
+  margin: 0 0 0.4rem;
+}
+
+.mc-sub {
+  font-family: var(--mc-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--mc-muted);
+  line-height: 1.8;
+}
+
+.mc-telemetry {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--mc-border);
+  border: 1px solid var(--mc-border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.4rem 0;
+}
+
+.md-typeset .mc-tile {
+  background: var(--mc-panel);
+  padding: 0.9rem 1rem;
+  margin: 0;
+}
+
+.mc-tile-label {
+  font-family: var(--mc-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mc-faint);
+}
+
+.mc-tile-value {
+  font-family: var(--mc-mono);
+  font-size: 1.05rem;
+  color: var(--mc-accent);
+  margin-top: 0.3rem;
+}
+
+.md-typeset .mc-label {
+  font-family: var(--mc-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mc-faint);
+  margin: 1.6rem 0 0.6rem;
+}
+
+.mc-log {
+  border-top: 1px solid var(--mc-border);
+}
+
+.md-typeset .mc-log-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: baseline;
+  padding: 0.55rem 0;
+  margin: 0;
+  border-bottom: 1px solid var(--mc-border-subtle);
+  font-family: var(--mc-mono);
+  font-size: 0.62rem;
+}
+
+.mc-log-ok { color: var(--mc-success); }
+.mc-log-date { color: var(--mc-muted); }
+.mc-log-title { color: var(--mc-text); }
+.mc-log-detail { color: var(--mc-faint); }
+.md-typeset .mc-log-row a { margin-left: auto; }
+
+.mc-doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.7rem;
+  margin: 0.8rem 0 1.6rem;
+}
+
+.md-typeset .mc-doc-card {
+  background: var(--mc-panel);
+  border: 1px solid var(--mc-border);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  margin: 0;
+  transition: border-color 0.15s;
+}
+
+.md-typeset .mc-doc-card:hover {
+  border-color: var(--mc-accent);
+}
+
+.mc-doc-num {
+  font-family: var(--mc-mono);
+  font-size: 0.55rem;
+  color: var(--mc-accent);
+}
+
+.md-typeset .mc-doc-card h3 {
+  margin: 0.25rem 0 0.2rem;
+  font-size: 0.78rem;
+  font-family: var(--mc-mono);
+  letter-spacing: 0.06em;
+}
+
+.md-typeset .mc-doc-card h3 a {
+  color: var(--mc-text);
+}
+
+.md-typeset .mc-doc-card p {
+  margin: 0;
+  font-size: 0.6rem;
+  color: var(--mc-faint);
+  font-family: var(--mc-mono);
+}
+
+.md-typeset .mc-links {
+  font-family: var(--mc-mono);
+  font-size: 0.62rem;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.6rem;
+}
