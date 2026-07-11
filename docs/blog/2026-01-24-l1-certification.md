@@ -52,7 +52,7 @@ Lesson learned: know your tools before launch day.
 
 First attempt. The certificate comment reads "Beautiful low flight" - acknowledging both the successful flight and the lower-than-expected altitude.
 
-**CATS Vega recorded: 140.8 meters**
+**CATS Vega recorded: 141.58 meters**
 
 Lower than the predicted 208m. The likely cause: unplanned extra weight. Two flight computers, extra LiPo batteries, and various small items added up. Weight matters - roughly 30% altitude reduction.
 
@@ -123,7 +123,7 @@ The journey continues.
 | Diameter | 100 mm |
 | Liftoff weight | 2350 g |
 | Predicted altitude | 208 m |
-| Actual altitude | 140.8 m |
+| Actual altitude | 141.58 m |
 | Recovery | Motor ejection, single chute |
 | Certifying authority | Rolf Örell (TRA# 3728) |
 | Result | **L1 CERTIFIED** |

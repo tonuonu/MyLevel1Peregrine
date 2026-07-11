@@ -77,7 +77,7 @@ mkdocs gh-deploy
 | Location | Enköping, Sweden |
 | Motor | AeroTech H128W-14A |
 | Liftoff weight | 2350 g |
-| Altitude | 140.8 m |
+| Altitude | 141.58 m |
 | Recovery | Motor ejection |
 | Certifying Authority | Rolf Örell (TRA# 3728) |
 
