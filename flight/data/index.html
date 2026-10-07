@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../photos/tripoli_card.jpg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2210,20 +2210,20 @@
 <h2 id="generating-charts-and-analysis">Generating charts and analysis<a class="headerlink" href="#generating-charts-and-analysis" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>docs/flight/data/
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>generate_charts.py<span class="w"> </span>flXXX.cfl<span class="w"> </span>../flightN_charts.png<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>--motor<span class="w"> </span><span class="s2">&quot;AeroTech XYZ&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>--title<span class="w"> </span><span class="s2">&quot;Flight #N — L? Certification&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>--motor<span class="w"> </span><span class="s2">"AeroTech XYZ"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>--title<span class="w"> </span><span class="s2">"Flight #N — L? Certification"</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span>--json<span class="w"> </span>flXXX.summary.json
 </span></code></pre></div>
 <p>The script prints flight summary numbers (apogee, max velocity, max accel, FSM transitions) to stdout and writes the chart PNG and a JSON summary. Cross-check the JSON against <code>stXXX.txt</code> — they should agree to within rounding.</p>
 <h2 id="reproducing-past-flights">Reproducing past flights<a class="headerlink" href="#reproducing-past-flights" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># L1 (Flight #1, 24 January 2026, AeroTech H128W-14A)</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python<span class="w"> </span>generate_charts.py<span class="w"> </span>fl001.cfl<span class="w"> </span>../flight1_charts.png<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span>--motor<span class="w"> </span><span class="s2">&quot;AeroTech H128W-14A&quot;</span><span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;Flight #1 — L1 Certification&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span>--motor<span class="w"> </span><span class="s2">"AeroTech H128W-14A"</span><span class="w"> </span>--title<span class="w"> </span><span class="s2">"Flight #1 — L1 Certification"</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span>--json<span class="w"> </span>fl001.summary.json
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># L2 (Flight #2, 22 February 2026, AeroTech J350)</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>python<span class="w"> </span>generate_charts.py<span class="w"> </span>fl002.cfl<span class="w"> </span>../flight2_charts.png<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span>--motor<span class="w"> </span><span class="s2">&quot;AeroTech J350&quot;</span><span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;Flight #2 — L2 Certification&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span>--motor<span class="w"> </span><span class="s2">"AeroTech J350"</span><span class="w"> </span>--title<span class="w"> </span><span class="s2">"Flight #2 — L2 Certification"</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span>--json<span class="w"> </span>fl002.summary.json
 </span></code></pre></div>
 <p>Expected output (verified against <code>stXXX.txt</code>):</p>
@@ -2338,7 +2338,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       
