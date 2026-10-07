@@ -2,7 +2,7 @@
 
 This repository documents a Tripoli Level 1 certification rocket build using the Apogee Peregrine dual deployment kit.
 
-**Status: L1 CERTIFIED** ✓ — 24 January 2026
+**Status: L1 CERTIFIED** ✓ — 24 January 2026 · **L2 CERTIFIED** ✓ — 22 February 2026
 
 ## Repository Purpose
 
@@ -10,7 +10,7 @@ This repository documents a Tripoli Level 1 certification rocket build using the
 - Provide calculations with formulas for verification
 - Store OpenRocket simulation files and results
 - Maintain flight logs and checklists
-- Track L2 certification progress
+- Track L3 certification progress
 
 ## Documentation System
 
@@ -81,11 +81,19 @@ mkdocs gh-deploy
 | Recovery | Motor ejection |
 | Certifying Authority | Rolf Örell (TRA# 3728) |
 
-## L2 Certification (In Progress)
+## L2 Certification Flight (22 February 2026)
+
+**Status: L2 CERTIFIED** ✓
 
 - Written exam: Passed (27 Jan 2026)
-- Target flight: 7 February 2026 (tentative)
-- Motor: AeroTech J420R-14A (ordered)
+- Motor: AeroTech J350 (Rolf Örell's ~25-year-old reload; J420R-14A order never shipped)
+- Apogee: 986.43 m (CATS Vega log `fl002.cfl`)
+
+## Flight Data
+
+Raw CATS Vega logs live in `docs/flight/data/`: `flXXX.cfl` (binary log) and
+`stXXX.txt` (stats export). Charts and `flXXX.summary.json` are generated from
+them by `generate_charts.py` — see `docs/flight/data/README.md`.
 
 ## Motor Hardware
 
